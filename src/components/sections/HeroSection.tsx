@@ -6,15 +6,33 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
+    // Keep the embedded widget inside the viewport — it reports its own content
+    // height, which overflows small screens if applied verbatim.
+    const applyHeight = (requested?: number) => {
+      const iframe = iframeRef.current;
+      if (!iframe) return;
+      const top = iframe.getBoundingClientRect().top;
+      const available = Math.max(320, window.innerHeight - top - 24);
+      const next = requested ? Math.min(requested, available) : available;
+      iframe.style.height = `${Math.round(next)}px`;
+    };
+
     const onMessage = (e: MessageEvent) => {
       if (e.data && e.data.type === "ecosmart-widget-height") {
-        const iframe = iframeRef.current;
-        if (iframe) iframe.style.height = e.data.height + "px";
+        applyHeight(Number(e.data.height));
       }
     };
+
+    applyHeight();
+    const onResize = () => applyHeight();
     window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("message", onMessage);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
+
 
   if (!active) return null;
 
