@@ -63,23 +63,17 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
         </motion.h1>
 
         {/* chat centerpiece — embedded EcoSmart AI Consultant */}
-        <div className="relative z-10 mt-4 flex w-full flex-col items-center sm:mt-6 lg:mt-8">
+        <div className="relative z-10 mt-3 flex w-full min-h-0 flex-1 flex-col items-center sm:mt-6 lg:mt-8">
           <iframe
             ref={iframeRef}
             id="ecosmart-widget"
             src="https://demo.neuro-systems.org"
             title="EcoSmart AI Consultant"
             allow="microphone"
-            style={{
-              width: "100%",
-              maxWidth: "760px",
-              height: "600px",
-              border: "none",
-              display: "block",
-              margin: "0 auto",
-              background: "transparent",
-            }}
+            className="w-full max-w-[760px] border-0 block mx-auto bg-transparent"
+            style={{ height: "min(600px, 70svh)" }}
           />
+
           <motion.p
             className="mt-6 hidden w-[calc(100%-3rem)] max-w-md px-2 text-center text-xs text-ink-soft/70 sm:block md:w-full md:px-0 md:text-sm [@media(max-height:850px)]:hidden"
             initial={{ opacity: 0, y: 8 }}
