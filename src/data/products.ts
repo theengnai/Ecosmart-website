@@ -4,50 +4,6 @@ import imgC from "@/assets/section-samples.jpg";
 import imgD from "@/assets/section-gallery.jpg";
 import imgE from "@/assets/section-technical.jpg";
 import imgF from "@/assets/section-visualizer.jpg";
-import mcm0 from "@/assets/mcm/mcm-age-marks.webp.asset.json";
-import mcm1 from "@/assets/mcm/mcm-ancient-wood.webp.asset.json";
-import mcm2 from "@/assets/mcm/mcm-ash-stone.webp.asset.json";
-import mcm3 from "@/assets/mcm/mcm-beige-travertine.webp.asset.json";
-import mcm4 from "@/assets/mcm/mcm-brown-travertine.webp.asset.json";
-import mcm5 from "@/assets/mcm/mcm-canyon-stone.webp.asset.json";
-import mcm6 from "@/assets/mcm/mcm-cream-travertine.webp.asset.json";
-import mcm7 from "@/assets/mcm/mcm-desert-brick.webp.asset.json";
-import mcm8 from "@/assets/mcm/mcm-desert-storm.webp.asset.json";
-import mcm9 from "@/assets/mcm/mcm-desert-trace.webp.asset.json";
-import mcm10 from "@/assets/mcm/mcm-drops-travertine.webp.asset.json";
-import mcm11 from "@/assets/mcm/mcm-earthy-travertine.webp.asset.json";
-import mcm12 from "@/assets/mcm/mcm-flowing-cloud.webp.asset.json";
-import mcm13 from "@/assets/mcm/mcm-flowing-water.webp.asset.json";
-import mcm14 from "@/assets/mcm/mcm-grey-travertine.webp.asset.json";
-import mcm15 from "@/assets/mcm/mcm-ivory-travertine.webp.asset.json";
-import mcm16 from "@/assets/mcm/mcm-mounting-rock.webp.asset.json";
-import mcm17 from "@/assets/mcm/mcm-najdi-stone.webp.asset.json";
-import mcm18 from "@/assets/mcm/mcm-neutral-travertine.webp.asset.json";
-import mcm19 from "@/assets/mcm/mcm-oasis-stone.webp.asset.json";
-import mcm20 from "@/assets/mcm/mcm-pearl-travertine.webp.asset.json";
-import mcm21 from "@/assets/mcm/mcm-rammed-earth.webp.asset.json";
-import mcm22 from "@/assets/mcm/mcm-roman-stone.webp.asset.json";
-import mcm23 from "@/assets/mcm/mcm-rough-surface.webp.asset.json";
-import mcm24 from "@/assets/mcm/mcm-rough-surface-beige.webp.asset.json";
-import mcm25 from "@/assets/mcm/mcm-rough-surface-brown.webp.asset.json";
-import mcm26 from "@/assets/mcm/mcm-ruff-rock.webp.asset.json";
-import mcm27 from "@/assets/mcm/mcm-rustic-travertine.webp.asset.json";
-import mcm28 from "@/assets/mcm/mcm-sand-ripple.webp.asset.json";
-import mcm29 from "@/assets/mcm/mcm-sand-wave.webp.asset.json";
-import mcm30 from "@/assets/mcm/mcm-silver-mist.webp.asset.json";
-import mcm31 from "@/assets/mcm/mcm-silver-travertine.webp.asset.json";
-import mcm32 from "@/assets/mcm/mcm-sky-rock.webp.asset.json";
-import mcm33 from "@/assets/mcm/mcm-slate-stone.webp.asset.json";
-import mcm34 from "@/assets/mcm/mcm-snow-rock.webp.asset.json";
-import mcm35 from "@/assets/mcm/mcm-star-diamond.webp.asset.json";
-import mcm36 from "@/assets/mcm/mcm-travertine-open-book.webp.asset.json";
-import mcm37 from "@/assets/mcm/mcm-turkish-travertine.webp.asset.json";
-import mcm38 from "@/assets/mcm/mcm-volcanic-travertine.webp.asset.json";
-import mcm39 from "@/assets/mcm/mcm-wave-tile.webp.asset.json";
-import mcm40 from "@/assets/mcm/mcm-wood-spot.webp.asset.json";
-import mcm41 from "@/assets/mcm/mcm-wood-tile.webp.asset.json";
-import mcm42 from "@/assets/mcm/mcm-woven.webp.asset.json";
-import mcm43 from "@/assets/mcm/mcm-zig-skyline.webp.asset.json";
 // PU Stone — hero + lifestyle imagery from EcoSmart PU Stone Cladding brief
 import puHero from "@/assets/pu/pu-page_1.jpg.asset.json";
 import puLife1 from "@/assets/pu/pu-page_2.jpg.asset.json";
@@ -83,12 +39,26 @@ export type Product = {
   details?: ProductDetails;
 };
 
+import mcm0 from "@/assets/mcm2/dune-plaster.webp.asset.json";
+import mcm1 from "@/assets/mcm2/diagonal-weave.webp.asset.json";
+import mcm2 from "@/assets/mcm2/linen-wash.webp.asset.json";
+import mcm3 from "@/assets/mcm2/golden-sand.webp.asset.json";
+import mcm4 from "@/assets/mcm2/cliff-rock.webp.asset.json";
+import mcm5 from "@/assets/mcm2/fine-reed.webp.asset.json";
+import mcm6 from "@/assets/mcm2/woven-grid.webp.asset.json";
+import mcm7 from "@/assets/mcm2/chalk-wall.webp.asset.json";
+import mcm8 from "@/assets/mcm2/corded-sand.webp.asset.json";
+import mcm9 from "@/assets/mcm2/ribbed-frost.webp.asset.json";
+import mcm10 from "@/assets/mcm2/desert-dune.webp.asset.json";
+import mcm11 from "@/assets/mcm2/classic-travertine.webp.asset.json";
+import mcm12 from "@/assets/mcm2/ivory-brick.webp.asset.json";
+
 export const FAMILIES = [
   {
     key: "MCM",
     name: "MCM Flexible Cladding",
     poem: "Stone and clay, thin as fabric.",
-    cover: mcm15.url,
+    cover: mcm11.url,
   },
   {
     key: "PU",
@@ -297,51 +267,20 @@ const puStoneDetails: ProductDetails = {
 // -------- Full catalog (12 per family) --------
 
 export const PRODUCTS: Product[] = [
-  // ============ MCM (44) ============
-  { slug: "mcm-age-marks", name: "Age Marks", code: "MCM-AM", family: "MCM", application: "Both", finish: "Patterned", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm0.url, poem: "Thin cladding, deep effect.", price: 28 },
-  { slug: "mcm-ancient-wood", name: "Ancient Wood", code: "MCM-AW", family: "MCM", application: "Both", finish: "Wood grain", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm1.url, poem: "Grain without weight.", price: 32 },
-  { slug: "mcm-ash-stone", name: "Ash Stone", code: "MCM-AS", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm2.url, poem: "Weight, only in the eye.", price: 28 },
-  { slug: "mcm-beige-travertine", name: "Beige Travertine", code: "MCM-BT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm3.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-brown-travertine", name: "Brown Travertine", code: "MCM-BT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm4.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-canyon-stone", name: "Canyon Stone", code: "MCM-CS", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm5.url, poem: "Weight, only in the eye.", price: 290 },
-  { slug: "mcm-cream-travertine", name: "Cream Travertine", code: "MCM-CT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm6.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-desert-brick", name: "Desert Brick", code: "MCM-DB", family: "MCM", application: "Both", finish: "Rough", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm7.url, poem: "Warm as the wall behind it.", price: 290 },
-  { slug: "mcm-desert-storm", name: "Desert Storm", code: "MCM-DS", family: "MCM", application: "Both", finish: "Natural", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm8.url, poem: "Warm as the wall behind it.", price: 290 },
-  { slug: "mcm-desert-trace", name: "Desert Trace", code: "MCM-DT", family: "MCM", application: "Both", finish: "Natural", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm9.url, poem: "Warm as the wall behind it.", price: 28 },
-  { slug: "mcm-drops-travertine", name: "Drops Travertine", code: "MCM-DT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm10.url, poem: "Old stone, thin as skin.", price: 26 },
-  { slug: "mcm-earthy-travertine", name: "Earthy Travertine", code: "MCM-ET", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm11.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-flowing-cloud", name: "Flowing Cloud", code: "MCM-FC", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm12.url, poem: "A surface, moving.", price: 26 },
-  { slug: "mcm-flowing-water", name: "Flowing Water", code: "MCM-FW", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm13.url, poem: "A surface, moving.", price: 39 },
-  { slug: "mcm-grey-travertine", name: "Grey Travertine", code: "MCM-GT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm14.url, poem: "Old stone, thin as skin.", price: 26 },
-  { slug: "mcm-ivory-travertine", name: "Ivory Travertine", code: "MCM-IT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm15.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-mounting-rock", name: "Mounting Rock", code: "MCM-MR", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm16.url, poem: "Weight, only in the eye.", price: 26 },
-  { slug: "mcm-najdi-stone", name: "Najdi Stone", code: "MCM-NS", family: "MCM", application: "Both", finish: "Stone", colors: ["#c9b39a", "#a8927a", "#8a7a68"], fireRating: "A2-s1,d0", cover: mcm17.url, poem: "Weight, only in the eye." },
-  { slug: "mcm-neutral-travertine", name: "Neutral Travertine", code: "MCM-NT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm18.url, poem: "Old stone, thin as skin.", price: 290 },
-  { slug: "mcm-oasis-stone", name: "Oasis Stone", code: "MCM-OS", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm19.url, poem: "Weight, only in the eye.", price: 290 },
-  { slug: "mcm-pearl-travertine", name: "Pearl Travertine", code: "MCM-PT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm20.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-rammed-earth", name: "Rammed Earth", code: "MCM-RE", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm21.url, poem: "Clay, remembered.", price: 129 },
-  { slug: "mcm-roman-stone", name: "Roman Stone", code: "MCM-RS", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm22.url, poem: "Weight, only in the eye.", price: 290 },
-  { slug: "mcm-rough-surface", name: "Rough Surface", code: "MCM-RS", family: "MCM", application: "Both", finish: "Rough", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm23.url, poem: "Touch it. It answers.", price: 28 },
-  { slug: "mcm-rough-surface-beige", name: "Rough Surface Beige", code: "MCM-RSB", family: "MCM", application: "Both", finish: "Rough", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm24.url, poem: "Touch it. It answers.", price: 39 },
-  { slug: "mcm-rough-surface-brown", name: "Rough Surface Brown", code: "MCM-RSB", family: "MCM", application: "Both", finish: "Rough", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm25.url, poem: "Touch it. It answers.", price: 39 },
-  { slug: "mcm-ruff-rock", name: "Ruff Rock", code: "MCM-RR", family: "MCM", application: "Both", finish: "Rough", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm26.url, poem: "Weight, only in the eye.", price: 28 },
-  { slug: "mcm-rustic-travertine", name: "Rustic Travertine", code: "MCM-RT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm27.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-sand-ripple", name: "Sand Ripple", code: "MCM-SR", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm28.url, poem: "A surface, moving.", price: 208 },
-  { slug: "mcm-sand-wave", name: "Sand Wave", code: "MCM-SW", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm29.url, poem: "A surface, moving.", price: 290 },
-  { slug: "mcm-silver-mist", name: "Silver Mist", code: "MCM-SM", family: "MCM", application: "Both", finish: "Natural", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm30.url, poem: "Thin cladding, deep effect.", price: 290 },
-  { slug: "mcm-silver-travertine", name: "Silver Travertine", code: "MCM-ST", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm31.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-sky-rock", name: "Sky Rock", code: "MCM-SR", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm32.url, poem: "Weight, only in the eye.", price: 290 },
-  { slug: "mcm-slate-stone", name: "Slate Stone", code: "MCM-SS", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm33.url, poem: "Weight, only in the eye.", price: 26 },
-  { slug: "mcm-snow-rock", name: "Snow Rock", code: "MCM-SR", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm34.url, poem: "Weight, only in the eye.", price: 28 },
-  { slug: "mcm-star-diamond", name: "Star Diamond", code: "MCM-SD", family: "MCM", application: "Both", finish: "Patterned", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm35.url, poem: "Thin cladding, deep effect.", price: 26 },
-  { slug: "mcm-travertine-open-book", name: "Travertine Open Book", code: "MCM-TOB", family: "MCM", application: "Both", finish: "Travertine", colors: ["#dbc9b3", "#c9b39a", "#a8927a"], fireRating: "A2-s1,d0", cover: mcm36.url, poem: "Old stone, thin as skin." },
-  { slug: "mcm-turkish-travertine", name: "Turkish Travertine", code: "MCM-TT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm37.url, poem: "Old stone, thin as skin.", price: 32 },
-  { slug: "mcm-volcanic-travertine", name: "Volcanic Travertine", code: "MCM-VT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm38.url, poem: "Old stone, thin as skin.", price: 26 },
-  { slug: "mcm-wave-tile", name: "Wave Tile", code: "MCM-WT", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm39.url, poem: "A surface, moving.", price: 290 },
-  { slug: "mcm-wood-spot", name: "Wood Spot", code: "MCM-WS", family: "MCM", application: "Both", finish: "Wood grain", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm40.url, poem: "Grain without weight.", price: 290 },
-  { slug: "mcm-wood-tile", name: "Wood Tile", code: "MCM-WT", family: "MCM", application: "Both", finish: "Wood grain", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm41.url, poem: "Grain without weight.", price: 26 },
-  { slug: "mcm-woven", name: "Woven", code: "MCM-W", family: "MCM", application: "Both", finish: "Patterned", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm42.url, poem: "Thin cladding, deep effect.", price: 28 },
-  { slug: "mcm-zig-skyline", name: "Zig Skyline", code: "MCM-ZS", family: "MCM", application: "Both", finish: "Patterned", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm43.url, poem: "Thin cladding, deep effect.", price: 28 },
+  // ============ MCM (13) ============
+  { slug: "mcm-dune-plaster", name: "Dune Plaster", code: "MCM-DP", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm0.url, poem: "Sand, held still." },
+  { slug: "mcm-diagonal-weave", name: "Diagonal Weave", code: "MCM-DW", family: "MCM", application: "Both", finish: "Patterned", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm1.url, poem: "A quiet grid, on the bias." },
+  { slug: "mcm-linen-wash", name: "Linen Wash", code: "MCM-LW", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm2.url, poem: "Cloth, in clay." },
+  { slug: "mcm-golden-sand", name: "Golden Sand", code: "MCM-GS", family: "MCM", application: "Both", finish: "Natural", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm3.url, poem: "Warm as late light." },
+  { slug: "mcm-cliff-rock", name: "Cliff Rock", code: "MCM-CR", family: "MCM", application: "Both", finish: "Stone", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm4.url, poem: "Weight, only in the eye." },
+  { slug: "mcm-fine-reed", name: "Fine Reed", code: "MCM-FR", family: "MCM", application: "Both", finish: "Ribbed", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm5.url, poem: "Lines that hold the light." },
+  { slug: "mcm-woven-grid", name: "Woven Grid", code: "MCM-WG", family: "MCM", application: "Both", finish: "Patterned", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm6.url, poem: "A weave, pressed in stone." },
+  { slug: "mcm-chalk-wall", name: "Chalk Wall", code: "MCM-CW", family: "MCM", application: "Both", finish: "Natural", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm7.url, poem: "Soft as chalk, hard as clay." },
+  { slug: "mcm-corded-sand", name: "Corded Sand", code: "MCM-CS", family: "MCM", application: "Both", finish: "Ribbed", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm8.url, poem: "Ribbed, like drifting sand." },
+  { slug: "mcm-ribbed-frost", name: "Ribbed Frost", code: "MCM-RF", family: "MCM", application: "Both", finish: "Ribbed", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm9.url, poem: "Cool lines, close together." },
+  { slug: "mcm-desert-dune", name: "Desert Dune", code: "MCM-DD", family: "MCM", application: "Both", finish: "Textured", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm10.url, poem: "The dune, in relief." },
+  { slug: "mcm-classic-travertine", name: "Classic Travertine", code: "MCM-CT", family: "MCM", application: "Both", finish: "Travertine", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm11.url, poem: "Old stone, thin as skin." },
+  { slug: "mcm-ivory-brick", name: "Ivory Brick", code: "MCM-IB", family: "MCM", application: "Both", finish: "Brick", colors: ["#ab8770", "#ffffff", "#f9f7f5", "#e2d0a9", "#c6b48d", "#b4b4b4", "#727272", "#000000"], fireRating: "A2-s1,d0", cover: mcm12.url, poem: "Brick, kept in whitewash." },
 
   // ============ PU Stone (23) — from EcoSmart PU Stone Cladding brief ============
  { slug: "pu-ashen-ledger", name: "Ashen Ledger", code: "PU-01", family: "PU", application: "Both", finish: "Rough Stone", colors: ["#8a857e"], fireRating: "B1 · ASTM E84", poem: "Grey stone, feather-light.", details: puStoneDetails },
