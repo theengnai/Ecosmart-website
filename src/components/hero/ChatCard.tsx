@@ -227,30 +227,15 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
             </Link>
           </div>
 
-          {/* Explore materials cards */}
-          <div 
-            className="flex w-full snap-x snap-mandatory gap-1.5 overflow-x-auto pb-2 custom-scroll sm:gap-2 lg:grid lg:grid-cols-6 lg:gap-2.5 lg:overflow-visible lg:pb-0 [@media(max-height:700px)]:!flex [@media(max-height:700px)]:!w-full [@media(max-height:700px)]:!overflow-x-auto"
-            onWheel={onWheel}
-          >
-            {MATERIALS.map(({ label, sub, image, to, familyParam }, i) => {
+          {/* Explore materials chips (text only) */}
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            {MATERIALS.map(({ label, Icon, to, familyParam }, i) => {
               const cardClass =
-                "group relative block aspect-[4/3] overflow-hidden rounded-lg sm:rounded-xl border border-copper-light/25 bg-canvas-2 shrink-0 snap-start w-24 sm:w-28 lg:w-auto lg:shrink lg:snap-align-none [@media(max-height:700px)]:!w-32";
+                "flex items-center gap-1.5 rounded-full border border-copper-light/35 bg-canvas px-2.5 py-1.5 text-[0.62rem] leading-none text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:px-3 sm:text-[0.68rem] lg:text-[0.75rem]";
               const inner = (
                 <>
-                  <img
-                    src={image}
-                    alt={label}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-1.5 sm:p-2 lg:p-2.5">
-                    <div className="text-[0.55rem] sm:text-[0.62rem] font-semibold leading-tight text-canvas lg:text-[0.78rem]">
-                      {label}
-                    </div>
-                    <div className="text-[0.45rem] sm:text-[0.52rem] leading-tight text-canvas/80 lg:text-[0.62rem]">
-                      {sub}
-                    </div>
-                  </div>
+                  <Icon className="h-3 w-3 shrink-0 text-copper" strokeWidth={1.8} />
+                  <span>{label}</span>
                 </>
               );
               return (
@@ -274,6 +259,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
               );
             })}
           </div>
+
 
           <div className="my-2.5 h-px w-full bg-ink/5 lg:my-4 [@media(max-height:850px)]:my-2" />
 
