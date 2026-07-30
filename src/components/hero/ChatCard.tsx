@@ -101,7 +101,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
       initial={{ opacity: 0, y: 28, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
-      className="relative mx-auto w-[calc(100%-1.5rem)] max-w-[760px] sm:w-[calc(100%-3rem)] lg:w-full"
+      className="relative w-full max-w-[760px] px-3 sm:px-6 lg:w-full lg:px-0"
     >
       {/* ambient copper glow */}
       <div
