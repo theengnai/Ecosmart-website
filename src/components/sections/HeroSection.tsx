@@ -64,7 +64,7 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
         </motion.h1>
 
         {/* Mobile uses our responsive card; desktop uses the hosted consultant. */}
-        <div className="relative z-10 mt-3 flex w-full min-h-0 flex-1 flex-col items-center justify-center sm:mt-6 lg:mt-8">
+        <div className="relative z-10 mt-2 flex w-full min-h-0 flex-col items-center justify-center sm:mt-4 lg:mt-8">
           <div className="flex w-full justify-center md:hidden">
             <ChatCard />
           </div>
@@ -81,7 +81,7 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
           </div>
 
           <motion.p
-            className="mt-6 hidden w-[calc(100%-3rem)] max-w-md px-2 text-center text-xs text-ink-soft/70 sm:block md:w-full md:px-0 md:text-sm [@media(max-height:850px)]:hidden"
+            className="mt-4 hidden w-[calc(100%-3rem)] max-w-md px-2 text-center text-xs text-ink-soft/70 sm:block md:w-full md:px-0 md:text-sm [@media(max-height:850px)]:hidden"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.6 }}
