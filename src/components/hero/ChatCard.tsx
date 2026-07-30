@@ -192,10 +192,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
             Popular questions
           </div>
           <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-2">
-            {QUESTIONS.map(({ label, Icon }, i) => {
-              // Mobile: first 4. Tablet: first 6. Desktop: all 8.
-              const visibility =
-                i < 4 ? "" : i < 6 ? "hidden sm:flex" : "hidden lg:flex";
+            {QUESTIONS.slice(0, 4).map(({ label, Icon }, i) => {
               return (
                 <motion.button
                   key={label}
@@ -205,7 +202,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.3 + i * 0.04, duration: 0.4 }}
                   whileHover={{ y: -2 }}
-                  className={`${visibility} flex min-w-0 items-center gap-1.5 rounded-lg border border-copper-light/35 bg-canvas px-2 py-1.5 text-left text-[0.62rem] leading-tight text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:gap-2 sm:px-2.5 sm:py-2 sm:text-[0.68rem] lg:gap-2.5 lg:rounded-xl lg:px-3 lg:py-2.5 lg:text-[0.75rem]`}
+                  className="flex min-w-0 items-center gap-1.5 rounded-lg border border-copper-light/35 bg-canvas px-2 py-1.5 text-left text-[0.62rem] leading-tight text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:gap-2 sm:px-2.5 sm:py-2 sm:text-[0.68rem] lg:gap-2.5 lg:rounded-xl lg:px-3 lg:py-2.5 lg:text-[0.75rem]"
                 >
                   <Icon className="h-3 w-3 shrink-0 text-copper lg:h-4 lg:w-4" strokeWidth={1.8} />
                   <span className="min-w-0">{label}</span>
@@ -213,6 +210,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
               );
             })}
           </div>
+
 
           <div className="my-2.5 h-px w-full bg-ink/5 lg:my-4 [@media(max-height:850px)]:my-2" />
 
