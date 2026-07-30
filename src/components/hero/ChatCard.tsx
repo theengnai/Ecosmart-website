@@ -31,7 +31,6 @@ const PLACEHOLDERS = [
   "Plan a warm minimal interior in flexible stone…",
 ];
 
-// Ordered so first 4 = mobile, first 6 = tablet, all 8 = desktop
 const QUESTIONS: { label: string; Icon: typeof Mountain }[] = [
   { label: "I want to renovate my villa façade", Icon: Home },
   { label: "Which material is right for my project?", Icon: Sparkles },
@@ -222,15 +221,10 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
 
           {/* Explore materials chips (text only) */}
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            {MATERIALS.map(({ label, Icon, to, familyParam }, i) => {
+            {MATERIALS.map(({ label, to, familyParam }, i) => {
               const cardClass =
-                "flex items-center gap-1.5 rounded-full border border-copper-light/35 bg-canvas px-2.5 py-1.5 text-[0.62rem] leading-none text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:px-3 sm:text-[0.68rem] lg:text-[0.75rem]";
-              const inner = (
-                <>
-                  <Icon className="h-3 w-3 shrink-0 text-copper" strokeWidth={1.8} />
-                  <span>{label}</span>
-                </>
-              );
+                "flex items-center rounded-full border border-copper-light/35 bg-canvas px-2.5 py-1.5 text-[0.62rem] leading-none text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:px-3 sm:text-[0.68rem] lg:text-[0.75rem]";
+              const inner = <span>{label}</span>;
               return (
                 <motion.div
                   key={label}
