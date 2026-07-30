@@ -23,6 +23,12 @@ import {
   BookOpen,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import matMaterials from "@/assets/section-materials.jpg";
+import matDesign from "@/assets/section-design.jpg";
+import matSamples from "@/assets/section-samples.jpg";
+import matGallery from "@/assets/section-gallery.jpg";
+import matTechnical from "@/assets/section-technical.jpg";
+import matVisualizer from "@/assets/section-visualizer.jpg";
 
 const PLACEHOLDERS = [
   "Find material data for terracotta façades…",
@@ -31,6 +37,7 @@ const PLACEHOLDERS = [
   "Plan a warm minimal interior in flexible stone…",
 ];
 
+// Ordered so first 4 = mobile, first 6 = tablet, all 8 = desktop
 const QUESTIONS: { label: string; Icon: typeof Mountain }[] = [
   { label: "I want to renovate my villa façade", Icon: Home },
   { label: "Which material is right for my project?", Icon: Sparkles },
@@ -46,15 +53,16 @@ const MATERIALS: {
   label: string;
   sub: string;
   Icon: typeof Mountain;
+  image: string;
   to: "/products" | "/products/$family";
   familyParam?: string;
 }[] = [
-    { label: "MCM", sub: "Flexible stone", Icon: Waves, to: "/products" },
-    { label: "EPS", sub: "Insulation", Icon: Mountain, to: "/products" },
-    { label: "WPC Decking", sub: "Outdoor", Icon: TreePine, to: "/products/$family", familyParam: "wpc" },
-    { label: "PVC Wood Panels", sub: "panels", Icon: LayoutGrid, to: "/products/$family", familyParam: "panels" },
-    { label: "PU Stone", sub: "Decorative tiles", Icon: Layers, to: "/products" },
-    { label: "Smart Wall Panels", sub: "panels", Icon: Square, to: "/products/$family", familyParam: "spc" },
+    { label: "MCM", sub: "Flexible stone", Icon: Waves, image: matMaterials, to: "/products" },
+    { label: "EPS", sub: "Insulation", Icon: Mountain, image: matVisualizer, to: "/products" },
+    { label: "WPC Decking", sub: "Outdoor", Icon: TreePine, image: matDesign, to: "/products/$family", familyParam: "wpc" },
+    { label: "PVC Wood Panels", sub: "panels", Icon: LayoutGrid, image: matTechnical, to: "/products/$family", familyParam: "panels" },
+    { label: "PU Stone", sub: "Decorative tiles", Icon: Layers, image: matGallery, to: "/products" },
+    { label: "Smart Wall Panels", sub: "panels", Icon: Square, image: matSamples, to: "/products/$family", familyParam: "spc" },
   ];
 
 // Mobile shows first 3, tablet+ shows all 4
@@ -101,7 +109,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
       initial={{ opacity: 0, y: 28, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
-      className="relative w-full max-w-[760px] px-3 sm:px-6 lg:w-full lg:px-0"
+      className="relative mx-auto w-[calc(100%-1.5rem)] max-w-[760px] sm:w-[calc(100%-3rem)] lg:w-full"
     >
       {/* ambient copper glow */}
       <div
@@ -184,7 +192,10 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
             Popular questions
           </div>
           <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-2">
-            {QUESTIONS.slice(0, 4).map(({ label, Icon }, i) => {
+            {QUESTIONS.map(({ label, Icon }, i) => {
+              // Mobile: first 4. Tablet: first 6. Desktop: all 8.
+              const visibility =
+                i < 4 ? "" : i < 6 ? "hidden sm:flex" : "hidden lg:flex";
               return (
                 <motion.button
                   key={label}
@@ -194,7 +205,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.3 + i * 0.04, duration: 0.4 }}
                   whileHover={{ y: -2 }}
-                  className="flex min-w-0 items-center gap-1.5 rounded-lg border border-copper-light/35 bg-canvas px-2 py-1.5 text-left text-[0.62rem] leading-tight text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:gap-2 sm:px-2.5 sm:py-2 sm:text-[0.68rem] lg:gap-2.5 lg:rounded-xl lg:px-3 lg:py-2.5 lg:text-[0.75rem]"
+                  className={`${visibility} flex min-w-0 items-center gap-1.5 rounded-lg border border-copper-light/35 bg-canvas px-2 py-1.5 text-left text-[0.62rem] leading-tight text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:gap-2 sm:px-2.5 sm:py-2 sm:text-[0.68rem] lg:gap-2.5 lg:rounded-xl lg:px-3 lg:py-2.5 lg:text-[0.75rem]`}
                 >
                   <Icon className="h-3 w-3 shrink-0 text-copper lg:h-4 lg:w-4" strokeWidth={1.8} />
                   <span className="min-w-0">{label}</span>
@@ -202,7 +213,6 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
               );
             })}
           </div>
-
 
           <div className="my-2.5 h-px w-full bg-ink/5 lg:my-4 [@media(max-height:850px)]:my-2" />
 
@@ -219,12 +229,32 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
             </Link>
           </div>
 
-          {/* Explore materials chips (text only) */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            {MATERIALS.map(({ label, to, familyParam }, i) => {
+          {/* Explore materials cards */}
+          <div 
+            className="flex w-full snap-x snap-mandatory gap-1.5 overflow-x-auto pb-2 custom-scroll sm:gap-2 lg:grid lg:grid-cols-6 lg:gap-2.5 lg:overflow-visible lg:pb-0 [@media(max-height:700px)]:!flex [@media(max-height:700px)]:!w-full [@media(max-height:700px)]:!overflow-x-auto"
+            onWheel={onWheel}
+          >
+            {MATERIALS.map(({ label, sub, image, to, familyParam }, i) => {
               const cardClass =
-                "flex items-center rounded-full border border-copper-light/35 bg-canvas px-2.5 py-1.5 text-[0.62rem] leading-none text-ink/85 transition-colors hover:border-copper hover:bg-copper-light/15 hover:text-copper-deep sm:px-3 sm:text-[0.68rem] lg:text-[0.75rem]";
-              const inner = <span>{label}</span>;
+                "group relative block aspect-[4/3] overflow-hidden rounded-lg sm:rounded-xl border border-copper-light/25 bg-canvas-2 shrink-0 snap-start w-24 sm:w-28 lg:w-auto lg:shrink lg:snap-align-none [@media(max-height:700px)]:!w-32";
+              const inner = (
+                <>
+                  <img
+                    src={image}
+                    alt={label}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-1.5 sm:p-2 lg:p-2.5">
+                    <div className="text-[0.55rem] sm:text-[0.62rem] font-semibold leading-tight text-canvas lg:text-[0.78rem]">
+                      {label}
+                    </div>
+                    <div className="text-[0.45rem] sm:text-[0.52rem] leading-tight text-canvas/80 lg:text-[0.62rem]">
+                      {sub}
+                    </div>
+                  </div>
+                </>
+              );
               return (
                 <motion.div
                   key={label}
@@ -246,7 +276,6 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
               );
             })}
           </div>
-
 
           <div className="my-2.5 h-px w-full bg-ink/5 lg:my-4 [@media(max-height:850px)]:my-2" />
 

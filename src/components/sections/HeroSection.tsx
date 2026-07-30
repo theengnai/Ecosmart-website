@@ -1,39 +1,20 @@
 import { motion } from "framer-motion";
 import { HeroStage } from "@/components/hero/HeroStage";
-import { ChatCard } from "@/components/hero/ChatCard";
 import { useEffect, useRef } from "react";
 
 export function HeroSection({ active }: { active: boolean; onPickItem?: (i: number) => void }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
-    // Keep the embedded widget inside the viewport — it reports its own content
-    // height, which overflows small screens if applied verbatim.
-    const applyHeight = (requested?: number) => {
-      const iframe = iframeRef.current;
-      if (!iframe) return;
-      const top = iframe.getBoundingClientRect().top;
-      const available = Math.max(320, window.innerHeight - top - 24);
-      const next = requested ? Math.min(requested, available) : available;
-      iframe.style.height = `${Math.round(next)}px`;
-    };
-
     const onMessage = (e: MessageEvent) => {
       if (e.data && e.data.type === "ecosmart-widget-height") {
-        applyHeight(Number(e.data.height));
+        const iframe = iframeRef.current;
+        if (iframe) iframe.style.height = e.data.height + "px";
       }
     };
-
-    applyHeight();
-    const onResize = () => applyHeight();
     window.addEventListener("message", onMessage);
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("message", onMessage);
-      window.removeEventListener("resize", onResize);
-    };
+    return () => window.removeEventListener("message", onMessage);
   }, []);
-
 
   if (!active) return null;
 
@@ -63,25 +44,26 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
           Find the right <span className="text-copper">materials</span> for your projects.
         </motion.h1>
 
-        {/* Mobile uses our responsive card; desktop uses the hosted consultant. */}
-        <div className="relative z-10 mt-2 flex w-full min-h-0 flex-col items-center justify-center sm:mt-4 lg:mt-8">
-          <div className="flex w-full justify-center md:hidden">
-            <ChatCard />
-          </div>
-          <div className="hidden w-full md:block">
-            <iframe
-              ref={iframeRef}
-              id="ecosmart-widget"
-              src="https://demo.neuro-systems.org"
-              title="EcoSmart AI Consultant"
-              allow="microphone"
-              className="mx-auto block w-full max-w-[760px] border-0 bg-transparent"
-              style={{ height: "min(600px, 70svh)" }}
-            />
-          </div>
-
+        {/* chat centerpiece — embedded EcoSmart AI Consultant */}
+        <div className="relative z-10 mt-4 flex w-full flex-col items-center sm:mt-6 lg:mt-8">
+          <iframe
+            ref={iframeRef}
+            id="ecosmart-widget"
+            src="https://demo.neuro-systems.org"
+            title="EcoSmart AI Consultant"
+            allow="microphone"
+            style={{
+              width: "100%",
+              maxWidth: "760px",
+              height: "600px",
+              border: "none",
+              display: "block",
+              margin: "0 auto",
+              background: "transparent",
+            }}
+          />
           <motion.p
-            className="mt-4 hidden w-[calc(100%-3rem)] max-w-md px-2 text-center text-xs text-ink-soft/70 sm:block md:w-full md:px-0 md:text-sm [@media(max-height:850px)]:hidden"
+            className="mt-6 hidden w-[calc(100%-3rem)] max-w-md px-2 text-center text-xs text-ink-soft/70 sm:block md:w-full md:px-0 md:text-sm [@media(max-height:850px)]:hidden"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.6 }}
