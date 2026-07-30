@@ -23,12 +23,6 @@ import {
   BookOpen,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import matMaterials from "@/assets/section-materials.jpg";
-import matDesign from "@/assets/section-design.jpg";
-import matSamples from "@/assets/section-samples.jpg";
-import matGallery from "@/assets/section-gallery.jpg";
-import matTechnical from "@/assets/section-technical.jpg";
-import matVisualizer from "@/assets/section-visualizer.jpg";
 
 const PLACEHOLDERS = [
   "Find material data for terracotta façades…",
@@ -53,16 +47,15 @@ const MATERIALS: {
   label: string;
   sub: string;
   Icon: typeof Mountain;
-  image: string;
   to: "/products" | "/products/$family";
   familyParam?: string;
 }[] = [
-    { label: "MCM", sub: "Flexible stone", Icon: Waves, image: matMaterials, to: "/products" },
-    { label: "EPS", sub: "Insulation", Icon: Mountain, image: matVisualizer, to: "/products" },
-    { label: "WPC Decking", sub: "Outdoor", Icon: TreePine, image: matDesign, to: "/products/$family", familyParam: "wpc" },
-    { label: "PVC Wood Panels", sub: "panels", Icon: LayoutGrid, image: matTechnical, to: "/products/$family", familyParam: "panels" },
-    { label: "PU Stone", sub: "Decorative tiles", Icon: Layers, image: matGallery, to: "/products" },
-    { label: "Smart Wall Panels", sub: "panels", Icon: Square, image: matSamples, to: "/products/$family", familyParam: "spc" },
+    { label: "MCM", sub: "Flexible stone", Icon: Waves, to: "/products" },
+    { label: "EPS", sub: "Insulation", Icon: Mountain, to: "/products" },
+    { label: "WPC Decking", sub: "Outdoor", Icon: TreePine, to: "/products/$family", familyParam: "wpc" },
+    { label: "PVC Wood Panels", sub: "panels", Icon: LayoutGrid, to: "/products/$family", familyParam: "panels" },
+    { label: "PU Stone", sub: "Decorative tiles", Icon: Layers, to: "/products" },
+    { label: "Smart Wall Panels", sub: "panels", Icon: Square, to: "/products/$family", familyParam: "spc" },
   ];
 
 // Mobile shows first 3, tablet+ shows all 4
