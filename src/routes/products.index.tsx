@@ -17,7 +17,7 @@ import imgB from "@/assets/section-design.jpg";
 import imgC from "@/assets/section-samples.jpg";
 import imgD from "@/assets/section-gallery.jpg";
 import imgE from "@/assets/section-technical.jpg";
-import mcmCover from "@/assets/mcm2/classic-travertine.webp.asset.json";
+import mcmCover from "@/assets/mcm3/mcm-41.webp.asset.json";
 
 export const Route = createFileRoute("/products/")({
   head: () => ({
