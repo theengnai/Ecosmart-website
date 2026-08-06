@@ -294,70 +294,105 @@ function ProductsPage() {
             </div>
 
             <div className="space-y-32">
-              {section.cards.map((f, i) => (
+              {section.cards.map((f, i) => {
+                const isLive = f.id === "flexible-clay-stone-panels";
+                return (
                 <article key={f.id} id={f.id} className="scroll-mt-28">
                   <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
                     <BlurFocus className="relative aspect-[4/5] overflow-hidden rounded-2xl">
                       <img
                         src={f.image}
                         alt={f.title}
-                        className="h-full w-full object-cover"
+                        className={`h-full w-full object-cover ${isLive ? "" : "scale-105 blur-lg saturate-50"}`}
                       />
+                      {!isLive && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-canvas/40">
+                          <span className="rounded-full border border-line bg-canvas/80 px-5 py-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft backdrop-blur-sm">
+                            Coming soon
+                          </span>
+                        </div>
+                      )}
                     </BlurFocus>
                     <div>
                       <div className="flex items-center justify-between">
                         <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
                           0{i + 1} · {f.tag}
                         </div>
-                        {f.isComingSoon && (
+                        {!isLive && (
                           <div className="rounded bg-canvas-2 px-2 py-1 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">
-                            In development
+                            Coming soon
                           </div>
                         )}
                       </div>
                       <h3 className="display-serifish mt-4 text-3xl leading-tight md:text-5xl">
                         {f.title}
                       </h3>
-                      <p className="mt-6 text-base leading-relaxed text-ink-soft">
-                        {f.body}
-                      </p>
 
-                      {f.isComingSoon ? (
-                        <div className="mt-10 border-t border-line/50 pt-4 font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-                          Details coming soon
-                        </div>
+                      {!isLive ? (
+                        <>
+                          <div className="pointer-events-none select-none blur-[6px] opacity-60">
+                            <p className="mt-6 text-base leading-relaxed text-ink-soft">
+                              {f.body}
+                            </p>
+                            <div className="mt-10 space-y-2">
+                              {f.specs?.map((row) => (
+                                <div
+                                  key={row[0]}
+                                  className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-baseline gap-4 border-b border-line/50 py-3 font-mono text-xs uppercase tracking-[0.2em]"
+                                >
+                                  <span className="min-w-0 text-left text-ink-soft">{row[0]}</span>
+                                  <span className="min-w-0 justify-self-end text-right text-ink">{row[1]}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            disabled
+                            aria-disabled="true"
+                            className="mt-10 inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-line bg-canvas-2 px-6 py-3 text-sm text-ink-soft opacity-70"
+                          >
+                            <span className="font-medium tracking-wide">Coming soon</span>
+                          </button>
+                        </>
                       ) : (
-                        <div className="mt-10 space-y-2">
-                          {f.specs?.map((row, j) => (
-                            <AlternatingSlide key={row[0]} index={j}>
-                              <div className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-baseline gap-4 border-b border-line/50 py-3 font-mono text-xs uppercase tracking-[0.2em]">
-                                <span className="min-w-0 text-left text-ink-soft">{row[0]}</span>
-                                <span className="min-w-0 justify-self-end text-right text-ink">{row[1]}</span>
-                              </div>
-                            </AlternatingSlide>
-                          ))}
-                        </div>
-                      )}
+                        <>
+                          <p className="mt-6 text-base leading-relaxed text-ink-soft">
+                            {f.body}
+                          </p>
+                          <div className="mt-10 space-y-2">
+                            {f.specs?.map((row, j) => (
+                              <AlternatingSlide key={row[0]} index={j}>
+                                <div className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-baseline gap-4 border-b border-line/50 py-3 font-mono text-xs uppercase tracking-[0.2em]">
+                                  <span className="min-w-0 text-left text-ink-soft">{row[0]}</span>
+                                  <span className="min-w-0 justify-self-end text-right text-ink">{row[1]}</span>
+                                </div>
+                              </AlternatingSlide>
+                            ))}
+                          </div>
 
-                      {f.viewAllLink && (
-                        <Link
-                          to="/products/$family"
-                          params={{ family: f.viewAllLink }}
-                          className="group mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
-                        >
-                          <span className="font-medium tracking-wide">
-                            View all {f.title.split(" ")[0]}
-                          </span>
-                          <ArrowRight
-                            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                            strokeWidth={2}
-                          />
-                        </Link>
+                          {f.viewAllLink && (
+                            <Link
+                              to="/products/$family"
+                              params={{ family: f.viewAllLink }}
+                              className="group mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
+                            >
+                              <span className="font-medium tracking-wide">
+                                View all {f.title.split(" ")[0]}
+                              </span>
+                              <ArrowRight
+                                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                                strokeWidth={2}
+                              />
+                            </Link>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
