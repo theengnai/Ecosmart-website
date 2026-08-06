@@ -90,7 +90,7 @@ export const FAMILIES = [
     key: "MCM",
     name: "MCM Flexible Cladding",
     poem: "Stone and clay, thin as fabric.",
-    cover: m41.url,
+    cover: m22.url,
   },
   {
     key: "PU",
