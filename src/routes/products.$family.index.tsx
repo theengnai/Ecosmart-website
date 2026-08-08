@@ -20,6 +20,9 @@ const FAMILY_SLUGS: Record<string, Product["family"]> = {
 };
 
 export const Route = createFileRoute("/products/$family/")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    range: search.range === "imported" ? ("imported" as const) : ("local" as const),
+  }),
   loader: ({ params }) => {
     const key = FAMILY_SLUGS[params.family.toLowerCase()];
     if (!key) throw notFound();
