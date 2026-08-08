@@ -14,7 +14,10 @@ import puLife5 from "@/assets/pu/pu-img_p4_2.jpg.asset.json";
 import puLife6 from "@/assets/pu/pu-img_p4_3.jpg.asset.json";
 import puLife7 from "@/assets/pu/pu-img_p4_4.jpg.asset.json";
 
+import { MCM_IMPORTED } from "./mcm-imported";
+
 export const PU_LIFESTYLE = [puHero.url, puLife1.url, puLife2.url, puLife3.url, puLife4.url, puLife5.url, puLife6.url, puLife7.url];
+
 
 export type ProductDetails = {
   description: string;
