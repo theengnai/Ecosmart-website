@@ -531,6 +531,8 @@ function PUInfo() {
 
 const PREVIEW_COUNT = 12;
 
+const thumb = (src?: string) => (src ? src.replace(/\.webp$/, "-thumb.webp") : src);
+
 function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
   const [active, setActive] = useState<string>("All");
   const [query, setQuery] = useState("");
@@ -627,7 +629,7 @@ function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
                   >
                     <div className="relative aspect-square overflow-hidden bg-canvas-2">
                       <img
-                        src={p.cover}
+                        src={thumb(p.cover)}
                         alt={p.name}
                         loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
@@ -644,7 +646,7 @@ function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
                           {(p.variants ?? []).slice(0, 5).map((v) => (
                             <img
                               key={v.name}
-                              src={v.image}
+                              src={thumb(v.image)}
                               alt=""
                               loading="lazy"
                               className="h-4 w-4 shrink-0 rounded-full border border-canvas object-cover sm:h-5 sm:w-5"

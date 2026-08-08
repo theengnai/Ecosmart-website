@@ -265,7 +265,7 @@ function ProductPage() {
                         i === variantIdx ? "border-copper ring-2 ring-copper/40" : "border-line/60"
                       }`}
                     >
-                      <img src={v.image} alt={v.name} loading="lazy" className="aspect-square h-full w-full object-cover" />
+                      <img src={v.image.replace(/\.webp$/, "-thumb.webp")} alt={v.name} loading="lazy" className="aspect-square h-full w-full object-cover" />
                     </button>
                   ))}
                 </div>
