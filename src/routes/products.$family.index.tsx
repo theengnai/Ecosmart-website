@@ -93,8 +93,10 @@ function FamilyPage() {
   const items = isMCM
     ? allItems.filter((p) => (p.origin ?? "Local") === (range === "imported" ? "Imported" : "Local"))
     : allItems;
+  const isImported = isMCM && range === "imported";
   const [filter, setFilter] = useState<FilterKey>("All");
   const filtered = filter === "All" ? items : items.filter((p) => p.application === filter);
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-canvas text-ink">
