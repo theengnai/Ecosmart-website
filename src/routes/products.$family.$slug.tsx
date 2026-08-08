@@ -188,6 +188,11 @@ export const Route = createFileRoute("/products/$family/$slug")({
 
 function ProductPage() {
   const { product, family, related, familySlug, projects } = Route.useLoaderData() as LoaderData;
+  const variants = product.variants ?? [];
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = variants[variantIdx];
+  const heroImage = activeVariant?.image ?? product.cover;
+  const backRange = product.origin === "Imported" ? ("imported" as const) : ("local" as const);
 
   const baseSpecs: [string, string][] = [
     ["Code", product.code],
@@ -211,16 +216,17 @@ function ProductPage() {
           <Link
             to="/products/$family"
             params={{ family: familySlug }}
-            search={{ range: "local" as const }}
+            search={{ range: backRange }}
             className="inline-flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft hover:text-copper"
           >
             <ArrowLeft className="h-3 w-3" /> Back to {family.name}
           </Link>
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+            <div>
             <BlurFocus className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[4/5]">
-              {product.cover ? (
-                <img src={product.cover} alt={product.name} className="h-full w-full object-cover" />
+              {heroImage ? (
+                <img src={heroImage} alt={activeVariant ? `${product.name} — ${activeVariant.name}` : product.name} className="h-full w-full object-cover" />
               ) : (
                 <div
                   className="flex h-full w-full flex-col justify-between p-6 sm:p-8"
@@ -230,12 +236,42 @@ function ProductPage() {
                   <span className="display-serifish text-4xl leading-[1.05] text-canvas mix-blend-difference sm:text-5xl">{product.name}</span>
                 </div>
               )}
-              {product.details ? (
+              {product.details && variants.length === 0 ? (
                 <span className="absolute left-4 top-4 rounded-full bg-copper/95 px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.24em] text-canvas">
                   Featured product
                 </span>
               ) : null}
+              {activeVariant ? (
+                <span className="absolute left-4 bottom-4 rounded-full bg-ink/80 px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.24em] text-canvas">
+                  {activeVariant.name}
+                </span>
+              ) : null}
             </BlurFocus>
+
+            {variants.length > 1 ? (
+              <div className="mt-5">
+                <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">
+                  {variants.length} colourways
+                </div>
+                <div className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-6">
+                  {variants.map((v, i) => (
+                    <button
+                      key={v.name}
+                      type="button"
+                      onClick={() => setVariantIdx(i)}
+                      title={v.name}
+                      className={`overflow-hidden rounded-lg border transition-transform hover:-translate-y-0.5 ${
+                        i === variantIdx ? "border-copper ring-2 ring-copper/40" : "border-line/60"
+                      }`}
+                    >
+                      <img src={v.image} alt={v.name} loading="lazy" className="aspect-square h-full w-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            </div>
+
 
 
             <div>
