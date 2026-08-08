@@ -623,7 +623,6 @@ function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
                     key={p.slug}
                     to="/products/$family/$slug"
                     params={{ family: slug, slug: p.slug }}
-                    search={{ range: "imported" as const }}
                     className="group block overflow-hidden rounded-xl border border-line/60 bg-canvas transition-all hover:-translate-y-1 hover:border-copper/50 hover:shadow-[0_18px_50px_-22px_rgba(0,0,0,0.35)]"
                   >
                     <div className="relative aspect-square overflow-hidden bg-canvas-2">
