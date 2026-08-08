@@ -84,7 +84,13 @@ type FilterKey = "All" | "Interior" | "Exterior" | "Both";
 const FILTERS: FilterKey[] = ["All", "Interior", "Exterior", "Both"];
 
 function FamilyPage() {
-  const { family, items, slug } = Route.useLoaderData() as { family: typeof FAMILIES[number]; items: Product[]; slug: string };
+  const { family, items: allItems, slug } = Route.useLoaderData() as { family: typeof FAMILIES[number]; items: Product[]; slug: string };
+  const { range } = Route.useSearch();
+  const navigate = Route.useNavigate();
+  const isMCM = family.key === "MCM";
+  const items = isMCM
+    ? allItems.filter((p) => (p.origin ?? "Local") === (range === "imported" ? "Imported" : "Local"))
+    : allItems;
   const [filter, setFilter] = useState<FilterKey>("All");
   const filtered = filter === "All" ? items : items.filter((p) => p.application === filter);
 
@@ -103,13 +109,39 @@ function FamilyPage() {
           </Link>
           <h1 className="display-serifish mt-6 text-4xl leading-[1.02] tracking-tight text-canvas sm:text-5xl md:text-6xl">
             {family.name}
+            {isMCM ? <span className="text-canvas/70"> — {range === "imported" ? "Imported" : "Local"}</span> : null}
           </h1>
           <p className="mt-4 max-w-xl text-base italic text-canvas/80 md:text-lg">{family.poem}</p>
           <div className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-canvas/60">
-            {items.length} products in this family
+            {items.length} products in this {isMCM ? "range" : "family"}
           </div>
         </div>
       </section>
+
+      {/* Sub-range tabs — MCM only */}
+      {isMCM ? (
+        <section className="border-t border-line/60 bg-canvas px-5 py-6 md:px-10">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2">
+            <span className="mr-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Range</span>
+            {([["local", "MCM Local"], ["imported", "MCM Imported"]] as const).map(([key, label]) => {
+              const active = range === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => { setFilter("All"); navigate({ search: { range: key } }); }}
+                  className={`rounded-full border px-5 py-2 text-sm font-medium tracking-wide transition-colors ${
+                    active
+                      ? "border-copper bg-copper text-canvas"
+                      : "border-line/60 bg-canvas text-ink-soft hover:border-copper/60 hover:text-ink"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        </section>
+      ) : null}
 
       {/* Filter row */}
       <section className="border-t border-line/60 bg-canvas-2/60 px-5 py-6 md:px-10">
@@ -136,6 +168,7 @@ function FamilyPage() {
           </span>
         </div>
       </section>
+
 
       {family.key === "PU" ? <PUGridHeader count={items.length} /> : null}
 
