@@ -34,6 +34,8 @@ export type Product = {
   fireRating: string;
   cover?: string;
   poem: string;
+  /** Sub-range within a family (used by MCM: Local vs Imported). Defaults to "Local". */
+  origin?: "Local" | "Imported";
   price?: number;
   currency?: "SAR";
   details?: ProductDetails;

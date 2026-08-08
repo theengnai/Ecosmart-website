@@ -371,7 +371,28 @@ function ProductsPage() {
                             ))}
                           </div>
 
-                          {f.viewAllLink && (
+                          {f.viewAllLink === "mcm" ? (
+                            <div className="mt-10 flex flex-wrap gap-3">
+                              <Link
+                                to="/products/$family"
+                                params={{ family: "mcm" }}
+                                search={{ range: "local" as const }}
+                                className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
+                              >
+                                <span className="font-medium tracking-wide">MCM Local</span>
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+                              </Link>
+                              <Link
+                                to="/products/$family"
+                                params={{ family: "mcm" }}
+                                search={{ range: "imported" as const }}
+                                className="group inline-flex items-center gap-2 rounded-full border border-line bg-canvas px-6 py-3 text-sm text-ink transition-transform hover:-translate-y-0.5 hover:border-copper/60"
+                              >
+                                <span className="font-medium tracking-wide">MCM Imported</span>
+                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+                              </Link>
+                            </div>
+                          ) : f.viewAllLink ? (
                             <Link
                               to="/products/$family"
                               params={{ family: f.viewAllLink }}
@@ -385,7 +406,7 @@ function ProductsPage() {
                                 strokeWidth={2}
                               />
                             </Link>
-                          )}
+                          ) : null}
                         </>
                       )}
                     </div>
