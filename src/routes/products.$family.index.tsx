@@ -531,7 +531,7 @@ function PUInfo() {
 
 const PREVIEW_COUNT = 12;
 
-const thumb = (src?: string) => (src ? src.replace(/\.webp$/, "@thumb.webp") : src);
+const thumb = (src?: string) => (src ? src.replace(/\.webp$/, "-thumb.webp") : src);
 
 function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
   const [active, setActive] = useState<string>("All");
