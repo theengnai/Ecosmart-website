@@ -145,6 +145,10 @@ function FamilyPage() {
         </section>
       ) : null}
 
+      {isImported ? (
+        <ImportedCatalog items={items} slug={slug} />
+      ) : (
+        <>
       {/* Filter row */}
       <section className="border-t border-line/60 bg-canvas-2/60 px-5 py-6 md:px-10">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2">
@@ -229,14 +233,13 @@ function FamilyPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <p className="mt-10 text-center text-ink-soft">
-              {isMCM && range === "imported"
-                ? "The imported MCM range is coming soon — talk to our team for availability."
-                : "No products match this filter."}
-            </p>
+            <p className="mt-10 text-center text-ink-soft">No products match this filter.</p>
           ) : null}
         </div>
       </section>
+        </>
+      )}
+
 
       {family.key === "PU" ? <PUInfo /> : null}
 
