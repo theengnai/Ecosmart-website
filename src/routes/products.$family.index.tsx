@@ -227,7 +227,11 @@ function FamilyPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <p className="mt-10 text-center text-ink-soft">No products match this filter.</p>
+            <p className="mt-10 text-center text-ink-soft">
+              {isMCM && range === "imported"
+                ? "The imported MCM range is coming soon — talk to our team for availability."
+                : "No products match this filter."}
+            </p>
           ) : null}
         </div>
       </section>
