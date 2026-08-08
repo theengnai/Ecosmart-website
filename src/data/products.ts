@@ -36,10 +36,17 @@ export type Product = {
   poem: string;
   /** Sub-range within a family (used by MCM: Local vs Imported). Defaults to "Local". */
   origin?: "Local" | "Imported";
+  /** Series group (used by the imported MCM catalog for on-page sectioning). */
+  group?: string;
+  /** Named colour variants with their own imagery (imported MCM catalog). */
+  variants?: { name: string; image: string }[];
+  thickness?: string;
+  sheetSize?: string;
   price?: number;
   currency?: "SAR";
   details?: ProductDetails;
 };
+
 
 import m1 from "@/assets/mcm3/mcm-1.webp.asset.json";
 import m2 from "@/assets/mcm3/mcm-2.webp.asset.json";
