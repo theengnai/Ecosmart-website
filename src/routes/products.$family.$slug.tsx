@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { TopBar } from "@/components/nav/TopBar";
@@ -300,6 +301,7 @@ function ProductPage() {
                 ))}
               </div>
 
+              {product.colors.length > 0 ? (
               <div className="mt-10">
                 <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">
                   Colourway
@@ -315,6 +317,7 @@ function ProductPage() {
                 </div>
 
               </div>
+              ) : null}
 
               <div className="mt-12 flex flex-wrap items-center gap-3">
                 <Link
