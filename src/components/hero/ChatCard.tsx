@@ -264,7 +264,7 @@ export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
                   whileHover={{ y: -2 }}
                 >
                   {to === "/products/$family" && familyParam ? (
-                    <Link to="/products/$family" params={{ family: familyParam }} className={cardClass}>
+                    <Link to="/products/$family" params={{ family: familyParam }} search={{ range: "local" as const }} className={cardClass}>
                       {inner}
                     </Link>
                   ) : (

@@ -396,6 +396,7 @@ function ProductsPage() {
                             <Link
                               to="/products/$family"
                               params={{ family: f.viewAllLink }}
+                              search={{ range: "local" as const }}
                               className="group mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
                             >
                               <span className="font-medium tracking-wide">

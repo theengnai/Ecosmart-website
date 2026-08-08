@@ -211,6 +211,7 @@ function ProductPage() {
           <Link
             to="/products/$family"
             params={{ family: familySlug }}
+            search={{ range: "local" as const }}
             className="inline-flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft hover:text-copper"
           >
             <ArrowLeft className="h-3 w-3" /> Back to {family.name}
