@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Search } from "lucide-react";
 import { TopBar } from "@/components/nav/TopBar";
 import { SiteFooter } from "@/components/common/SiteFooter";
 import { CTABand } from "@/components/common/CTABand";
@@ -8,7 +8,9 @@ import { CTABand } from "@/components/common/CTABand";
 import { ScaleIn } from "@/components/motion/ScaleIn";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAMILIES, productsByFamily, type Product } from "@/data/products";
+import { MCM_IMPORTED_GROUPS } from "@/data/mcm-imported";
 import { Feather, Wrench, Layers, Shield, Sparkles } from "lucide-react";
+
 
 const FAMILY_SLUGS: Record<string, Product["family"]> = {
   mcm: "MCM",
