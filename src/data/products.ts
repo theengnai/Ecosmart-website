@@ -14,7 +14,10 @@ import puLife5 from "@/assets/pu/pu-img_p4_2.jpg.asset.json";
 import puLife6 from "@/assets/pu/pu-img_p4_3.jpg.asset.json";
 import puLife7 from "@/assets/pu/pu-img_p4_4.jpg.asset.json";
 
+import { MCM_IMPORTED } from "./mcm-imported";
+
 export const PU_LIFESTYLE = [puHero.url, puLife1.url, puLife2.url, puLife3.url, puLife4.url, puLife5.url, puLife6.url, puLife7.url];
+
 
 export type ProductDetails = {
   description: string;
@@ -36,10 +39,17 @@ export type Product = {
   poem: string;
   /** Sub-range within a family (used by MCM: Local vs Imported). Defaults to "Local". */
   origin?: "Local" | "Imported";
+  /** Series group (used by the imported MCM catalog for on-page sectioning). */
+  group?: string;
+  /** Named colour variants with their own imagery (imported MCM catalog). */
+  variants?: { name: string; image: string }[];
+  thickness?: string;
+  sheetSize?: string;
   price?: number;
   currency?: "SAR";
   details?: ProductDetails;
 };
+
 
 import m1 from "@/assets/mcm3/mcm-1.webp.asset.json";
 import m2 from "@/assets/mcm3/mcm-2.webp.asset.json";
@@ -419,6 +429,52 @@ export const PRODUCTS: Product[] = [
   { slug: "pnl-terrazzo", name: "Terrazzo Panel", code: "PNL-TZ-06", family: "Panels", application: "Interior", finish: "Laminate", colors: ["#e5ddd0", "#c9a48a", "#5c5854"], fireRating: "B-s2,d0", cover: imgE, poem: "Speckled surface, calm room." },
 ];
 
+/* ============================================================
+   MCM — Imported range (Magic Stone catalog, 107 series)
+   Each series is a product; its colourways are variants.
+   ============================================================ */
+
+export const MCM_IMPORTED_PRODUCTS: Product[] = MCM_IMPORTED.map((s) => ({
+  slug: `imp-${s.slug}`,
+  name: s.name,
+  code: `MCM-I-${String(s.no).padStart(3, "0")}`,
+  family: "MCM" as const,
+  origin: "Imported" as const,
+  group: s.group,
+  application: "Both" as const,
+  finish: "Flexible stone",
+  colors: [],
+  fireRating: "Class A2 / B1 — certificate on request",
+  cover: s.variants[0]?.image,
+  poem: `${s.variants.length} colourway${s.variants.length === 1 ? "" : "s"} · ${s.thickness}`,
+  thickness: s.thickness,
+  sheetSize: s.size,
+  variants: s.variants,
+  details: {
+    description: s.description,
+    useCases: [
+      "Interior feature walls and lobbies",
+      "Exterior façades and cladding",
+      "Curved columns and radius walls",
+      "Renovation over existing substrates",
+    ],
+    specs: [
+      ["Category", "Flexible stone (MCM)"],
+      ["Series", s.group],
+      ["Thickness", s.thickness],
+      ["Sheet size", s.size],
+      ["Usable area", "Interior and exterior walls"],
+      ["Colourways", `${s.variants.length}`],
+      ["Fixing", "Tile adhesive, direct to substrate"],
+      ["Origin", "Imported"],
+    ] as [string, string][],
+    gallery: s.variants.map((v) => v.image).slice(0, 8),
+  },
+}));
+
+PRODUCTS.push(...MCM_IMPORTED_PRODUCTS);
+
 export function productsByFamily(family: string) {
   return PRODUCTS.filter((p) => p.family === family);
 }
+

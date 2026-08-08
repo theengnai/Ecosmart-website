@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Search } from "lucide-react";
 import { TopBar } from "@/components/nav/TopBar";
 import { SiteFooter } from "@/components/common/SiteFooter";
 import { CTABand } from "@/components/common/CTABand";
@@ -8,7 +8,9 @@ import { CTABand } from "@/components/common/CTABand";
 import { ScaleIn } from "@/components/motion/ScaleIn";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAMILIES, productsByFamily, type Product } from "@/data/products";
+import { MCM_IMPORTED_GROUPS } from "@/data/mcm-imported";
 import { Feather, Wrench, Layers, Shield, Sparkles } from "lucide-react";
+
 
 const FAMILY_SLUGS: Record<string, Product["family"]> = {
   mcm: "MCM",
@@ -91,8 +93,10 @@ function FamilyPage() {
   const items = isMCM
     ? allItems.filter((p) => (p.origin ?? "Local") === (range === "imported" ? "Imported" : "Local"))
     : allItems;
+  const isImported = isMCM && range === "imported";
   const [filter, setFilter] = useState<FilterKey>("All");
   const filtered = filter === "All" ? items : items.filter((p) => p.application === filter);
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-canvas text-ink">
@@ -143,6 +147,10 @@ function FamilyPage() {
         </section>
       ) : null}
 
+      {isImported ? (
+        <ImportedCatalog items={items} slug={slug} />
+      ) : (
+        <>
       {/* Filter row */}
       <section className="border-t border-line/60 bg-canvas-2/60 px-5 py-6 md:px-10">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2">
@@ -227,14 +235,13 @@ function FamilyPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <p className="mt-10 text-center text-ink-soft">
-              {isMCM && range === "imported"
-                ? "The imported MCM range is coming soon — talk to our team for availability."
-                : "No products match this filter."}
-            </p>
+            <p className="mt-10 text-center text-ink-soft">No products match this filter.</p>
           ) : null}
         </div>
       </section>
+        </>
+      )}
+
 
       {family.key === "PU" ? <PUInfo /> : null}
 
@@ -517,4 +524,159 @@ function PUInfo() {
     </>
   );
 }
+
+/* ============================================================
+   MCM Imported — grouped catalog (107 series / 326 colourways)
+   ============================================================ */
+
+const PREVIEW_COUNT = 12;
+
+function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
+  const [active, setActive] = useState<string>("All");
+  const [query, setQuery] = useState("");
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+
+  const q = query.trim().toLowerCase();
+
+  const groups = useMemo(() => {
+    return MCM_IMPORTED_GROUPS.map((g) => ({
+      ...g,
+      items: items.filter(
+        (p) => p.group === g.name && (q === "" || p.name.toLowerCase().includes(q) || p.code.toLowerCase().includes(q)),
+      ),
+    })).filter((g) => g.items.length > 0 && (active === "All" || active === g.name));
+  }, [items, q, active]);
+
+  const totalColours = items.reduce((n, p) => n + (p.variants?.length ?? 0), 0);
+  const shown = groups.reduce((n, g) => n + g.items.length, 0);
+
+  const scrollToGroup = (groupSlug: string) => {
+    const el = document.getElementById(`grp-${groupSlug}`);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: "smooth" });
+  };
+
+  return (
+    <>
+      {/* Sticky group filter + search */}
+      <section className="sticky top-16 z-30 border-y border-line/60 bg-canvas/95 px-5 py-4 backdrop-blur md:px-10">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <button
+              onClick={() => setActive("All")}
+              className={`rounded-full border px-4 py-1.5 text-xs font-medium tracking-wide transition-colors ${
+                active === "All"
+                  ? "border-ink bg-ink text-canvas"
+                  : "border-line/60 bg-canvas text-ink-soft hover:border-copper/60 hover:text-ink"
+              }`}
+            >
+              All series ({items.length})
+            </button>
+            {MCM_IMPORTED_GROUPS.map((g) => (
+              <button
+                key={g.slug}
+                onClick={() => {
+                  setActive(g.name);
+                  requestAnimationFrame(() => scrollToGroup(g.slug));
+                }}
+                className={`rounded-full border px-4 py-1.5 text-xs font-medium tracking-wide transition-colors ${
+                  active === g.name
+                    ? "border-copper bg-copper text-canvas"
+                    : "border-line/60 bg-canvas text-ink-soft hover:border-copper/60 hover:text-ink"
+                }`}
+              >
+                {g.name.replace(" Series", "")} ({g.count})
+              </button>
+            ))}
+          </div>
+          <div className="flex shrink-0 items-center gap-2 rounded-full border border-line/60 bg-canvas px-4 py-1.5">
+            <Search className="h-3.5 w-3.5 shrink-0 text-ink-soft" strokeWidth={2} />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search 107 series…"
+              className="w-full min-w-0 bg-transparent text-xs text-ink outline-none placeholder:text-ink-soft lg:w-56"
+            />
+          </div>
+        </div>
+        <div className="mx-auto mt-2 max-w-7xl font-mono text-[0.58rem] uppercase tracking-[0.24em] text-ink-soft">
+          Showing {shown} of {items.length} series · {totalColours} colourways
+        </div>
+      </section>
+
+      {groups.map((g) => {
+        const isOpen = expanded[g.slug] || q !== "" || active === g.name;
+        const visible = isOpen ? g.items : g.items.slice(0, PREVIEW_COUNT);
+        return (
+          <section key={g.slug} id={`grp-${g.slug}`} className="scroll-mt-40 border-b border-line/40 px-5 py-16 last:border-b-0 md:px-10 md:py-20">
+            <div className="mx-auto max-w-7xl">
+              <div className="max-w-3xl">
+                <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
+                  {g.items.length} series
+                </div>
+                <h2 className="display-serifish mt-3 text-2xl leading-tight md:text-4xl">{g.name}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft md:text-base">{g.blurb}</p>
+              </div>
+
+              <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                {visible.map((p) => (
+                  <Link
+                    key={p.slug}
+                    to="/products/$family/$slug"
+                    params={{ family: slug, slug: p.slug }}
+                    className="group block overflow-hidden rounded-xl border border-line/60 bg-canvas transition-all hover:-translate-y-1 hover:border-copper/50 hover:shadow-[0_18px_50px_-22px_rgba(0,0,0,0.35)]"
+                  >
+                    <div className="relative aspect-square overflow-hidden bg-canvas-2">
+                      <img
+                        src={p.cover}
+                        alt={p.name}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                      />
+                      <span className="absolute right-2 top-2 rounded-full bg-ink/80 px-2 py-0.5 font-mono text-[0.5rem] uppercase tracking-[0.18em] text-canvas">
+                        {p.variants?.length ?? 0} colours
+                      </span>
+                    </div>
+                    <div className="p-3">
+                      <div className="font-mono text-[0.52rem] uppercase tracking-[0.24em] text-copper">{p.code}</div>
+                      <h3 className="display-serifish mt-1.5 text-sm leading-tight md:text-base">{p.name}</h3>
+                      <div className="mt-2 flex items-center justify-between gap-2">
+                        <div className="flex min-w-0 -space-x-1.5">
+                          {(p.variants ?? []).slice(0, 5).map((v) => (
+                            <img
+                              key={v.name}
+                              src={v.image}
+                              alt=""
+                              loading="lazy"
+                              className="h-4 w-4 shrink-0 rounded-full border border-canvas object-cover sm:h-5 sm:w-5"
+                            />
+                          ))}
+                        </div>
+                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-copper transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {!isOpen && g.items.length > PREVIEW_COUNT ? (
+                <button
+                  onClick={() => setExpanded((s) => ({ ...s, [g.slug]: true }))}
+                  className="mx-auto mt-10 flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-ink transition-colors hover:border-copper/60 hover:text-copper"
+                >
+                  Show all {g.items.length} {g.name.replace(" Series", "")} series
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              ) : null}
+            </div>
+          </section>
+        );
+      })}
+
+      {shown === 0 ? (
+        <p className="px-5 py-24 text-center text-ink-soft">No series match “{query}”.</p>
+      ) : null}
+    </>
+  );
+}
+
 
