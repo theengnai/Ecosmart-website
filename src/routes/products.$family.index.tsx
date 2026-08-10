@@ -127,7 +127,7 @@ function FamilyPage() {
         <section className="border-t border-line/60 bg-canvas px-5 py-6 md:px-10">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2">
             <span className="mr-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Range</span>
-            {([["local", "MCM Local"], ["imported", "MCM Imported"]] as const).map(([key, label]) => {
+            {([["local", "Saudi MCM"], ["imported", "Global MCM"]] as const).map(([key, label]) => {
               const active = range === key;
               return (
                 <button
