@@ -7,12 +7,12 @@ import { ClipReveal } from "@/components/motion/ClipReveal";
 import { ParallaxLayers } from "@/components/motion/ParallaxLayers";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import hero from "@/assets/pages/hero-projects.jpg";
-import p1 from "@/assets/about/sol-facade.jpg";
-import p2 from "@/assets/about/sol-architect.jpg";
-import p3 from "@/assets/about/sol-interior.jpg";
-import p4 from "@/assets/about/detail-fabric.jpg";
-import p5 from "@/assets/about/hero-facade.jpg";
-import p6 from "@/assets/about/sol-facade.jpg";
+import p1 from "@/assets/pages/projects-band-1.jpg";
+import p2 from "@/assets/pages/projects-band-2.jpg";
+import p3 from "@/assets/pages/projects-band-3.jpg";
+import p4 from "@/assets/pages/projects-featured.jpg";
+import p5 from "@/assets/pages/projects-featured-new.jpg";
+import p6 from "@/assets/about/sol-building.jpg";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({

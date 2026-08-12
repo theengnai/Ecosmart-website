@@ -11,10 +11,14 @@ import { ScaleIn } from "@/components/motion/ScaleIn";
 import { HighlightSweep } from "@/components/motion/HighlightSweep";
 import { Counter } from "@/components/motion/Counter";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import hero from "@/assets/pages/hero-products.jpg";
-import imgA from "@/assets/section-materials.jpg";
-import imgC from "@/assets/section-samples.jpg";
-import mcmCover from "@/assets/mcm3/mcm-22.webp.asset.json";
+import heroAsset from "@/assets/renders/products-hero-villa.png.asset.json";
+import clayTileAsset from "@/assets/renders/flexible-clay-tile.png.asset.json";
+import imgEps from "@/assets/pages/products-materials.jpg";
+import imgPu from "@/assets/pages/hero-visualizer.jpg";
+import imgWpc from "@/assets/pages/projects-band-3.jpg";
+
+const hero = heroAsset.url;
+
 
 export const Route = createFileRoute("/products/")({
   head: () => ({
@@ -66,7 +70,7 @@ const SECTIONS: Section[] = [
           ["Water absorption", "ISO 10545-3"],
           ["Bond strength", "EN 1348"],
         ],
-        image: mcmCover.url,
+        image: clayTileAsset.url,
         viewAllLink: "mcm",
       },
       {
@@ -80,7 +84,7 @@ const SECTIONS: Section[] = [
           ["Compressive strength (EPS)", "ISO 844 / EN 826"],
           ["Reaction to fire (system)", "EN 13501-1"],
         ],
-        image: imgA,
+        image: imgEps,
       },
       {
         id: "pu-stone",
@@ -94,7 +98,7 @@ const SECTIONS: Section[] = [
           ["Weather range", "−40 °C to 60 °C · UV stable"],
           ["Installation", "Direct adhesive mount"],
         ],
-        image: imgC,
+        image: imgPu,
         viewAllLink: "pu",
       },
       {
@@ -108,7 +112,7 @@ const SECTIONS: Section[] = [
           ["Installation", "Concealed clip"],
           ["Maintenance", "Sweep / rinse"],
         ],
-        image: imgA,
+        image: imgWpc,
         viewAllLink: "wpc",
       },
     ],

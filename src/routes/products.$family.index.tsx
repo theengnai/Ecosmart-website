@@ -10,6 +10,9 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FAMILIES, productsByFamily, type Product } from "@/data/products";
 import { MCM_IMPORTED_GROUPS } from "@/data/mcm-imported";
 import { Feather, Wrench, Layers, Shield, Sparkles } from "lucide-react";
+import mcmSaudiHero from "@/assets/renders/mcm-saudi-hero.png.asset.json";
+import mcmGlobalHero from "@/assets/pages/mcm-global-hero.jpg";
+
 
 
 const FAMILY_SLUGS: Record<string, Product["family"]> = {
@@ -92,6 +95,12 @@ function FamilyPage() {
     : allItems;
   const isImported = isMCM && range === "imported";
   const filtered = items;
+  const heroImage = isMCM ? (isImported ? mcmGlobalHero : mcmSaudiHero.url) : family.cover;
+  const heroAlt = isMCM
+    ? isImported
+      ? "Curved contemporary façade clad in ivory stone panels at dusk"
+      : "Curved rammed-earth toned Saudi façade lit at dusk"
+    : "";
 
 
   return (
@@ -101,9 +110,10 @@ function FamilyPage() {
 
       {/* Hero — compact */}
       <section className="relative flex min-h-[45vh] items-center overflow-hidden px-5 pt-32 pb-12 md:px-10">
-        <img src={family.cover} alt="" className="animate-hero-kenburns absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImage} alt={heroAlt} className="animate-hero-kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink/85" />
         <div className="relative z-10 mx-auto w-full max-w-7xl">
+
           <Link to="/products" className="inline-flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-canvas/70 hover:text-canvas">
             <ArrowLeft className="h-3 w-3" /> All products
           </Link>
