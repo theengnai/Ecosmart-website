@@ -194,8 +194,17 @@ function FamilyPage() {
       ) : null}
 
       {isImported ? (
-        <ImportedCatalog items={items} slug={slug} />
+        <>
+          <section className="px-5 pt-16 md:px-10 md:pt-24">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="display-serifish text-3xl leading-tight md:text-5xl">{copy.gridTitle}</h2>
+              <p className="mt-3 max-w-2xl text-sm text-ink-soft md:text-base">{copy.gridBody}</p>
+            </div>
+          </section>
+          <ImportedCatalog items={items} slug={slug} />
+        </>
       ) : (
+
         <>
       {family.key === "PU" ? <PUGridHeader count={items.length} /> : null}
 
