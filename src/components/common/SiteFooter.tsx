@@ -36,7 +36,7 @@ export function SiteFooter() {
     <footer className="relative bg-ink text-canvas">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-20 md:grid-cols-[1.3fr_2fr] md:px-10 md:py-28">
         <div>
-          <img src={logo} alt="EcoSmart" className="h-9 w-auto brightness-0 invert" />
+          <img src={logo} alt="EcoSmart" className="h-9 w-auto" />
           <p className="mt-6 max-w-sm text-sm text-canvas/70">
             Saudi company delivering construction systems and decoration &amp; finishing products. Build Better. Build Saudi.
           </p>
