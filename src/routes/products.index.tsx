@@ -54,9 +54,9 @@ type Section = {
 const SECTIONS: Section[] = [
   {
     id: "architectural-finishes",
-    label: "Decoration & Finishing",
-    title: "Decoration & Finishing",
-    intro: "Finishing product lines delivered by EcoSmart — for interior and exterior surfaces where the material must be honest, durable and buildable.",
+    label: "Products",
+    title: "Products",
+    intro: "Product lines delivered by EcoSmart — for interior and exterior surfaces where the material must be honest, durable and buildable.",
     cards: [
       {
         id: "flexible-clay-stone-panels",
@@ -73,6 +73,19 @@ const SECTIONS: Section[] = [
         viewAllLink: "mcm",
       },
       {
+        id: "eps-decorative-facades",
+        tag: "Exterior · Façade details",
+        title: "EPS Insulated Decorative Façades",
+        body: "Shaped EPS decorative elements — cornices, mouldings, bands and insulated panels — bonded to the substrate and finished with reinforced mesh, basecoat, primer and decorative topcoat. Decoration and insulation in one system.",
+        specs: [
+          ["EPS density", "EN 13163 / ISO 845"],
+          ["Thermal conductivity", "ASTM C518 / EN 12667"],
+          ["Compressive strength (EPS)", "ISO 844 / EN 826"],
+          ["Reaction to fire (system)", "EN 13501-1"],
+        ],
+        image: imgA,
+      },
+      {
         id: "pu-stone",
         tag: "Interior + Exterior · Walls & Façades",
         title: "PU Stone Cladding",
@@ -81,14 +94,12 @@ const SECTIONS: Section[] = [
           ["Material", "Polyurethane composite"],
           ["Panel size", "1200 × 600 × 50 mm"],
           ["Weight", "3.5 – 5.2 kg/m²"],
-          ["Fire rating", "Class B1 (ASTM E84 tested)"],
           ["Weather range", "−40 °C to 60 °C · UV stable"],
           ["Installation", "Direct adhesive mount"],
         ],
         image: imgC,
         viewAllLink: "pu",
       },
-
       {
         id: "wpc",
         tag: "Exterior · Ground plane",
@@ -103,121 +114,10 @@ const SECTIONS: Section[] = [
         image: imgA,
         viewAllLink: "wpc",
       },
-      {
-        id: "wpc-doors",
-        tag: "Interior · Doors",
-        title: "WPC Door Panels",
-        body: "Wood-plastic composite door leaves — moisture-resistant, dimensionally stable, termite/rot resistant. Suited to bathrooms and wet areas where timber warps.",
-        specs: [
-          ["Reference", "EN 13501-1"],
-          ["Water absorption / swelling", "EN 317"],
-          ["Density", "ISO 1183"],
-          ["Fire-rated door-set", "Confirm by certificate"],
-        ],
-        image: imgB,
-      },
-      {
-        id: "pvc-wood-panels",
-        tag: "Interior · Walls",
-        title: "PVC Wood Panels",
-        body: "PVC wall panels with a wood-effect finish. Moisture-resistant, dimensionally stable and cut to opening sizes.",
-        specs: [
-          ["Reference", "EN 13501-1"],
-          ["Cutting", "Fine-tooth saw / utility knife"],
-          ["Fixing", "Adhesive and/or battens"],
-          ["Maintenance", "Dust / wipe clean"],
-        ],
-        image: imgB,
-      },
-    ],
-  },
-  {
-    id: "smart-construction",
-    label: "Construction Systems",
-    title: "Construction Systems",
-    intro: "Structural and envelope systems engineered to the Saudi Building Code — designed to reduce site time and wet trades while adding integral thermal and acoustic performance.",
-    cards: [
-      {
-        id: "lightweight-concrete-wall-panels",
-        tag: "Structure · Walls",
-        title: "Lightweight Concrete Wall Panels",
-        body: "Precast lightweight concrete panels with tongue-and-groove edges for rapid, mortar-light dry assembly. Internal partition, external façade and fair-faced variants — in place of blockwork, with integral thermal and acoustic performance.",
-        specs: [
-          ["Reference", "EN 14992"],
-          ["Fire performance", "ASTM E84 / EN 13501-1"],
-          ["Thermal", "ASTM C518 / EN 12667"],
-          ["Acoustic", "ISO 10140 / ASTM E90"],
-        ],
-        image: imgD,
-      },
-      {
-        id: "t-floor-hourdi",
-        tag: "Structure · Floors",
-        title: "Enhanced T-Floor Hourdi System",
-        body: "Precast T-beams + EPS T-shaped hourdi infill blocks + in-situ reinforced structural topping — lower self-weight than a solid slab, with combined structural and thermal performance.",
-        specs: [
-          ["Reference", "EN 15037"],
-          ["Design", "Project structural designer"],
-          ["EPS density", "EN 13163 / ISO 845"],
-          ["Thermal (deck)", "ASTM C518 / EN 12667"],
-        ],
-        image: imgE,
-      },
-      {
-        id: "hybrid-precast",
-        tag: "Structure · Complete frame",
-        title: "Hybrid Precast Building System",
-        body: "Precast columns, beams, stairs and fences combined with our lightweight concrete wall panels (in place of cast shear walls) and T-floor hourdi decks — a single-source precast-plus-panel structural package.",
-        specs: [
-          ["Reference", "EN 13369"],
-          ["Design", "Saudi Building Code (SBC)"],
-          ["Concrete grade", "ASTM C39 / EN 12390-3"],
-          ["Seismic / wind", "SBC"],
-        ],
-        image: imgA,
-      },
-      {
-        id: "3d-modular",
-        tag: "Structure · Modular",
-        title: "Enhanced 3D Curved Modular System",
-        body: "Volumetric modular units including curved-angle geometries — a Saudi-distinctive capability. Modules are fabricated and fitted-out off site, then set onto prepared foundations.",
-        specs: [
-          ["Design", "Saudi Building Code (SBC)"],
-          ["Thermal envelope", "ASTM C518 / EN 12667"],
-          ["Acoustic (inter-module)", "ISO 10140"],
-          ["Fire performance", "EN 13501 / SBC"],
-        ],
-        image: imgB,
-      },
-      {
-        id: "portable-building",
-        tag: "Structure · Ready-to-use",
-        title: "Portable Cabins (insulated)",
-        body: "Ready-to-use insulated cabins built on EcoSmart's insulated wall system with a high-end structural frame — not a basic container fit-out. Delivered as finished, habitable units for site offices, accommodation, clinics and amenity units.",
-        specs: [
-          ["Wall / roof U-value", "ASTM C518 / EN 12667"],
-          ["Structural / wind", "SBC"],
-          ["Electrical", "SBC / SEC"],
-          ["Fire performance", "EN 13501 / SBC"],
-        ],
-        image: imgC,
-      },
-      {
-        id: "eps-decorative-facades",
-        tag: "Exterior · Façade details",
-        title: "EPS Insulated Decorative Façades",
-        body: "Shaped EPS decorative elements — cornices, mouldings, bands and insulated panels — bonded to the substrate and finished with reinforced mesh, basecoat, primer and decorative topcoat. Decoration and insulation in one system.",
-        specs: [
-          ["EPS density", "EN 13163 / ISO 845"],
-          ["Thermal conductivity", "ASTM C518 / EN 12667"],
-          ["Compressive strength (EPS)", "ISO 844 / EN 826"],
-          ["Reaction to fire (system)", "EN 13501-1"],
-        ],
-        image: imgA,
-      },
     ],
   },
 ];
+
 
 const KPIS = [
   { v: 6, s: "", l: "Construction systems" },
