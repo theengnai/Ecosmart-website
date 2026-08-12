@@ -9,6 +9,10 @@ import { LetterReveal } from "@/components/motion/LetterReveal";
 import { RevealGroup } from "@/components/motion/RevealGroup";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import hero from "@/assets/pages/hero-design.jpg";
+import { EditorialSplit } from "@/components/media/EditorialSplit";
+import { FullBleedBand } from "@/components/media/FullBleedBand";
+import { GalleryGrid } from "@/components/media/GalleryGrid";
+import { GALLERY } from "@/lib/gallery";
 
 export const Route = createFileRoute("/design-services")({
   head: () => ({
@@ -123,6 +127,24 @@ function DesignServicesPage() {
             <p className="mt-4 text-sm leading-relaxed text-ink-soft md:text-base">{s.d}</p>
           </article>
         )}
+      />
+
+      <EditorialSplit
+        image={GALLERY.interiorLounge}
+        kicker="Specification support"
+        title="From mood board to buildable detail."
+        body="We work alongside your design team to translate a reference image into a specified finish — substrate, adhesive, jointing and edge detail included."
+      />
+      <FullBleedBand
+        image={GALLERY.facadeDetail}
+        kicker="Detailing"
+        title="Every junction resolved before site."
+        height="sm"
+      />
+      <GalleryGrid
+        images={[GALLERY.archHall, GALLERY.interiorMajlis, GALLERY.exteriorCourtyard, GALLERY.interiorBedroom, GALLERY.interiorLobby, GALLERY.materialClay]}
+        kicker="Reference library"
+        title="Surfaces we design with."
       />
 
       <CTABand
