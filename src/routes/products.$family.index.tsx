@@ -204,6 +204,10 @@ function FamilyPage() {
       {/* Product grid — dense */}
       <section className="px-5 py-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-7xl">
+          <h2 className="display-serifish text-3xl leading-tight md:text-5xl">{copy.gridTitle}</h2>
+          <p className="mt-3 max-w-2xl text-sm text-ink-soft md:text-base">{copy.gridBody}</p>
+          <div className="mb-12" />
+
           <div className="grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
             {filtered.map((p, i) => (
               <ScaleIn key={p.slug} delay={Math.min(i, 8) * 0.04}>
