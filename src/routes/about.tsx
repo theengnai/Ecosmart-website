@@ -67,7 +67,7 @@ const FOOTER_COLS = [
   { h: "Construction Systems", items: ["Lightweight Concrete Wall Panels", "T-Floor Hourdi", "Hybrid Precast", "Curved Modular", "Portable Cabins", "EPS Façades"] },
   { h: "Decoration & Finishing", items: ["Flexible Clay-Stone", "PU Stone Tiles", "WPC", "SPC", "PVC Marble Sheets", "PVC Wood Panels"] },
   { h: "Support", items: ["Technical Data Sheets", "Installation Manuals", "Test Certificates", "Project Support"] },
-  { h: "Company", items: ["About", "Contact", "Vision 2030 / IKTVA", "ecosmart.sa"] },
+  { h: "Company", items: ["About", "Contact", "Vision 2030 / IKTVA", "ecosmart-group.com"] },
 ];
 
 const VISION_TEXT =
@@ -465,7 +465,7 @@ function AboutPage() {
               </p>
               <div className="mt-6 space-y-1 font-mono text-[0.6rem] uppercase tracking-[0.28em] text-[#d9d4cb]/50">
                 <div>شركة إيكوسمارت</div>
-                <div>CR No. 1009200656 · ecosmart.sa</div>
+                <div>CR No. 1009200656 · ecosmart-group.com</div>
               </div>
             </div>
 
