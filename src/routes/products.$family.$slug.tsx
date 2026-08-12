@@ -8,6 +8,8 @@ import { AlternatingSlide } from "@/components/motion/AlternatingSlide";
 import { ScaleIn } from "@/components/motion/ScaleIn";
 import { ClipReveal } from "@/components/motion/ClipReveal";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { MagnifyImage } from "@/components/common/MagnifyImage";
+
 import { FAMILIES, PRODUCTS, productsByFamily, type Product } from "@/data/products";
 import projectImg1 from "@/assets/about/sol-facade.jpg";
 import projectImg2 from "@/assets/about/sol-architect.jpg";
