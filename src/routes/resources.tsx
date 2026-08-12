@@ -23,42 +23,38 @@ export const Route = createFileRoute("/resources")({
   component: ResourcesPage,
 });
 
-const CONSTRUCTION_SYSTEMS: [string, string][] = [
-  ["Lightweight Concrete Wall Panel System", "Internal partition, external façade and fair-faced variants — tongue-and-groove dry assembly, in place of blockwork."],
-  ["Enhanced T-Floor Hourdi System", "Precast T-beams + EPS T-shaped hourdi infill + structural topping — lower self-weight than a solid slab."],
-  ["Hybrid Precast Building System", "Precast columns, beams, stairs and fences + lightweight concrete wall panels + T-floor hourdi floors."],
-  ["Enhanced 3D Curved Modular System", "Volumetric modular units — including curved-angle modules, a Saudi-distinctive capability."],
-  ["Portable Cabins (insulated, ready-to-use)", "Ready-to-use insulated cabins built on EcoSmart's insulated wall system with a high-end structural frame."],
-  ["EPS Insulated Decorative Façades", "Shaped EPS elements with reinforced render and decorative topcoat — decoration + insulation in one system."],
+const SAUDI_CERTS: [string, string][] = [
+  ["Reaction to Fire — EN 13501-1", "Classification report for the Saudi-made flexible clay-stone tile system."],
+  ["Surface Burning — ASTM E84", "Flame spread and smoke developed index for the flexible clay-stone range."],
+  ["Water Absorption — ISO 10545-3", "Absorption test result for the Saudi flexible clay-stone body."],
+  ["Bond Strength — EN 1348", "Adhesive pull-off values for tiles fixed to cementitious substrates."],
+  ["Freeze–Thaw / Weathering", "Accelerated weathering and UV stability results for exterior use."],
+  ["Local Content — IKTVA / Vision 2030", "Declaration of 100% Saudi-sourced raw materials and local production."],
 ];
 
-const FINISHING: [string, string][] = [
-  ["PU Stone Decorative Tiles", "Lightweight polyurethane stone-effect tiles — adhesive-fixed, far faster than natural stone cladding."],
-  ["Flexible Clay-Stone Tiles", "100% Saudi — an EcoSmart exclusive in KSA. Bends to follow flat and curved surfaces."],
-  ["WPC Door Panels", "Wood-plastic composite door leaves — moisture-resistant and dimensionally stable in KSA humidity."],
-  ["PVC Marble Sheets", "PVC sheets in marble patterns for interior wall and ceiling applications."],
-  ["PVC Laminated Foam Board Sheets", "Laminated foam-core PVC board for interior surfaces and joinery."],
-  ["WPC External Decking", "Wood-plastic composite decking (EN 15534 family) — joist spacing and expansion gaps per the product installation values."],
-  ["SPC Flooring Panels", "Stone-plastic composite click flooring for interior applications."],
-  ["PVC Wood Panels", "PVC wall panels with a wood-effect finish."],
-  ["WPC Windows & Door Frames", "WPC frame profiles for windows and doors — cut and finished to opening sizes."],
-  ["PVC Laminated Foam Interior Line", "Interior line of PVC laminated foam profiles for wall, ceiling and joinery use."],
+const GLOBAL_CERTS: [string, string][] = [
+  ["Reaction to Fire — EN 13501-1", "Classification report covering the imported MCM sheet series."],
+  ["Surface Burning — ASTM E84", "Flame spread and smoke developed index for imported series."],
+  ["Water Absorption — ISO 10545-3", "Absorption values per imported series and thickness."],
+  ["Bond Strength — EN 1348", "Pull-off adhesion values for the imported MCM sheet system."],
+  ["Dimensional Stability & Colour Fastness", "Thermal cycling and UV colour-fastness reports for exterior façades."],
+  ["Origin & Conformity", "Certificate of origin and conformity documentation per shipment."],
 ];
 
 const CATEGORIES = [
   {
-    id: "construction-systems",
-    label: "Construction Systems",
-    Icon: BookOpen,
-    intro: "One Technical Data Sheet and one Installation Manual per system. TDS covers composition, applications, key features and reference test methods. Installation Manual covers tools, storage, surface preparation, procedure, jointing, quality checks, health & safety and maintenance.",
-    files: CONSTRUCTION_SYSTEMS,
+    id: "mcm-saudi-certificate",
+    label: "MCM Saudi certificate",
+    Icon: ShieldCheck,
+    intro: "Test certificates issued for the Saudi (locally produced) flexible clay-stone MCM range. Project-specific figures are confirmed against the intended application.",
+    files: SAUDI_CERTS,
   },
   {
-    id: "finishing",
-    label: "Decoration & Finishing",
-    Icon: FileText,
-    intro: "One TDS and one Installation Manual per finishing product — for EcoSmart's finishing lines.",
-    files: FINISHING,
+    id: "mcm-global-certificate",
+    label: "MCM Global certificate",
+    Icon: ShieldCheck,
+    intro: "Test certificates and conformity documentation for the Global (imported) MCM series — issued per series and shipment on request.",
+    files: GLOBAL_CERTS,
   },
 ];
 
@@ -86,8 +82,7 @@ function ResourcesPage() {
         emphasis="the certificate."
         subcopy="A Technical Data Sheet and an Installation Manual for every EcoSmart product. Project-specific test certificates issued on request."
         image={hero}
-        primary={{ label: "Request the library", to: "/contact" }}
-        secondary={{ label: "Request a certificate", to: "/contact" }}
+        primary={{ label: "View certificates", href: "#certificates" }}
       />
 
       <section className="border-t border-line/60 px-5 py-24 md:px-10 md:py-32">
@@ -102,8 +97,9 @@ function ResourcesPage() {
         </div>
       </section>
 
+      <div id="certificates" className="scroll-mt-28" />
       <StickyTOC
-        eyebrow="Library"
+        eyebrow="Certificates"
         items={CATEGORIES.map((c) => ({ id: c.id, label: c.label }))}
       >
         {CATEGORIES.map((c) => {
@@ -131,7 +127,7 @@ function ResourcesPage() {
                       <span className="absolute inset-y-0 left-0 w-1 bg-copper/60 transition-all group-hover:w-2" />
                       <div className="flex items-start gap-4">
                         <span className="mt-0.5 inline-flex items-center justify-center border border-copper/20 bg-copper/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-copper">
-                          TDS + IM
+                          Certificate
                         </span>
                         <div>
                           <div className="text-sm font-medium leading-snug text-ink group-hover:text-copper md:text-base">
