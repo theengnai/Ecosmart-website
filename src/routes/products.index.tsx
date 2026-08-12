@@ -157,19 +157,6 @@ function ProductsPage() {
         secondary={{ label: "Request a sample", to: "/samples" }}
       />
 
-      {/* Intro — HighlightSweep */}
-      <section className="border-t border-line/60 px-5 py-24 md:px-10 md:py-32">
-        <div className="mx-auto max-w-4xl">
-          <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
-            The library
-          </div>
-          <p className="display-serifish mt-6 text-2xl leading-[1.25] md:text-4xl">
-            Two ranges,{" "}
-            <HighlightSweep>delivered across Saudi Arabia</HighlightSweep>{" "}
-            — construction systems that replace conventional frames and blockwork, plus finishing products from the only KSA maker of flexible clay-stone. Every product carries a Technical Data Sheet and an Installation Manual.
-          </p>
-        </div>
-      </section>
 
       {/* Sticky TOC of families with BlurFocus imagery + AlternatingSlide spec rows */}
       <StickyTOC
