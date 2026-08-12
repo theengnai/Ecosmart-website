@@ -293,7 +293,7 @@ function AboutPage() {
           </h1>
 
           <p className="mt-8 max-w-xl text-sm leading-relaxed text-canvas/80 md:text-base">
-            EcoSmart is a Saudi company delivering construction systems and decoration & finishing products, based in Saudi Arabia — aligned to Vision 2030, IKTVA and the Saudi Building Code.
+            EcoSmart is a Saudi company supplying flexible architectural surfaces and finishing products for interior and exterior applications — locally manufactured Saudi MCM alongside selected Global MCM collections, aligned to Vision 2030, IKTVA and the Saudi Building Code.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
