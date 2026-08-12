@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useRouter } from "@tanstack/react-router";
-import darkLogoAsset from "@/assets/dark-logo.svg.asset.json";
-import lightLogo from "@/assets/logo.png";
+import darkLogo from "@/assets/dark-logo-clean.svg";
+import lightLogo from "@/assets/light-logo-clean.svg";
 import { LangSwitcher } from "@/components/nav/LangSwitcher";
 import { ThemeToggle } from "@/components/nav/ThemeToggle";
 
