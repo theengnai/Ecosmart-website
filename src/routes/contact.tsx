@@ -23,16 +23,16 @@ export const Route = createFileRoute("/contact")({
 });
 
 const CHANNELS = [
-  { Icon: Mail, label: "Email", value: "hello@ecosmart.sa", href: "mailto:hello@ecosmart.sa" },
-  { Icon: MapPin, label: "Location", value: "Saudi Arabia", href: "#location" },
-  { Icon: Clock, label: "Reply", value: "Within one business day", href: "mailto:hello@ecosmart.sa" },
+  { Icon: Mail, label: "Email", value: "info@ecosmart-group.com", href: "mailto:info@ecosmart-group.com" },
+  { Icon: MapPin, label: "Location", value: "Emaar Square – Building E8, Jeddah", href: "#location" },
+  { Icon: Clock, label: "Reply", value: "Within one business day", href: "mailto:info@ecosmart-group.com" },
 ];
 
 const FAQ = [
   { q: "Where is EcoSmart based?", a: "In Saudi Arabia — designed, produced and delivered by EcoSmart (CR No. 1009200656)." },
   { q: "Can you share technical values and certificates?", a: "Yes. Every product carries a Technical Data Sheet and an Installation Manual. Project-specific test certificates are issued on request against the certified figures." },
   { q: "Do you deliver outside Saudi Arabia?", a: "Our primary market is Saudi Arabia. Delivery outside KSA is possible — send us the project and we'll respond." },
-  { q: "How do I request a sample?", a: "Use the request form on the Samples page, or write to hello@ecosmart.sa with your project details and the finishing product you'd like to see." },
+  { q: "How do I request a sample?", a: "Use the request form on the Samples page, or write to info@ecosmart-group.com with your project details and the finishing product you'd like to see." },
 ];
 
 function ContactPage() {
@@ -55,7 +55,7 @@ function ContactPage() {
               Let&rsquo;s talk <span className="text-copper">your project.</span>
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-soft md:text-lg">
-              Email, WhatsApp or write to us directly. Saudi Arabia. We reply within one business day.
+              Email, WhatsApp or write to us directly. Jeddah, Saudi Arabia. We reply within one business day.
             </p>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-soft">
               Send us the project, the surface and the timeline — we&rsquo;ll come back with the right
@@ -170,7 +170,7 @@ function ContactPage() {
               Location
             </div>
             <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-              Saudi Arabia.
+              Jeddah, Saudi Arabia.
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-6 rounded-3xl border border-line/60 bg-canvas p-8 md:grid-cols-3 md:p-12">
@@ -181,13 +181,15 @@ function ContactPage() {
             </div>
             <div>
               <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Address</div>
-              <div className="mt-2 text-base">Saudi Arabia</div>
-              <div className="mt-1 text-sm text-ink-soft">Kingdom of Saudi Arabia</div>
+              <div className="mt-2 text-base">إعمار سكوير – مبنى ٨، جدة</div>
+              <div className="mt-1 text-sm text-ink-soft">Emaar Square – Building E8, Jeddah, Saudi Arabia</div>
             </div>
             <div>
               <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Registration</div>
               <div className="mt-2 text-base">CR No. 1009200656</div>
-              <div className="mt-1 text-sm text-ink-soft">ecosmart.sa</div>
+              <div className="mt-1 text-sm text-ink-soft">
+                <a href="tel:+966532683918" className="hover:text-copper">+966 53 268 3918</a>
+              </div>
             </div>
           </div>
         </div>

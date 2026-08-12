@@ -42,8 +42,8 @@ export function SiteFooter() {
           </p>
           <div className="mt-8 space-y-1 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-canvas/50">
             <div>شركة إيكوسمارت</div>
-            <div>Saudi Arabia</div>
-            <div>hello@ecosmart.sa · ecosmart.sa</div>
+            <div>Emaar Square – Building E8 · Jeddah · Saudi Arabia</div>
+            <div>info@ecosmart-group.com · +966 53 268 3918</div>
             <div>CR No. 1009200656</div>
           </div>
         </div>

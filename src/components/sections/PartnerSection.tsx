@@ -98,21 +98,21 @@ export function PartnerSection({ active }: { active: boolean }) {
             <span className="grid h-9 w-9 place-items-center rounded-full border border-copper/30 bg-copper-light/10 text-copper">
               <Mail className="h-4 w-4" strokeWidth={1.6} />
             </span>
-            <a href="mailto:hello@ecosmart.sa" className="hover:text-copper">
-              hello@ecosmart.sa
+            <a href="mailto:info@ecosmart-group.com" className="hover:text-copper">
+              info@ecosmart-group.com
             </a>
           </li>
           <li className="flex items-center gap-3">
             <span className="grid h-9 w-9 place-items-center rounded-full border border-copper/30 bg-copper-light/10 text-copper">
               <Phone className="h-4 w-4" strokeWidth={1.6} />
             </span>
-            <span className="text-ink-soft">Contact form · reply within 1 business day</span>
+            <a href="tel:+966532683918" className="hover:text-copper">+966 53 268 3918</a>
           </li>
           <li className="flex items-center gap-3">
             <span className="grid h-9 w-9 place-items-center rounded-full border border-copper/30 bg-copper-light/10 text-copper">
               <MapPin className="h-4 w-4" strokeWidth={1.6} />
             </span>
-            <span className="text-ink-soft">Saudi Arabia</span>
+            <span className="text-ink-soft">Emaar Square – Building E8, Jeddah, Saudi Arabia</span>
           </li>
         </motion.ul>
       </div>

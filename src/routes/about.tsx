@@ -67,7 +67,7 @@ const FOOTER_COLS = [
   { h: "Construction Systems", items: ["Lightweight Concrete Wall Panels", "T-Floor Hourdi", "Hybrid Precast", "Curved Modular", "Portable Cabins", "EPS Façades"] },
   { h: "Decoration & Finishing", items: ["Flexible Clay-Stone", "PU Stone Tiles", "WPC", "SPC", "PVC Marble Sheets", "PVC Wood Panels"] },
   { h: "Support", items: ["Technical Data Sheets", "Installation Manuals", "Test Certificates", "Project Support"] },
-  { h: "Company", items: ["About", "Contact", "Vision 2030 / IKTVA", "ecosmart.sa"] },
+  { h: "Company", items: ["About", "Contact", "Vision 2030 / IKTVA", "ecosmart-group.com"] },
 ];
 
 const VISION_TEXT =
@@ -435,14 +435,14 @@ function AboutPage() {
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <a
-                  href="mailto:hello@ecosmart.sa"
+                  href="mailto:info@ecosmart-group.com"
                   className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
                 >
                   <span className="font-medium tracking-wide">Request a sample</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
                 </a>
                 <a
-                  href="mailto:hello@ecosmart.sa"
+                  href="mailto:info@ecosmart-group.com"
                   className="group inline-flex items-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-sm text-ink transition-all hover:border-ink/40"
                 >
                   Talk to our team
@@ -465,7 +465,7 @@ function AboutPage() {
               </p>
               <div className="mt-6 space-y-1 font-mono text-[0.6rem] uppercase tracking-[0.28em] text-[#d9d4cb]/50">
                 <div>شركة إيكوسمارت</div>
-                <div>CR No. 1009200656 · ecosmart.sa</div>
+                <div>CR No. 1009200656 · ecosmart-group.com</div>
               </div>
             </div>
 
