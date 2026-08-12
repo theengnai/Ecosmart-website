@@ -32,10 +32,10 @@ function VisualizerPage() {
       <TopBar />
 
       <StoryHero
-        eyebrow="Visualizer · Coming soon"
-        title="Preview our systems,"
-        emphasis="in place."
-        subcopy="A concept preview we're building — a way to see EcoSmart panels, floors and finishes on your plan or elevation before you commit. Not live yet."
+        eyebrow="04 — Visualizer · Coming soon"
+        title="See the finish, in place."
+        emphasis="Before a sheet is cut."
+        subcopy="A tool in development — a way to place EcoSmart surfaces onto a plan or elevation and read texture, tone and scale together before specification. Not live yet."
         image={hero}
         primary={{ label: "Join the interest list", to: "/contact" }}
         secondary={{ label: "Request a sample instead", to: "/samples" }}

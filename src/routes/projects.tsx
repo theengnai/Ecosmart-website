@@ -83,10 +83,10 @@ function ProjectsPage() {
       <TopBar />
 
       <StoryHero
-        eyebrow="Applications"
-        title="Where our systems"
-        emphasis="are used."
-        subcopy="EcoSmart's construction systems and finishing products across residential, commercial, hospitality and remote-site deployments in Saudi Arabia."
+        eyebrow="02 — Projects & Applications"
+        title="Surfaces, applied."
+        emphasis="Detailed for real projects."
+        subcopy="Flexible clay-stone and related finishing products applied across residential, commercial, hospitality and remote-site work in Saudi Arabia — interior walls, façades and curved surfaces."
         image={hero}
         primary={{ label: "Request project references", to: "/contact" }}
         secondary={{ label: "See the products", to: "/products" }}

@@ -52,7 +52,7 @@ function ContactPage() {
         <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="lg:pt-6">
             <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
-              Get in touch
+              07 — Contact
             </div>
             <h1 className="display-serifish mt-5 text-4xl leading-[1.03] md:text-6xl">
               Let&rsquo;s talk <span className="text-copper">your project.</span>
@@ -61,8 +61,8 @@ function ContactPage() {
               Email, WhatsApp or write to us directly. Jeddah, Saudi Arabia. We reply within one business day.
             </p>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-soft">
-              Send us the project, the surface and the timeline — we&rsquo;ll come back with the right
-              product line, its Technical Data Sheet and Installation Manual, and a sample where it helps.
+              Send the project, the surface and the timeline — we&rsquo;ll come back with the right
+              finish, its Technical Data Sheet and Installation Manual, and a sample where it helps.
             </p>
             <div className="mt-10 space-y-3">
               {CHANNELS.map((c) => (

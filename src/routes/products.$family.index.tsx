@@ -106,6 +106,38 @@ function FamilyPage() {
       : "Curved rammed-earth toned Saudi façade lit at dusk"
     : "";
 
+  const copy = isMCM
+    ? isImported
+      ? {
+          eyebrow: "Selected internationally",
+          title: "Global MCM",
+          emphasis: "Selected collections. Consistent quality.",
+          body: "Internationally sourced Modified Clay Material collections selected for texture range, colour consistency and repeatable supply. The same lightweight, flexible format for interior and exterior surfaces — extending the palette available to projects specified in Saudi Arabia.",
+          attrs: "Selected collections · Lightweight · Flexible · Interior + exterior",
+          gridTitle: "Explore Global MCM Collections",
+          gridBody: "Browse selected international series for façades, interior walls and distinctive architectural applications.",
+        }
+      : {
+          eyebrow: "Made in Saudi Arabia",
+          title: "Saudi MCM",
+          emphasis: "Locally made. Architecturally flexible.",
+          body: "Locally manufactured Modified Clay Material combining the character of stone, clay, brick, wood and rammed earth with a lightweight, flexible format for interior and exterior surfaces. Designed to support shorter supply chains, project adaptability and Saudi manufacturing capability — reflecting the ambitions of Vision 2030.",
+          attrs: "Saudi-made · Lightweight · Flexible · Interior + exterior",
+          gridTitle: "Explore Saudi MCM Finishes",
+          gridBody: "Discover locally manufactured textures for façades, interior walls and distinctive architectural applications.",
+        }
+    : {
+        eyebrow: family.key,
+        title: family.name,
+        emphasis: family.poem,
+        body: family.poem,
+        attrs: `${items.length} products in this family`,
+        gridTitle: `Explore ${family.name}`,
+        gridBody: "Surfaces selected for interior and exterior applications.",
+      };
+
+
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-canvas text-ink">
@@ -113,24 +145,28 @@ function FamilyPage() {
       <TopBar />
 
       {/* Hero — compact */}
-      <section className="relative flex min-h-[45vh] items-center overflow-hidden px-5 pt-32 pb-12 md:px-10">
+      <section className="relative flex min-h-[55vh] items-center overflow-hidden px-5 pt-32 pb-16 md:px-10">
         <img src={heroImage} alt={heroAlt} className="animate-hero-kenburns absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
         <div className="relative z-10 mx-auto w-full max-w-7xl">
 
           <Link to="/products" className="inline-flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-canvas/70 hover:text-canvas">
             <ArrowLeft className="h-3 w-3" /> All products
           </Link>
-          <h1 className="display-serifish mt-6 text-4xl leading-[1.02] tracking-tight text-canvas sm:text-5xl md:text-6xl">
-            {family.name}
-            {isMCM ? <span className="text-canvas/70"> — {range === "imported" ? "Imported" : "Local"}</span> : null}
+          <div className="mt-6 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-canvas/80">
+            {copy.eyebrow}
+          </div>
+          <h1 className="display-serifish mt-4 text-4xl leading-[1.02] tracking-tight text-canvas sm:text-5xl md:text-6xl">
+            {copy.title}
           </h1>
-          <p className="mt-4 max-w-xl text-base italic text-canvas/80 md:text-lg">{family.poem}</p>
-          <div className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-canvas/60">
-            {items.length} products in this {isMCM ? "range" : "family"}
+          <p className="display-serifish mt-2 text-2xl italic text-copper-light md:text-3xl">{copy.emphasis}</p>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-canvas/85 md:text-base">{copy.body}</p>
+          <div className="mt-8 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-canvas/70">
+            {copy.attrs}
           </div>
         </div>
       </section>
+
 
       {/* Sub-range tabs — MCM only */}
       {isMCM ? (
@@ -158,8 +194,17 @@ function FamilyPage() {
       ) : null}
 
       {isImported ? (
-        <ImportedCatalog items={items} slug={slug} />
+        <>
+          <section className="px-5 pt-16 md:px-10 md:pt-24">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="display-serifish text-3xl leading-tight md:text-5xl">{copy.gridTitle}</h2>
+              <p className="mt-3 max-w-2xl text-sm text-ink-soft md:text-base">{copy.gridBody}</p>
+            </div>
+          </section>
+          <ImportedCatalog items={items} slug={slug} />
+        </>
       ) : (
+
         <>
       {family.key === "PU" ? <PUGridHeader count={items.length} /> : null}
 
@@ -168,6 +213,10 @@ function FamilyPage() {
       {/* Product grid — dense */}
       <section className="px-5 py-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-7xl">
+          <h2 className="display-serifish text-3xl leading-tight md:text-5xl">{copy.gridTitle}</h2>
+          <p className="mt-3 max-w-2xl text-sm text-ink-soft md:text-base">{copy.gridBody}</p>
+          <div className="mb-12" />
+
           <div className="grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
             {filtered.map((p, i) => (
               <ScaleIn key={p.slug} delay={Math.min(i, 8) * 0.04}>
