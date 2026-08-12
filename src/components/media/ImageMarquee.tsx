@@ -15,7 +15,7 @@ export function ImageMarquee({ images, duration = 60, reverse = false, className
       <div
         className="flex w-max gap-4 will-change-transform motion-reduce:animate-none group-hover:[animation-play-state:paused]"
         style={{
-          animation: `eco-marquee ${duration}s linear infinite${reverse ? " reverse" : ""}`,
+          animation: `marquee ${duration}s linear infinite${reverse ? " reverse" : ""}`,
         }}
       >
         {track.map((img, i) => (
