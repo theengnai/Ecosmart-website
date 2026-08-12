@@ -13,10 +13,7 @@ import { Counter } from "@/components/motion/Counter";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import hero from "@/assets/pages/hero-products.jpg";
 import imgA from "@/assets/section-materials.jpg";
-import imgB from "@/assets/section-design.jpg";
 import imgC from "@/assets/section-samples.jpg";
-import imgD from "@/assets/section-gallery.jpg";
-import imgE from "@/assets/section-technical.jpg";
 import mcmCover from "@/assets/mcm3/mcm-22.webp.asset.json";
 
 export const Route = createFileRoute("/products/")({
@@ -150,7 +147,7 @@ function ProductsPage() {
         eyebrow="Products library"
         title="Construction systems and"
         emphasis="finishing products."
-        subcopy="Based in Riyadh, Saudi Arabia — two ranges built for the Saudi market."
+        subcopy="Saudi Arabia — products built for the Saudi market."
         image={hero}
         primary={{ label: "Talk to our team", to: "/contact" }}
         secondary={{ label: "Request a sample", to: "/samples" }}
