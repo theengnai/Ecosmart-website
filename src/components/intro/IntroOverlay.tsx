@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import logoUrl from "@/assets/logo.png";
+import logoUrl from "@/assets/light-logo-clean.svg";
 
 const KEY = "ecosmart_intro_seen";
 
