@@ -12,12 +12,12 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { PartnerSection } from "@/components/sections/PartnerSection";
 import { SectionTransition } from "@/components/nav/SectionTransition";
 
-import imgDesign from "@/assets/section-design.jpg";
-import imgMaterials from "@/assets/section-materials.jpg";
-import imgVisualizer from "@/assets/section-visualizer.jpg";
-import imgSamples from "@/assets/section-samples.jpg";
-import imgGallery from "@/assets/section-gallery.jpg";
-import imgTechnical from "@/assets/section-technical.jpg";
+import imgDesign from "@/assets/gallery/interior-lounge.jpg";
+import imgMaterials from "@/assets/gallery/material-flex-sheet.jpg";
+import imgVisualizer from "@/assets/gallery/exterior-villa-dusk.jpg";
+import imgSamples from "@/assets/gallery/material-clay-macro.jpg";
+import imgGallery from "@/assets/gallery/interior-majlis.jpg";
+import imgTechnical from "@/assets/gallery/facade-detail.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({

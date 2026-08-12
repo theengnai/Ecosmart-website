@@ -9,6 +9,9 @@ import { TextColorShift } from "@/components/motion/TextColorShift";
 import { AlternatingSlide } from "@/components/motion/AlternatingSlide";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import hero from "@/assets/pages/hero-resources.jpg";
+import { FullBleedBand } from "@/components/media/FullBleedBand";
+import { ImageMarquee } from "@/components/media/ImageMarquee";
+import { GALLERY, MATERIALS } from "@/lib/gallery";
 
 export const Route = createFileRoute("/resources")({
   head: () => ({
@@ -230,6 +233,14 @@ function ResourcesPage() {
           </a>
         </div>
       </section>
+
+      <FullBleedBand
+        image={GALLERY.installDetail}
+        kicker="Documented"
+        title="Every product ships with a data sheet and an installation manual."
+        height="sm"
+      />
+      <ImageMarquee images={MATERIALS} duration={65} reverse />
 
       <CTABand
         eyebrow="Studios, contractors, developers"

@@ -13,6 +13,11 @@ import p3 from "@/assets/pages/projects-band-3.jpg";
 import p4 from "@/assets/pages/projects-featured.jpg";
 import p5 from "@/assets/pages/projects-featured-new.jpg";
 import p6 from "@/assets/about/sol-building.jpg";
+import { FullBleedBand } from "@/components/media/FullBleedBand";
+import { EditorialSplit } from "@/components/media/EditorialSplit";
+import { GalleryGrid } from "@/components/media/GalleryGrid";
+import { ImageMarquee } from "@/components/media/ImageMarquee";
+import { GALLERY, MATERIALS } from "@/lib/gallery";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -142,6 +147,33 @@ function ProjectsPage() {
           </div>
         </div>
       </section>
+
+      <FullBleedBand
+        image={GALLERY.exteriorVilla}
+        kicker="Residential"
+        title="Curved façades, wrapped in flexible clay-stone."
+        body="Continuous surfaces around radii that conventional cladding cannot follow."
+        height="lg"
+      />
+      <EditorialSplit
+        image={GALLERY.interiorMajlis}
+        kicker="Hospitality & majlis"
+        title="Stone warmth without the stone weight."
+        body="Full-height feature walls in lightweight sheets — a fraction of the dead load of natural stone, installed on a dry substrate."
+      />
+      <EditorialSplit
+        image={GALLERY.interiorBoutique}
+        kicker="Retail"
+        title="Fit-outs that read as solid masonry."
+        body="Backlit niches, fluted counters and continuous plaster tones delivered on a retail programme, not a masonry one."
+        reverse
+      />
+      <GalleryGrid
+        images={[GALLERY.archHall, GALLERY.interiorLobby, GALLERY.exteriorCourtyard, GALLERY.facadeDetail, GALLERY.interiorBedroom, GALLERY.interiorLounge]}
+        kicker="Gallery"
+        title="A wider look."
+      />
+      <ImageMarquee images={MATERIALS} duration={65} reverse />
 
       <CTABand
         eyebrow="Have a project in mind?"

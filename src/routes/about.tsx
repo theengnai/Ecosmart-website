@@ -17,6 +17,11 @@ import solArchitect from "@/assets/about/sol-architect.jpg";
 import solFacade from "@/assets/about/sol-facade.jpg";
 import solInterior from "@/assets/about/sol-interior.jpg";
 import detailFabric from "@/assets/about/detail-fabric.jpg";
+import { FullBleedBand } from "@/components/media/FullBleedBand";
+import { EditorialSplit } from "@/components/media/EditorialSplit";
+import { GalleryGrid } from "@/components/media/GalleryGrid";
+import { ImageMarquee } from "@/components/media/ImageMarquee";
+import { GALLERY, SCENES } from "@/lib/gallery";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -454,6 +459,32 @@ function AboutPage() {
       </section>
 
       {/* FOOTER */}
+      <EditorialSplit
+        image={GALLERY.materialFlex}
+        kicker="Made in the Kingdom"
+        title="The only Saudi maker of flexible clay-stone."
+        body="Sheets thin enough to bend around a column, strong enough for a façade — produced locally and delivered nationwide."
+      />
+      <FullBleedBand
+        image={GALLERY.exteriorCourtyard}
+        kicker="Built for KSA"
+        title="Materials tuned to Saudi light, heat and humidity."
+        height="md"
+      />
+      <EditorialSplit
+        image={GALLERY.interiorLobby}
+        kicker="Across sectors"
+        title="Residential, hospitality, retail and remote sites."
+        body="One material language applied from a private majlis to a hotel lobby — with a technical data sheet and installation manual behind every line."
+        reverse
+      />
+      <GalleryGrid
+        images={[GALLERY.archHall, GALLERY.interiorLounge, GALLERY.facadeDetail, GALLERY.exteriorVilla, GALLERY.interiorBedroom, GALLERY.installDetail]}
+        kicker="Gallery"
+        title="A look at our world."
+      />
+      <ImageMarquee images={SCENES} duration={70} />
+
       <footer className="bg-[#1c1b18] px-5 pt-20 pb-10 text-[#d9d4cb] md:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_3fr] lg:gap-16">

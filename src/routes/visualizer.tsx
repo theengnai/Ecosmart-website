@@ -8,6 +8,9 @@ import { ScrollProgressBar } from "@/components/motion/ScrollProgressBar";
 import { WordReveal } from "@/components/motion/WordReveal";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import hero from "@/assets/pages/hero-visualizer.jpg";
+import { FullBleedBand } from "@/components/media/FullBleedBand";
+import { GalleryGrid } from "@/components/media/GalleryGrid";
+import { GALLERY } from "@/lib/gallery";
 
 export const Route = createFileRoute("/visualizer")({
   head: () => ({
@@ -66,6 +69,18 @@ function VisualizerPage() {
           </a>
         </div>
       </section>
+
+      <FullBleedBand
+        image={GALLERY.exteriorVilla}
+        kicker="Preview"
+        title="See the finish on your elevation before a single sheet is cut."
+        height="md"
+      />
+      <GalleryGrid
+        images={[GALLERY.interiorLounge, GALLERY.exteriorCourtyard, GALLERY.interiorLobby, GALLERY.facadeDetail, GALLERY.archHall, GALLERY.interiorMajlis]}
+        kicker="Inspiration"
+        title="Start from a scene."
+      />
 
       <CTABand
         eyebrow="In the meantime"
