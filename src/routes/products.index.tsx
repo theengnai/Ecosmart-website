@@ -228,6 +228,10 @@ function ProductsPage() {
                       <h3 className="display-serifish mt-4 text-3xl leading-tight md:text-5xl">
                         {f.title}
                       </h3>
+                      {f.subtitle ? (
+                        <div className="mt-3 text-lg text-ink-soft md:text-xl">{f.subtitle}</div>
+                      ) : null}
+
 
                       {!isLive ? (
                         <>
