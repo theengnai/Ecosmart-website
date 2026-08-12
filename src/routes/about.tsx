@@ -435,14 +435,14 @@ function AboutPage() {
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <a
-                  href="mailto:hello@ecosmart.sa"
+                  href="mailto:info@ecosmart-group.com"
                   className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
                 >
                   <span className="font-medium tracking-wide">Request a sample</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
                 </a>
                 <a
-                  href="mailto:hello@ecosmart.sa"
+                  href="mailto:info@ecosmart-group.com"
                   className="group inline-flex items-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-sm text-ink transition-all hover:border-ink/40"
                 >
                   Talk to our team

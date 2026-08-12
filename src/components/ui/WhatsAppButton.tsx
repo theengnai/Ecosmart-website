@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const PHONE = "971500000000"; // update with real number
+const PHONE = "966532683918";
 
 export function WhatsAppButton() {
   return (

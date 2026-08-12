@@ -98,8 +98,8 @@ export function PartnerSection({ active }: { active: boolean }) {
             <span className="grid h-9 w-9 place-items-center rounded-full border border-copper/30 bg-copper-light/10 text-copper">
               <Mail className="h-4 w-4" strokeWidth={1.6} />
             </span>
-            <a href="mailto:hello@ecosmart.sa" className="hover:text-copper">
-              hello@ecosmart.sa
+            <a href="mailto:info@ecosmart-group.com" className="hover:text-copper">
+              info@ecosmart-group.com
             </a>
           </li>
           <li className="flex items-center gap-3">
