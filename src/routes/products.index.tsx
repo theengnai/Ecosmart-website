@@ -163,10 +163,10 @@ function ProductsPage() {
       <TopBar />
 
       <StoryHero
-        eyebrow="Products library"
-        title="Construction systems and"
-        emphasis="finishing products."
-        subcopy="Saudi Arabia — products built for the Saudi market."
+        eyebrow="01 — Products & Solutions"
+        title="Curated architectural solutions."
+        emphasis="Built for better projects."
+        subcopy="Explore Saudi MCM, selected Global MCM collections, and upcoming finishing and construction solutions for the Saudi market."
         image={hero}
         primary={{ label: "Talk to our team", to: "/contact" }}
         secondary={{ label: "Request a sample", to: "/samples" }}
@@ -179,7 +179,9 @@ function ProductsPage() {
         items={SECTIONS.map((s) => ({ 
           id: s.id, 
           label: s.label,
-          subItems: s.cards.map((c) => ({ id: c.id, label: c.title }))
+          subItems: s.id === "architectural-finishes"
+            ? [{ id: "flexible-clay-stone-panels", label: "Flexible Clay-Stone" }]
+            : undefined,
         }))}
       >
         {SECTIONS.map((section) => (
@@ -187,12 +189,8 @@ function ProductsPage() {
             <div className="mb-12">
               <h2 className="display-serifish text-3xl md:text-5xl text-ink">
                 {section.title}
-                {section.id === "future-solutions" && (
-                  <span className="ml-4 inline-flex items-center rounded-full bg-line/50 px-3 py-1 align-middle font-mono text-[0.62rem] uppercase tracking-widest text-ink-soft">
-                    Coming Soon
-                  </span>
-                )}
               </h2>
+
               <p className="mt-4 max-w-2xl text-lg text-ink-soft">{section.intro}</p>
             </div>
 
