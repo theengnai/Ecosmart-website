@@ -106,6 +106,38 @@ function FamilyPage() {
       : "Curved rammed-earth toned Saudi façade lit at dusk"
     : "";
 
+  const copy = isMCM
+    ? isImported
+      ? {
+          eyebrow: "Selected internationally",
+          title: "Global MCM",
+          emphasis: "Selected collections. Consistent quality.",
+          body: "Internationally sourced Modified Clay Material collections selected for texture range, colour consistency and repeatable supply. The same lightweight, flexible format for interior and exterior surfaces — extending the palette available to projects specified in Saudi Arabia.",
+          attrs: "Selected collections · Lightweight · Flexible · Interior + exterior",
+          gridTitle: "Explore Global MCM Collections",
+          gridBody: "Browse selected international series for façades, interior walls and distinctive architectural applications.",
+        }
+      : {
+          eyebrow: "Made in Saudi Arabia",
+          title: "Saudi MCM",
+          emphasis: "Locally made. Architecturally flexible.",
+          body: "Locally manufactured Modified Clay Material combining the character of stone, clay, brick, wood and rammed earth with a lightweight, flexible format for interior and exterior surfaces. Designed to support shorter supply chains, project adaptability and Saudi manufacturing capability — reflecting the ambitions of Vision 2030.",
+          attrs: "Saudi-made · Lightweight · Flexible · Interior + exterior",
+          gridTitle: "Explore Saudi MCM Finishes",
+          gridBody: "Discover locally manufactured textures for façades, interior walls and distinctive architectural applications.",
+        }
+    : {
+        eyebrow: family.key,
+        title: family.name,
+        emphasis: family.poem,
+        body: family.poem,
+        attrs: `${items.length} products in this family`,
+        gridTitle: `Explore ${family.name}`,
+        gridBody: "Surfaces selected for interior and exterior applications.",
+      };
+
+
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-canvas text-ink">
