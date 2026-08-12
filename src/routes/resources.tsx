@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FileText, BookOpen, ShieldCheck, HeadphonesIcon, Sparkles } from "lucide-react";
+import { ShieldCheck, HeadphonesIcon, Sparkles } from "lucide-react";
 import { TopBar } from "@/components/nav/TopBar";
 import { SiteFooter } from "@/components/common/SiteFooter";
 import { CTABand } from "@/components/common/CTABand";
