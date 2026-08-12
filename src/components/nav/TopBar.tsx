@@ -23,7 +23,8 @@ export function TopBar() {
   const pathname = router.state.location.pathname;
   const isHome = pathname === "/";
   // Product detail pages have a light hero, so force dark nav text
-  const isLightPage = /^\/products\/[^/]+\/[^/]+/.test(pathname);
+  const isLightPage =
+    /^\/products\/[^/]+\/[^/]+/.test(pathname) || pathname === "/contact";
   const useDarkNav = scrolled || open || (isHome ? false : isLightPage);
 
   useEffect(() => {
