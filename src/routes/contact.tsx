@@ -55,7 +55,7 @@ function ContactPage() {
               Let&rsquo;s talk <span className="text-copper">your project.</span>
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-soft md:text-lg">
-              Email, WhatsApp or write to us directly. Saudi Arabia. We reply within one business day.
+              Email, WhatsApp or write to us directly. Jeddah, Saudi Arabia. We reply within one business day.
             </p>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-soft">
               Send us the project, the surface and the timeline — we&rsquo;ll come back with the right
@@ -170,7 +170,7 @@ function ContactPage() {
               Location
             </div>
             <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-              Saudi Arabia.
+              Jeddah, Saudi Arabia.
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-6 rounded-3xl border border-line/60 bg-canvas p-8 md:grid-cols-3 md:p-12">

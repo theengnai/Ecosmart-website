@@ -137,7 +137,7 @@ export function TopBar() {
             </Link>
           </nav>
           <div className="mt-10 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink-soft">
-            info@ecosmart-group.com · Saudi Arabia
+            info@ecosmart-group.com · +966 53 268 3918
           </div>
         </div>
       ) : null}
