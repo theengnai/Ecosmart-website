@@ -24,7 +24,7 @@ export const Route = createFileRoute("/contact")({
 
 const CHANNELS = [
   { Icon: Mail, label: "Email", value: "info@ecosmart-group.com", href: "mailto:info@ecosmart-group.com" },
-  { Icon: MapPin, label: "Location", value: "Saudi Arabia", href: "#location" },
+  { Icon: MapPin, label: "Location", value: "Emaar Square – Building E8, Jeddah", href: "#location" },
   { Icon: Clock, label: "Reply", value: "Within one business day", href: "mailto:info@ecosmart-group.com" },
 ];
 
@@ -181,13 +181,15 @@ function ContactPage() {
             </div>
             <div>
               <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Address</div>
-              <div className="mt-2 text-base">Saudi Arabia</div>
-              <div className="mt-1 text-sm text-ink-soft">Kingdom of Saudi Arabia</div>
+              <div className="mt-2 text-base">إعمار سكوير – مبنى ٨، جدة</div>
+              <div className="mt-1 text-sm text-ink-soft">Emaar Square – Building E8, Jeddah, Saudi Arabia</div>
             </div>
             <div>
               <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Registration</div>
               <div className="mt-2 text-base">CR No. 1009200656</div>
-              <div className="mt-1 text-sm text-ink-soft">ecosmart.sa</div>
+              <div className="mt-1 text-sm text-ink-soft">
+                <a href="tel:+966532683918" className="hover:text-copper">+966 53 268 3918</a>
+              </div>
             </div>
           </div>
         </div>
