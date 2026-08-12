@@ -113,24 +113,28 @@ function FamilyPage() {
       <TopBar />
 
       {/* Hero — compact */}
-      <section className="relative flex min-h-[45vh] items-center overflow-hidden px-5 pt-32 pb-12 md:px-10">
+      <section className="relative flex min-h-[55vh] items-center overflow-hidden px-5 pt-32 pb-16 md:px-10">
         <img src={heroImage} alt={heroAlt} className="animate-hero-kenburns absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/60 to-ink/30" />
         <div className="relative z-10 mx-auto w-full max-w-7xl">
 
           <Link to="/products" className="inline-flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-canvas/70 hover:text-canvas">
             <ArrowLeft className="h-3 w-3" /> All products
           </Link>
-          <h1 className="display-serifish mt-6 text-4xl leading-[1.02] tracking-tight text-canvas sm:text-5xl md:text-6xl">
-            {family.name}
-            {isMCM ? <span className="text-canvas/70"> — {range === "imported" ? "Imported" : "Local"}</span> : null}
+          <div className="mt-6 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-canvas/80">
+            {copy.eyebrow}
+          </div>
+          <h1 className="display-serifish mt-4 text-4xl leading-[1.02] tracking-tight text-canvas sm:text-5xl md:text-6xl">
+            {copy.title}
           </h1>
-          <p className="mt-4 max-w-xl text-base italic text-canvas/80 md:text-lg">{family.poem}</p>
-          <div className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-canvas/60">
-            {items.length} products in this {isMCM ? "range" : "family"}
+          <p className="display-serifish mt-2 text-2xl italic text-copper-light md:text-3xl">{copy.emphasis}</p>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-canvas/85 md:text-base">{copy.body}</p>
+          <div className="mt-8 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-canvas/70">
+            {copy.attrs}
           </div>
         </div>
       </section>
+
 
       {/* Sub-range tabs — MCM only */}
       {isMCM ? (
