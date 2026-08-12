@@ -80,10 +80,10 @@ function ResourcesPage() {
       <TopBar />
 
       <StoryHero
-        eyebrow="Technical library"
-        title="Specified against"
-        emphasis="the certificate."
-        subcopy="A Technical Data Sheet and an Installation Manual for every EcoSmart product. Project-specific test certificates issued on request."
+        eyebrow="05 — Technical Library"
+        title="Documented surfaces."
+        emphasis="Specified with confidence."
+        subcopy="A Technical Data Sheet and an Installation Manual for every EcoSmart product. Project-specific test certificates are issued on request against the intended application."
         image={hero}
         primary={{ label: "View certificates", href: "#certificates" }}
       />

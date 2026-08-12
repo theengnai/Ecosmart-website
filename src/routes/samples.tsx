@@ -46,10 +46,10 @@ function SamplesPage() {
       <TopBar />
 
       <StoryHero
-        eyebrow="Samples"
-        title="Hold the material"
-        emphasis="before you specify."
-        subcopy="Samples of our finishing products — flexible clay-stone tiles, PU stone, WPC, SPC and PVC lines — issued on request from our team."
+        eyebrow="06 — Samples"
+        title="Hold the material."
+        emphasis="Then specify it."
+        subcopy="Physical samples of our flexible clay-stone tiles and related finishing products, cut from production sheets and issued on request with a specification card."
         image={hero}
         primary={{ label: "Request a sample", to: "/contact" }}
         secondary={{ label: "See the products", to: "/products" }}

@@ -50,10 +50,10 @@ function DesignServicesPage() {
       <TopBar />
 
       <StoryHero
-        eyebrow="Technical & Project Support"
-        title="Choose the right system,"
-        emphasis="build it right."
-        subcopy="We help you select the right EcoSmart system for the project, confirm the certified values your spec needs, and issue the method statement your crew will use on site."
+        eyebrow="03 — Design & Technical Support"
+        title="Specified with support."
+        emphasis="Detailed for the site."
+        subcopy="We help select the right surface for the application, confirm the technical values your specification requires, and issue the installation method your crew will follow on site."
         image={hero}
         primary={{ label: "Talk to our team", to: "/contact" }}
         secondary={{ label: "See our products", to: "/products" }}
