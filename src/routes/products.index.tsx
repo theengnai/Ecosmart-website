@@ -27,11 +27,12 @@ const hero = heroAsset.url;
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
-      { title: "Products — EcoSmart | Construction Systems & Finishing Products" },
-      { name: "description", content: "EcoSmart's product library — construction systems (lightweight concrete panels, T-floor hourdi, hybrid precast, curved modular, portable cabins, EPS façades) and decoration & finishing lines (flexible clay-stone, PU stone, WPC, SPC, PVC), all delivered by EcoSmart." },
-      { property: "og:title", content: "Products — EcoSmart" },
-      { property: "og:description", content: "Construction systems and finishing products, delivered across Saudi Arabia." },
+      { title: "Products — EcoSmart | Curated Architectural Solutions" },
+      { name: "description", content: "Explore Saudi MCM, selected Global MCM collections, and upcoming finishing and construction solutions for the Saudi market." },
+      { property: "og:title", content: "Curated architectural solutions — EcoSmart" },
+      { property: "og:description", content: "Flexible architectural surfaces for interior and exterior applications, delivered across Saudi Arabia." },
       { property: "og:image", content: hero },
+
     ],
   }),
   component: ProductsPage,
