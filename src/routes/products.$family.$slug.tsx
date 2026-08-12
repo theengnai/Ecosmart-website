@@ -11,11 +11,11 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { MagnifyImage } from "@/components/common/MagnifyImage";
 
 import { FAMILIES, PRODUCTS, productsByFamily, type Product } from "@/data/products";
-import projectImg1 from "@/assets/about/sol-facade.jpg";
-import projectImg2 from "@/assets/about/sol-architect.jpg";
+import projectImg1 from "@/assets/pages/projects-featured.jpg";
+import projectImg2 from "@/assets/pages/projects-band-1.jpg";
 import projectImg3 from "@/assets/about/sol-interior.jpg";
-import projectImg4 from "@/assets/about/detail-fabric.jpg";
-import projectImg5 from "@/assets/about/hero-facade.jpg";
+import projectImg4 from "@/assets/pages/projects-featured-new.jpg";
+import projectImg5 from "@/assets/pages/projects-band-2.jpg";
 import projectImg6 from "@/assets/about/sol-building.jpg";
 
 const FAMILY_SLUGS: Record<string, Product["family"]> = {
