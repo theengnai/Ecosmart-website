@@ -162,40 +162,6 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="border-t border-line/60 px-5 py-24 md:px-10">
-        <div className="mx-auto max-w-5xl">
-          <Reveal>
-            <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
-              Direct channels
-            </div>
-            <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-              One inbox, one team.
-            </h2>
-          </Reveal>
-          <RevealGroup className="mt-12 grid gap-4 md:grid-cols-3" stagger={0.06}>
-            {CHANNELS.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                data-reveal-item
-                className="group flex items-center gap-5 rounded-2xl border border-line/60 bg-canvas p-5 transition-colors hover:border-copper"
-              >
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-copper/10 text-copper">
-                  <c.Icon className="h-5 w-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">
-                    {c.label}
-                  </div>
-                  <div className="mt-1 truncate text-base font-medium">{c.value}</div>
-                </div>
-                <ArrowUpRight className="h-4 w-4 shrink-0 text-ink-soft transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-copper" />
-              </a>
-            ))}
-          </RevealGroup>
-        </div>
-      </section>
-
       {/* Location card */}
       <section id="location" className="border-t border-line/60 bg-canvas-2/40 px-5 py-24 md:px-10">
         <div className="mx-auto max-w-5xl">
