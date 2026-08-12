@@ -12,7 +12,6 @@ const NAV: { label: string; href: string }[] = [
   { label: "Design Services", href: "/design-services" },
   { label: "Visualizer", href: "/visualizer" },
   { label: "Resources", href: "/resources" },
-  { label: "Samples", href: "/samples" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -24,7 +23,8 @@ export function TopBar() {
   const pathname = router.state.location.pathname;
   const isHome = pathname === "/";
   // Product detail pages have a light hero, so force dark nav text
-  const isLightPage = /^\/products\/[^/]+\/[^/]+/.test(pathname);
+  const isLightPage =
+    /^\/products\/[^/]+\/[^/]+/.test(pathname) || pathname === "/contact";
   const useDarkNav = scrolled || open || (isHome ? false : isLightPage);
 
   useEffect(() => {
@@ -137,7 +137,7 @@ export function TopBar() {
             </Link>
           </nav>
           <div className="mt-10 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink-soft">
-            hello@ecosmart.ae · Dubai · Riyadh · Doha
+            hello@ecosmart.sa · Saudi Arabia
           </div>
         </div>
       ) : null}

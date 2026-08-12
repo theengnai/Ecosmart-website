@@ -82,9 +82,6 @@ function FamilyError({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-type FilterKey = "All" | "Interior" | "Exterior" | "Both";
-const FILTERS: FilterKey[] = ["All", "Interior", "Exterior", "Both"];
-
 function FamilyPage() {
   const { family, items: allItems, slug } = Route.useLoaderData() as { family: typeof FAMILIES[number]; items: Product[]; slug: string };
   const { range } = Route.useSearch();
@@ -94,8 +91,7 @@ function FamilyPage() {
     ? allItems.filter((p) => (p.origin ?? "Local") === (range === "imported" ? "Imported" : "Local"))
     : allItems;
   const isImported = isMCM && range === "imported";
-  const [filter, setFilter] = useState<FilterKey>("All");
-  const filtered = filter === "All" ? items : items.filter((p) => p.application === filter);
+  const filtered = items;
 
 
   return (
@@ -132,7 +128,7 @@ function FamilyPage() {
               return (
                 <button
                   key={key}
-                  onClick={() => { setFilter("All"); navigate({ search: { range: key } }); }}
+                  onClick={() => navigate({ search: { range: key } })}
                   className={`rounded-full border px-5 py-2 text-sm font-medium tracking-wide transition-colors ${
                     active
                       ? "border-copper bg-copper text-canvas"
@@ -151,33 +147,6 @@ function FamilyPage() {
         <ImportedCatalog items={items} slug={slug} />
       ) : (
         <>
-      {/* Filter row */}
-      <section className="border-t border-line/60 bg-canvas-2/60 px-5 py-6 md:px-10">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2">
-          <span className="mr-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Filter</span>
-          {FILTERS.map((f) => {
-            const active = filter === f;
-            return (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`rounded-full border px-4 py-1.5 text-xs font-medium tracking-wide transition-colors ${
-                  active
-                    ? "border-ink bg-ink text-canvas"
-                    : "border-line/60 bg-canvas text-ink-soft hover:border-copper/60 hover:text-ink"
-                }`}
-              >
-                {f}
-              </button>
-            );
-          })}
-          <span className="ml-auto font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">
-            Showing {filtered.length} of {items.length}
-          </span>
-        </div>
-      </section>
-
-
       {family.key === "PU" ? <PUGridHeader count={items.length} /> : null}
 
 
@@ -235,7 +204,7 @@ function FamilyPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <p className="mt-10 text-center text-ink-soft">No products match this filter.</p>
+            <p className="mt-10 text-center text-ink-soft">No products in this range yet.</p>
           ) : null}
         </div>
       </section>

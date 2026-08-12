@@ -112,7 +112,7 @@ export function PartnerSection({ active }: { active: boolean }) {
             <span className="grid h-9 w-9 place-items-center rounded-full border border-copper/30 bg-copper-light/10 text-copper">
               <MapPin className="h-4 w-4" strokeWidth={1.6} />
             </span>
-            <span className="text-ink-soft">Riyadh, Saudi Arabia</span>
+            <span className="text-ink-soft">Saudi Arabia</span>
           </li>
         </motion.ul>
       </div>

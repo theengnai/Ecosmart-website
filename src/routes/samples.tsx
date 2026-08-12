@@ -27,7 +27,7 @@ export const Route = createFileRoute("/samples")({
 const STEPS = [
   { n: "01", t: "Tell us", d: "Share the project, the product you'd like to see, and the address to ship to." },
   { n: "02", t: "We match", d: "We select the right chips from our finishing lines against your brief and confirm what we'll send." },
-  { n: "03", t: "Shipped by EcoSmart", d: "The sample ships from our facility in Riyadh with its specification card." },
+  { n: "03", t: "Shipped by EcoSmart", d: "The sample ships from our facility in Saudi Arabia with its specification card." },
 ];
 
 const CONTENTS = [
@@ -120,7 +120,7 @@ function SamplesPage() {
                 Dispatch
               </div>
               <div className="mt-1 text-base">
-                Samples ship from Riyadh, Saudi Arabia. Lead time confirmed when we reply to your request.
+                Samples ship from Saudi Arabia. Lead time confirmed when we reply to your request.
               </div>
             </div>
           </div>

@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Saudi company delivering construction systems and decoration & finishing products. Riyadh, Saudi Arabia. Aligned to Vision 2030 and the Saudi Building Code.",
+          "Saudi company delivering construction systems and decoration & finishing products. Saudi Arabia. Aligned to Vision 2030 and the Saudi Building Code.",
       },
       { property: "og:title", content: "EcoSmart — Build Better. Build Saudi." },
       {

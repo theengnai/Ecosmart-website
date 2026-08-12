@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
-type CTA = { label: string; to: string };
+type CTA = { label: string; to?: string; href?: string };
 
 export function StoryHero({
   eyebrow,
@@ -71,17 +71,35 @@ export function StoryHero({
         {(primary || secondary) && (
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             {primary ? (
-              <Link
-                to={primary.to}
-                className="group inline-flex items-center gap-2 rounded-full bg-canvas px-6 py-3 text-sm text-ink transition-transform hover:-translate-y-0.5"
-              >
-                <span className="font-medium tracking-wide">{primary.label}</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
-              </Link>
+              primary.href ? (
+                <a
+                  href={primary.href}
+                  onClick={(e) => {
+                    const id = primary.href?.replace("#", "");
+                    const el = id ? document.getElementById(id) : null;
+                    if (el) {
+                      e.preventDefault();
+                      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: "smooth" });
+                    }
+                  }}
+                  className="group inline-flex items-center gap-2 rounded-full bg-canvas px-6 py-3 text-sm text-ink transition-transform hover:-translate-y-0.5"
+                >
+                  <span className="font-medium tracking-wide">{primary.label}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+                </a>
+              ) : (
+                <Link
+                  to={primary.to!}
+                  className="group inline-flex items-center gap-2 rounded-full bg-canvas px-6 py-3 text-sm text-ink transition-transform hover:-translate-y-0.5"
+                >
+                  <span className="font-medium tracking-wide">{primary.label}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+                </Link>
+              )
             ) : null}
             {secondary ? (
               <Link
-                to={secondary.to}
+                to={secondary.to!}
                 className="group inline-flex items-center gap-2 rounded-full border border-canvas/40 px-6 py-3 text-sm text-canvas transition-all hover:border-canvas"
               >
                 {secondary.label}
