@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 import { ArrowRight, ArrowUpRight, Layers, Compass, Eye, Wrench, Truck, LayoutGrid, Triangle, Home, TreePine, Contrast } from "lucide-react";
 import { TopBar } from "@/components/nav/TopBar";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import logoUrl from "@/assets/logo.png";
+import logoUrl from "@/assets/light-logo-clean.svg";
 
 import heroFacade from "@/assets/about/hero-facade.jpg";
 import solArchitect from "@/assets/about/sol-architect.jpg";
