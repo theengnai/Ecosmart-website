@@ -195,16 +195,22 @@ function ProductPage() {
   const heroImage = activeVariant?.image ?? product.cover;
   const backRange = product.origin === "Imported" ? ("imported" as const) : ("local" as const);
 
+  const TECH_KEYS = ["reaction to fire", "water absorption", "bond strength", "surface"];
   const baseSpecs: [string, string][] = [
     ["Code", product.code],
     ["Family", family.name],
     ["Application", product.application],
     ["Finish", product.finish],
-    ["Fire rating", product.fireRating],
   ];
-  const specs: [string, string][] = product.details
-    ? [...baseSpecs, ...product.details.specs]
-    : baseSpecs;
+  const detailSpecs = product.details?.specs ?? [];
+  const techSpecs: [string, string][] = detailSpecs.filter(([k]) =>
+    TECH_KEYS.includes(k.trim().toLowerCase()),
+  );
+  const specs: [string, string][] = [
+    ...baseSpecs,
+    ...detailSpecs.filter(([k]) => !TECH_KEYS.includes(k.trim().toLowerCase())),
+  ];
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-canvas text-ink">
