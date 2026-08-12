@@ -8,6 +8,8 @@ import { AlternatingSlide } from "@/components/motion/AlternatingSlide";
 import { ScaleIn } from "@/components/motion/ScaleIn";
 import { ClipReveal } from "@/components/motion/ClipReveal";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { MagnifyImage } from "@/components/common/MagnifyImage";
+
 import { FAMILIES, PRODUCTS, productsByFamily, type Product } from "@/data/products";
 import projectImg1 from "@/assets/about/sol-facade.jpg";
 import projectImg2 from "@/assets/about/sol-architect.jpg";
@@ -195,16 +197,22 @@ function ProductPage() {
   const heroImage = activeVariant?.image ?? product.cover;
   const backRange = product.origin === "Imported" ? ("imported" as const) : ("local" as const);
 
+  const TECH_KEYS = ["reaction to fire", "water absorption", "bond strength", "surface"];
   const baseSpecs: [string, string][] = [
     ["Code", product.code],
     ["Family", family.name],
     ["Application", product.application],
     ["Finish", product.finish],
-    ["Fire rating", product.fireRating],
   ];
-  const specs: [string, string][] = product.details
-    ? [...baseSpecs, ...product.details.specs]
-    : baseSpecs;
+  const detailSpecs = product.details?.specs ?? [];
+  const techSpecs: [string, string][] = detailSpecs.filter(([k]) =>
+    TECH_KEYS.includes(k.trim().toLowerCase()),
+  );
+  const specs: [string, string][] = [
+    ...baseSpecs,
+    ...detailSpecs.filter(([k]) => !TECH_KEYS.includes(k.trim().toLowerCase())),
+  ];
+
 
   return (
     <div className="min-h-screen overflow-x-clip bg-canvas text-ink">
@@ -212,7 +220,7 @@ function ProductPage() {
       <TopBar />
 
       {/* Hero */}
-      <section className="px-5 pt-32 pb-16 md:px-10 md:pt-40">
+      <section className="px-5 pb-10 pt-28 md:px-10 lg:pb-12 lg:pt-28 xl:pb-16 xl:pt-40">
         <div className="mx-auto max-w-7xl">
           <Link
             to="/products/$family"
@@ -223,11 +231,15 @@ function ProductPage() {
             <ArrowLeft className="h-3 w-3" /> Back to {family.name}
           </Link>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+          <div className="mt-6 grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12 xl:mt-10 xl:gap-16">
             <div>
-            <BlurFocus className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[4/5]">
+            <BlurFocus className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[4/5] lg:aspect-[5/4] xl:aspect-[4/5]">
               {heroImage ? (
-                <img src={heroImage} alt={activeVariant ? `${product.name} — ${activeVariant.name}` : product.name} className="h-full w-full object-cover" />
+                <MagnifyImage
+                  src={heroImage}
+                  alt={activeVariant ? `${product.name} — ${activeVariant.name}` : product.name}
+                  className="h-full w-full cursor-zoom-in"
+                />
               ) : (
                 <div
                   className="flex h-full w-full flex-col justify-between p-6 sm:p-8"
@@ -238,23 +250,23 @@ function ProductPage() {
                 </div>
               )}
               {product.details && variants.length === 0 ? (
-                <span className="absolute left-4 top-4 rounded-full bg-copper/95 px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.24em] text-canvas">
+                <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-copper/95 px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.24em] text-canvas">
                   Featured product
                 </span>
               ) : null}
               {activeVariant ? (
-                <span className="absolute left-4 bottom-4 rounded-full bg-ink/80 px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.24em] text-canvas">
+                <span className="pointer-events-none absolute left-4 bottom-4 rounded-full bg-ink/80 px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.24em] text-canvas">
                   {activeVariant.name}
                 </span>
               ) : null}
             </BlurFocus>
 
             {variants.length > 1 ? (
-              <div className="mt-5">
+              <div className="mt-4">
                 <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">
                   {variants.length} colourways
                 </div>
-                <div className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-6">
+                <div className="mt-3 grid grid-cols-6 gap-2 sm:grid-cols-8 xl:grid-cols-6 xl:gap-3">
                   {variants.map((v, i) => (
                     <button
                       key={v.name}
@@ -279,21 +291,21 @@ function ProductPage() {
               <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
                 {product.code}
               </div>
-              <h1 className="display-serifish mt-4 text-4xl leading-[1.05] tracking-tight md:text-6xl">
+              <h1 className="display-serifish mt-3 text-3xl leading-[1.05] tracking-tight md:text-5xl xl:text-6xl">
                 {product.name}
               </h1>
-              <p className="mt-6 text-lg italic text-ink-soft">{product.poem}</p>
+              <p className="mt-4 text-base italic text-ink-soft xl:mt-6 xl:text-lg">{product.poem}</p>
 
               {product.details ? (
-                <p className="mt-6 text-base leading-relaxed text-ink/85">
+                <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-ink/85 xl:mt-6 xl:line-clamp-none xl:text-base">
                   {product.details.description}
                 </p>
               ) : null}
 
-              <div className="mt-10 space-y-2">
+              <div className="mt-6 space-y-1 xl:mt-10 xl:space-y-2">
                 {specs.map((row, j) => (
                   <AlternatingSlide key={row[0]} index={j}>
-                    <div className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-baseline gap-4 border-b border-line/50 py-3 font-mono text-xs uppercase tracking-[0.2em]">
+                    <div className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-baseline gap-4 border-b border-line/50 py-2 font-mono text-[0.68rem] uppercase tracking-[0.2em] xl:py-3 xl:text-xs">
                       <span className="min-w-0 text-left text-ink-soft">{row[0]}</span>
                       <span className="min-w-0 justify-self-end text-right text-ink">{row[1]}</span>
                     </div>
@@ -302,15 +314,15 @@ function ProductPage() {
               </div>
 
               {product.colors.length > 0 ? (
-              <div className="mt-10">
+              <div className="mt-6 xl:mt-10">
                 <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">
                   Colourway
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
+                <div className="mt-3 flex flex-wrap gap-2 sm:gap-3">
                   {product.colors.map((c) => (
                     <span
                       key={c}
-                      className="h-9 w-9 rounded-full border border-line/60 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.4)] sm:h-12 sm:w-12"
+                      className="h-8 w-8 rounded-full border border-line/60 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.4)] sm:h-10 sm:w-10 xl:h-12 xl:w-12"
                       style={{ backgroundColor: c }}
                     />
                   ))}
@@ -319,17 +331,17 @@ function ProductPage() {
               </div>
               ) : null}
 
-              <div className="mt-12 flex flex-wrap items-center gap-3">
+              <div className="mt-7 flex flex-wrap items-center gap-3 xl:mt-12">
                 <Link
                   to="/samples"
-                  className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm text-canvas transition-transform hover:-translate-y-0.5 xl:px-6 xl:py-3"
                 >
                   <span className="font-medium tracking-wide">Request a sample</span>
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 text-sm text-ink transition-colors hover:bg-ink hover:text-canvas"
+                  className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-5 py-2.5 text-sm text-ink transition-colors hover:bg-ink hover:text-canvas xl:px-6 xl:py-3"
                 >
                   Talk to a specialist
                 </Link>
@@ -338,6 +350,33 @@ function ProductPage() {
           </div>
         </div>
       </section>
+
+      {/* Technical details */}
+      {techSpecs.length > 0 ? (
+        <section className="border-t border-line/60 bg-canvas-2/40 px-5 py-16 md:px-10 md:py-20">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-12">
+            <div>
+              <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
+                Technical details
+              </div>
+              <h2 className="display-serifish mt-3 text-3xl md:text-4xl">
+                Performance, tested and documented.
+              </h2>
+            </div>
+            <div className="space-y-2">
+              {techSpecs.map((row, j) => (
+                <AlternatingSlide key={row[0]} index={j}>
+                  <div className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] items-baseline gap-4 border-b border-line/50 py-3 font-mono text-xs uppercase tracking-[0.2em]">
+                    <span className="min-w-0 text-left text-ink-soft">{row[0]}</span>
+                    <span className="min-w-0 justify-self-end text-right text-ink">{row[1]}</span>
+                  </div>
+                </AlternatingSlide>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
 
       {/* Rich sections — only for authored products */}
       {product.details ? (
