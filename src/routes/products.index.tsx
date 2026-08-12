@@ -41,6 +41,7 @@ type ProductCard = {
   id: string;
   tag: string;
   title: string;
+  subtitle?: string;
   body: string;
   specs?: [string, string][];
   image: string;
@@ -59,34 +60,44 @@ type Section = {
 const SECTIONS: Section[] = [
   {
     id: "architectural-finishes",
-    label: "Products",
-    title: "Products",
-    intro: "Product lines delivered by EcoSmart — for interior and exterior surfaces where the material must be honest, durable and buildable.",
+    label: "Architectural Solutions",
+    title: "Architectural Solutions",
+    intro: "Flexible architectural surfaces selected for interior and exterior applications — lightweight, adaptable and designed for expressive material finishes.",
     cards: [
       {
         id: "flexible-clay-stone-panels",
-        tag: "Exterior + Interior · 100% Saudi-made",
+        tag: "Exterior + Interior · Flexible surface system",
         title: "Flexible Clay-Stone Tiles",
-        body: "A flexible modified clay-stone tile that bends to follow flat and curved surfaces, applied like a thin tile with adhesive. EcoSmart is the exclusive Saudi source for flexible tiles, produced with 100% Saudi-sourced raw materials — a primary Vision 2030 / IKTVA position.",
+        subtitle: "Modified Clay Material (MCM)",
+        body: "Flexible MCM tiles are thin architectural surface materials made primarily from modified clay and mineral-based components. They reproduce stone, brick, concrete, wood and rammed-earth textures while adapting to flat and curved surfaces. Installed with a compatible adhesive system, they provide a lightweight finish for interior and exterior wall applications.",
         specs: [
-          ["Origin", "100% Saudi-made"],
-          ["Reference", "EN 13501-1 / ASTM E84"],
-          ["Water absorption", "ISO 10545-3"],
-          ["Bond strength", "EN 1348"],
+          ["Composition", "Modified clay + mineral-based components"],
+          ["Application", "Interior + exterior walls"],
+          ["Form", "Flat + curved surfaces"],
+          ["Installation", "Compatible adhesive system"],
+          ["Finishes", "Stone · Brick · Concrete · Wood · Rammed Earth"],
         ],
         image: clayTileAsset.url,
         viewAllLink: "mcm",
       },
+    ],
+  },
+  {
+    id: "other-solutions",
+    label: "Other Solutions — Coming Soon",
+    title: "Other Solutions — Coming Soon",
+    intro: "Further finishing and construction solutions are being prepared for the Saudi market. Details will be published as each range becomes available.",
+    cards: [
       {
         id: "eps-decorative-facades",
         tag: "Exterior · Façade details",
         title: "EPS Insulated Decorative Façades",
-        body: "Shaped EPS decorative elements — cornices, mouldings, bands and insulated panels — bonded to the substrate and finished with reinforced mesh, basecoat, primer and decorative topcoat. Decoration and insulation in one system.",
+        subtitle: "Shaped façade elements",
+        body: "Shaped EPS elements — cornices, mouldings and bands — finished on site to combine decoration with insulation.",
         specs: [
-          ["EPS density", "EN 13163 / ISO 845"],
-          ["Thermal conductivity", "ASTM C518 / EN 12667"],
-          ["Compressive strength (EPS)", "ISO 844 / EN 826"],
-          ["Reaction to fire (system)", "EN 13501-1"],
+          ["Application", "Exterior façade details"],
+          ["Form", "Shaped profiles + panels"],
+          ["Finish", "Mesh, basecoat, topcoat"],
         ],
         image: imgEps,
       },
@@ -94,12 +105,11 @@ const SECTIONS: Section[] = [
         id: "pu-stone",
         tag: "Interior + Exterior · Walls & Façades",
         title: "PU Stone Cladding",
-        body: "Lightweight polyurethane stone panels that reproduce the texture and tonal variation of quarried stone — up to 75% lighter than natural stone and up to 3× faster to install. Advanced molding captures authentic grain and depth, while the intuitive interlocking system means no specialised masonry skills are required. Suited to feature walls, fireplaces, façades and hospitality interiors.",
+        subtitle: "Polyurethane stone panels",
+        body: "Lightweight polyurethane panels that reproduce the texture and tonal variation of quarried stone for walls and façades.",
         specs: [
-          ["Material", "Polyurethane composite"],
-          ["Panel size", "1200 × 600 × 50 mm"],
-          ["Weight", "3.5 – 5.2 kg/m²"],
-          ["Weather range", "−40 °C to 60 °C · UV stable"],
+          ["Application", "Feature walls + façades"],
+          ["Form", "Interlocking panels"],
           ["Installation", "Direct adhesive mount"],
         ],
         image: imgPu,
@@ -109,12 +119,12 @@ const SECTIONS: Section[] = [
         id: "wpc",
         tag: "Exterior · Ground plane",
         title: "WPC External Decking",
-        body: "Wood-plastic composite decking — moisture-resistant, dimensionally stable and suited to KSA humidity. Joist spacing, expansion gaps and end gaps are product-specific — follow the product installation values.",
+        subtitle: "Wood-plastic composite",
+        body: "Composite decking boards for outdoor floors and terraces, dimensionally stable in humid conditions.",
         specs: [
-          ["Reference", "EN 15534 family"],
-          ["Reaction to fire", "EN 13501-1"],
+          ["Application", "Decks + terraces"],
+          ["Form", "Profiled boards"],
           ["Installation", "Concealed clip"],
-          ["Maintenance", "Sweep / rinse"],
         ],
         image: imgWpc,
         viewAllLink: "wpc",
@@ -122,6 +132,7 @@ const SECTIONS: Section[] = [
     ],
   },
 ];
+
 
 
 const KPIS = [
