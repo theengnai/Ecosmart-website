@@ -25,13 +25,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "EcoSmart is a Saudi company delivering construction systems and decoration & finishing products, based in Riyadh, Saudi Arabia — aligned to Vision 2030 and the Saudi Building Code.",
+          "EcoSmart is a Saudi company delivering construction systems and decoration & finishing products, based in Saudi Arabia — aligned to Vision 2030 and the Saudi Building Code.",
       },
       { property: "og:title", content: "About — EcoSmart" },
       {
         property: "og:description",
         content:
-          "Saudi company delivering construction systems and finishing products — Riyadh, Saudi Arabia.",
+          "Saudi company delivering construction systems and finishing products — Saudi Arabia.",
       },
       { property: "og:image", content: heroFacade },
     ],
@@ -288,7 +288,7 @@ function AboutPage() {
           </h1>
 
           <p className="mt-8 max-w-xl text-sm leading-relaxed text-canvas/80 md:text-base">
-            EcoSmart is a Saudi company delivering construction systems and decoration & finishing products, based in Riyadh, Saudi Arabia — aligned to Vision 2030, IKTVA and the Saudi Building Code.
+            EcoSmart is a Saudi company delivering construction systems and decoration & finishing products, based in Saudi Arabia — aligned to Vision 2030, IKTVA and the Saudi Building Code.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -388,7 +388,7 @@ function AboutPage() {
           <div className="mt-16 grid grid-cols-1 gap-10 border-t border-line/60 pt-10 md:grid-cols-3 md:gap-16">
             {[
               { k: "Focus", v: "Delivering construction systems and decoration & finishing products for the Saudi market — engineered to the Saudi Building Code." },
-              { k: "Market", v: "Saudi Arabia — from Riyadh in Riyadh, serving developers, contractors, architects and site operators nationwide." },
+              { k: "Market", v: "Saudi Arabia — serving developers, contractors, architects and site operators nationwide." },
               { k: "Difference", v: "A hybrid frame + panels + hourdi floor system in one package; the exclusive KSA source for flexible clay-stone tiles; curved modular capability; 100% Saudi-sourced raw materials on our flexible tile line." },
             ].map((b) => (
               <div key={b.k}>
@@ -461,7 +461,7 @@ function AboutPage() {
               <img src={logoUrl} alt="Ecosmart" className="h-10 w-auto md:h-12" />
               <div className="mt-2 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-copper/80">Build Better. Build Saudi.</div>
               <p className="mt-8 max-w-xs text-sm leading-relaxed text-[#d9d4cb]/70">
-                Saudi company delivering construction systems and decoration & finishing products. Riyadh, Saudi Arabia.
+                Saudi company delivering construction systems and decoration & finishing products. Saudi Arabia.
               </p>
               <div className="mt-6 space-y-1 font-mono text-[0.6rem] uppercase tracking-[0.28em] text-[#d9d4cb]/50">
                 <div>شركة إيكوسمارت</div>

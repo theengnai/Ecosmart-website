@@ -42,7 +42,7 @@ export function SiteFooter() {
           </p>
           <div className="mt-8 space-y-1 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-canvas/50">
             <div>شركة إيكوسمارت</div>
-            <div>Riyadh, Saudi Arabia</div>
+            <div>Saudi Arabia</div>
             <div>hello@ecosmart.sa · ecosmart.sa</div>
             <div>CR No. 1009200656</div>
           </div>
