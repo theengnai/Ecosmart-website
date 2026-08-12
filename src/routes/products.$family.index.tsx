@@ -12,6 +12,10 @@ import { MCM_IMPORTED_GROUPS } from "@/data/mcm-imported";
 import { Feather, Wrench, Layers, Shield, Sparkles } from "lucide-react";
 import mcmSaudiHero from "@/assets/renders/mcm-saudi-hero.png.asset.json";
 import mcmGlobalHero from "@/assets/pages/mcm-global-hero.jpg";
+import { GalleryGrid } from "@/components/media/GalleryGrid";
+import { ImageMarquee } from "@/components/media/ImageMarquee";
+import { FullBleedBand } from "@/components/media/FullBleedBand";
+import { GALLERY, SCENES } from "@/lib/gallery";
 
 
 
@@ -223,6 +227,20 @@ function FamilyPage() {
 
 
       {family.key === "PU" ? <PUInfo /> : null}
+
+      <GalleryGrid
+        images={[GALLERY.interiorLounge, GALLERY.exteriorVilla, GALLERY.archHall, GALLERY.facadeDetail, GALLERY.interiorMajlis, GALLERY.installDetail]}
+        kicker="In place"
+        title="This range, applied."
+        body="Interiors, façades and curved surfaces finished with the same material family."
+      />
+      <FullBleedBand
+        image={GALLERY.exteriorCourtyard}
+        kicker="Exterior"
+        title="Built for Saudi sun, dust and humidity."
+        height="sm"
+      />
+      <ImageMarquee images={SCENES} duration={70} reverse />
 
       <CTABand
         eyebrow="Not sure which fits?"

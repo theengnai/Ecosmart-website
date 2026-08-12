@@ -17,6 +17,9 @@ import projectImg3 from "@/assets/about/sol-interior.jpg";
 import projectImg4 from "@/assets/pages/projects-featured-new.jpg";
 import projectImg5 from "@/assets/pages/projects-band-2.jpg";
 import projectImg6 from "@/assets/about/sol-building.jpg";
+import { GalleryGrid } from "@/components/media/GalleryGrid";
+import { ImageMarquee } from "@/components/media/ImageMarquee";
+import { GALLERY, MATERIALS } from "@/lib/gallery";
 
 const FAMILY_SLUGS: Record<string, Product["family"]> = {
   mcm: "MCM",
@@ -518,6 +521,14 @@ function ProductPage() {
           </div>
         </section>
       ) : null}
+
+      <GalleryGrid
+        images={[GALLERY.interiorLounge, GALLERY.archHall, GALLERY.facadeDetail, GALLERY.interiorBedroom, GALLERY.exteriorVilla, GALLERY.materialClay]}
+        kicker="Inspiration"
+        title="Seen in place."
+        body="Interiors and façades finished with this material family."
+      />
+      <ImageMarquee images={MATERIALS} duration={65} />
 
       <SiteFooter />
       <WhatsAppButton />
