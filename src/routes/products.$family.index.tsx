@@ -98,7 +98,13 @@ function FamilyPage() {
     ? allItems.filter((p) => (p.origin ?? "Local") === (range === "imported" ? "Imported" : "Local"))
     : allItems;
   const isImported = isMCM && range === "imported";
-  const filtered = items;
+  const isSaudiMCM = isMCM && !isImported;
+  const [series, setSeries] = useState<string>("All");
+  const seriesList = useMemo(() => {
+    if (!isSaudiMCM) return [] as string[];
+    return Array.from(new Set(items.map((p) => p.group).filter(Boolean) as string[])).sort();
+  }, [isSaudiMCM, items]);
+  const filtered = isSaudiMCM && series !== "All" ? items.filter((p) => p.group === series) : items;
   const heroImage = isMCM ? (isImported ? mcmGlobalHero : mcmSaudiHero.url) : family.cover;
   const heroAlt = isMCM
     ? isImported
