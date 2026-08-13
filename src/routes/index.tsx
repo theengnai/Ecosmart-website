@@ -128,8 +128,8 @@ const SECTIONS: Record<number, SectionMeta> = {
 };
 
 function Index() {
-  const { active, go } = useSnapSections(TOTAL);
   const isMobile = useIsMobile(true);
+  const { active, go } = useSnapSections(TOTAL, !isMobile);
   const [displayed, setDisplayed] = useState(active);
   const [transitioning, setTransitioning] = useState(false);
 
@@ -144,6 +144,36 @@ function Index() {
     }, swapDelay);
     return () => window.clearTimeout(t);
   }, [active, displayed, isMobile]);
+
+  if (isMobile) {
+    const scrollToSection = (i: number) => {
+      const el = document.getElementById(`section-${i}`);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    return (
+      <div className="relative w-full">
+        <IntroOverlay />
+        <TopBar />
+
+        <section id="section-0" className="min-h-[100svh] w-full">
+          <HeroSection active onPickItem={scrollToSection} />
+        </section>
+
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <section key={i} id={`section-${i}`} className="min-h-[100svh] w-full">
+            <SectionShell active meta={SECTIONS[i]} />
+          </section>
+        ))}
+
+        <section id="section-7" className="min-h-[100svh] w-full">
+          <PartnerSection active />
+        </section>
+
+        <WhatsAppButton />
+      </div>
+    );
+  }
 
   return (
     <div className="relative h-screen w-screen overflow-hidden">
@@ -179,3 +209,4 @@ function Index() {
     </div>
   );
 }
+
