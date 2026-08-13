@@ -15,7 +15,7 @@ function findScrollableAncestor(start: EventTarget | null): HTMLElement | null {
   return null;
 }
 
-export function useSnapSections(count: number) {
+export function useSnapSections(count: number, enabled = true) {
   const [active, setActive] = useState(0);
   const locked = useRef(false);
   const touchStart = useRef<
@@ -36,6 +36,7 @@ export function useSnapSections(count: number) {
   );
 
   useEffect(() => {
+    if (!enabled) return;
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) < 12) return;
       const scrollable = findScrollableAncestor(e.target);
@@ -115,7 +116,7 @@ export function useSnapSections(count: number) {
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchend", onTouchEnd);
     };
-  }, [active, count, go]);
+  }, [active, count, go, enabled]);
 
   return { active, go };
 }
