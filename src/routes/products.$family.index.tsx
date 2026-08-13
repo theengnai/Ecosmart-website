@@ -98,7 +98,13 @@ function FamilyPage() {
     ? allItems.filter((p) => (p.origin ?? "Local") === (range === "imported" ? "Imported" : "Local"))
     : allItems;
   const isImported = isMCM && range === "imported";
-  const filtered = items;
+  const isSaudiMCM = isMCM && !isImported;
+  const [series, setSeries] = useState<string>("All");
+  const seriesList = useMemo(() => {
+    if (!isSaudiMCM) return [] as string[];
+    return Array.from(new Set(items.map((p) => p.group).filter(Boolean) as string[])).sort();
+  }, [isSaudiMCM, items]);
+  const filtered = isSaudiMCM && series !== "All" ? items.filter((p) => p.group === series) : items;
   const heroImage = isMCM ? (isImported ? mcmGlobalHero : mcmSaudiHero.url) : family.cover;
   const heroAlt = isMCM
     ? isImported
@@ -215,6 +221,28 @@ function FamilyPage() {
         <div className="mx-auto max-w-7xl">
           <h2 className="display-serifish text-3xl leading-tight md:text-5xl">{copy.gridTitle}</h2>
           <p className="mt-3 max-w-2xl text-sm text-ink-soft md:text-base">{copy.gridBody}</p>
+          {isSaudiMCM && seriesList.length > 1 ? (
+            <div className="mt-8 flex flex-wrap items-center gap-2">
+              <span className="mr-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft">Series</span>
+              {["All", ...seriesList].map((s) => {
+                const active = series === s;
+                const count = s === "All" ? items.length : items.filter((p) => p.group === s).length;
+                return (
+                  <button
+                    key={s}
+                    onClick={() => setSeries(s)}
+                    className={`rounded-full border px-4 py-1.5 text-xs font-medium tracking-wide transition-colors ${
+                      active
+                        ? "border-copper bg-copper text-canvas"
+                        : "border-line/60 bg-canvas text-ink-soft hover:border-copper/60 hover:text-ink"
+                    }`}
+                  >
+                    {s} <span className="opacity-60">({count})</span>
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
           <div className="mb-12" />
 
           <div className="grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
