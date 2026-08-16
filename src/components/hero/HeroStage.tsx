@@ -46,12 +46,11 @@ export function HeroStage({ children }: { children: ReactNode }) {
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 opacity-[0.45] dark:opacity-[0.05]"
           style={{
             backgroundImage:
               "linear-gradient(to right, rgba(227,220,205,0.55) 1px, transparent 1px), linear-gradient(to bottom, rgba(227,220,205,0.55) 1px, transparent 1px)",
             backgroundSize: "72px 72px",
-            opacity: 0.45,
           }}
         />
         <div
