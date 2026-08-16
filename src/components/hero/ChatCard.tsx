@@ -68,7 +68,6 @@ const MATERIALS: {
 // Mobile shows first 3, tablet+ shows all 4
 const ACTIONS: { label: string; Icon: typeof Mountain; to: string }[] = [
   { label: "Contact us", Icon: Mail, to: "/contact" },
-  { label: "Request samples", Icon: Package, to: "/samples" },
   { label: "Get a quote", Icon: FileText, to: "/contact" },
   { label: "Design support", Icon: Compass, to: "/contact" },
 ];
