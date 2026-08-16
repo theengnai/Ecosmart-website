@@ -73,8 +73,8 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
           </motion.p>
         </div>
 
-        {/* Saudi MCM finishes — directly below the chat widget (mobile) */}
-        <SaudiMcmStrip className="relative z-10 lg:hidden" />
+        {/* Saudi MCM finishes — directly below the chat widget */}
+        <SaudiMcmStrip className="relative z-10" />
       </motion.div>
     </HeroStage>
   );
