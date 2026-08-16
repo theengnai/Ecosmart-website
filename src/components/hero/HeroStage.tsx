@@ -86,12 +86,9 @@ export function HeroStage({ children }: { children: ReactNode }) {
       </svg>
 
       {/* architectural grid, masked to edges */}
-      <motion.div
+      <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.9 }}
+        className="pointer-events-none absolute inset-0 opacity-[0.45] dark:opacity-[0.05]"
         style={{
           backgroundImage:
             "linear-gradient(to right, #E3DCCD 1px, transparent 1px), linear-gradient(to bottom, #E3DCCD 1px, transparent 1px)",
@@ -100,7 +97,6 @@ export function HeroStage({ children }: { children: ReactNode }) {
             "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 35%, black 90%)",
           maskImage:
             "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 35%, black 90%)",
-          opacity: "var(--hero-grid-opacity, 0.45)",
         }}
       />
 
