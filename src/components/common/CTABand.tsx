@@ -34,17 +34,41 @@ export function CTABand({
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
-          <Link
-            to={href}
-            className={`group inline-flex items-center gap-3 rounded-full border px-6 py-4 text-sm font-medium transition-colors ${
-              dark
-                ? "border-canvas/30 text-canvas hover:bg-canvas hover:text-ink"
-                : "border-ink/25 text-ink hover:bg-ink hover:text-canvas"
-            }`}
-          >
-            {cta}
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          {href.startsWith("#") ? (
+            <a
+              href={href}
+              onClick={(e) => {
+                const el = document.getElementById(href.slice(1));
+                if (el) {
+                  e.preventDefault();
+                  window.scrollTo({
+                    top: el.getBoundingClientRect().top + window.scrollY - 96,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+              className={`group inline-flex items-center gap-3 rounded-full border px-6 py-4 text-sm font-medium transition-colors ${
+                dark
+                  ? "border-canvas/30 text-canvas hover:bg-canvas hover:text-ink"
+                  : "border-ink/25 text-ink hover:bg-ink hover:text-canvas"
+              }`}
+            >
+              {cta}
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          ) : (
+            <Link
+              to={href}
+              className={`group inline-flex items-center gap-3 rounded-full border px-6 py-4 text-sm font-medium transition-colors ${
+                dark
+                  ? "border-canvas/30 text-canvas hover:bg-canvas hover:text-ink"
+                  : "border-ink/25 text-ink hover:bg-ink hover:text-canvas"
+              }`}
+            >
+              {cta}
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          )}
         </Reveal>
       </div>
     </section>

@@ -13,7 +13,7 @@ const COLS = [
   {
     h: "Support",
     items: [
-      { l: "Certificates", to: "/resources" as const },
+      { l: "Certificates", to: "/certificates" as const },
       { l: "Contact", to: "/contact" as const },
       { l: "About", to: "/about" as const },
     ],
@@ -23,8 +23,8 @@ const COLS = [
     items: [
       { l: "About EcoSmart", to: "/about" as const },
       { l: "Careers", to: "/contact" as const },
-      { l: "Technical Data Sheets", to: "/resources" as const },
-      { l: "Test Certificates", to: "/resources" as const },
+      { l: "Technical Data Sheets", to: "/certificates" as const },
+      { l: "Test Certificates", to: "/certificates" as const },
     ],
   },
 ];

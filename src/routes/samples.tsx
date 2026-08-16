@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { z } from "zod";
 import { Package, Sparkles } from "lucide-react";
 import { TopBar } from "@/components/nav/TopBar";
 import { SiteFooter } from "@/components/common/SiteFooter";
@@ -40,6 +42,117 @@ const CONTENTS = [
   { label: "Project note", desc: "A short line about why we shortlisted this material for the brief you sent." },
 ];
 
+const inputClass =
+  "mt-2 w-full rounded-lg border border-line bg-canvas px-4 py-3 text-sm outline-none focus:border-copper";
+const labelClass = "font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-soft";
+
+const sampleSchema = z.object({
+  name: z.string().trim().min(1, "Please enter your name").max(100),
+  company: z.string().trim().max(120).optional(),
+  email: z.string().trim().email("Please enter a valid email").max(255),
+  phone: z.string().trim().max(40).optional(),
+  product: z.string().trim().min(1).max(120),
+  address: z.string().trim().min(1, "Please enter a shipping address").max(300),
+  message: z.string().trim().max(1000).optional(),
+});
+
+function SampleRequestForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const parsed = sampleSchema.safeParse({
+      name: String(fd.get("name") ?? ""),
+      company: String(fd.get("company") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      product: String(fd.get("product") ?? ""),
+      address: String(fd.get("address") ?? ""),
+      message: String(fd.get("message") ?? ""),
+    });
+    if (!parsed.success) {
+      setError(parsed.error.issues[0]?.message ?? "Please check the form");
+      setSubmitted(false);
+      return;
+    }
+    setError(null);
+    setSubmitted(true);
+  };
+
+  return (
+    <section id="request" className="scroll-mt-24 border-t border-line/60 bg-canvas-2/40 px-5 py-24 md:px-10 md:py-32">
+      <div className="mx-auto max-w-3xl">
+        <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
+          Request a sample
+        </div>
+        <h2 className="display-serifish mt-3 text-3xl md:text-4xl">
+          Tell us what to send, and where.
+        </h2>
+        <form onSubmit={onSubmit} className="mt-10 grid gap-5 md:grid-cols-2">
+          <label className="block">
+            <span className={labelClass}>Full name</span>
+            <input name="name" maxLength={100} className={inputClass} />
+          </label>
+          <label className="block">
+            <span className={labelClass}>Company</span>
+            <input name="company" maxLength={120} className={inputClass} />
+          </label>
+          <label className="block">
+            <span className={labelClass}>Email</span>
+            <input name="email" type="email" maxLength={255} className={inputClass} />
+          </label>
+          <label className="block">
+            <span className={labelClass}>Phone</span>
+            <input name="phone" maxLength={40} className={inputClass} />
+          </label>
+          <label className="block md:col-span-2">
+            <span className={labelClass}>Product of interest</span>
+            <select name="product" className={inputClass} defaultValue="Saudi MCM">
+              <option>Saudi MCM</option>
+              <option>Global MCM</option>
+              <option>PU stone</option>
+              <option>WPC / SPC / PVC</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label className="block md:col-span-2">
+            <span className={labelClass}>Shipping address</span>
+            <input name="address" maxLength={300} className={inputClass} />
+          </label>
+          <label className="block md:col-span-2">
+            <span className={labelClass}>Project details</span>
+            <textarea name="message" rows={5} maxLength={1000} className={inputClass} />
+          </label>
+
+          {error ? (
+            <div className="md:col-span-2 rounded-xl border border-copper/50 bg-copper/10 p-4 text-sm">
+              {error}
+            </div>
+          ) : null}
+
+          <button
+            type="submit"
+            className="md:col-span-2 w-full rounded-full bg-copper py-4 text-sm font-medium text-canvas transition-colors hover:bg-copper-deep"
+          >
+            Request a sample
+          </button>
+
+          {submitted ? (
+            <div className="md:col-span-2 rounded-2xl border border-copper bg-copper/10 p-6 text-center">
+              <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
+                Request received
+              </div>
+              <div className="mt-2">Thank you — we will confirm your sample shortly.</div>
+            </div>
+          ) : null}
+        </form>
+      </div>
+    </section>
+  );
+}
+
 function SamplesPage() {
   return (
     <div className="min-h-screen bg-canvas text-ink">
@@ -51,9 +164,11 @@ function SamplesPage() {
         emphasis="Then specify it."
         subcopy="Physical samples of our flexible clay-stone tiles and related finishing products, cut from production sheets and issued on request with a specification card."
         image={hero}
-        primary={{ label: "Request a sample", to: "/contact" }}
+        primary={{ label: "Request a sample", href: "#request" }}
         secondary={{ label: "See the products", to: "/products" }}
       />
+
+      <SampleRequestForm />
 
       <section className="relative border-t border-line/60 px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-4xl">
@@ -169,7 +284,7 @@ function SamplesPage() {
       <CTABand
         eyebrow="Ready?"
         title="Request a sample — we'll send it to you."
-        href="/contact"
+        href="#request"
         cta="Request a sample"
       />
 
