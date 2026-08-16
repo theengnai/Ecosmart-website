@@ -29,10 +29,11 @@ const FAMILY_SLUGS: Record<string, Product["family"]> = {
 };
 
 export const Route = createFileRoute("/products/$family/")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { range: "imported" | "local"; series?: string } => ({
     range: search.range === "imported" ? ("imported" as const) : ("local" as const),
-    series: typeof search.series === "string" ? search.series : undefined,
+    ...(typeof search.series === "string" ? { series: search.series } : {}),
   }),
+
 
   loader: ({ params }) => {
     const key = FAMILY_SLUGS[params.family.toLowerCase()];
