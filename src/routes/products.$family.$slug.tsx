@@ -17,9 +17,16 @@ import projectImg3 from "@/assets/about/sol-interior.jpg";
 import projectImg4 from "@/assets/pages/projects-featured-new.jpg";
 import projectImg5 from "@/assets/pages/projects-band-2.jpg";
 import projectImg6 from "@/assets/about/sol-building.jpg";
-import { GalleryGrid } from "@/components/media/GalleryGrid";
 import { ImageMarquee } from "@/components/media/ImageMarquee";
-import { GALLERY, MATERIALS } from "@/lib/gallery";
+import { GALLERY, MATERIALS, type GalleryImage } from "@/lib/gallery";
+
+/** Project application photography shown in the "once installed" gallery. */
+const APPLICATION_SHOTS: GalleryImage[] = [
+  GALLERY.interiorLounge,
+  GALLERY.exteriorVilla,
+  GALLERY.archHall,
+];
+
 
 const FAMILY_SLUGS: Record<string, Product["family"]> = {
   mcm: "MCM",
