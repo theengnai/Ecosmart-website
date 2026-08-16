@@ -6,7 +6,6 @@ import { SiteFooter } from "@/components/common/SiteFooter";
 import { BlurFocus } from "@/components/motion/BlurFocus";
 import { AlternatingSlide } from "@/components/motion/AlternatingSlide";
 import { ScaleIn } from "@/components/motion/ScaleIn";
-import { ClipReveal } from "@/components/motion/ClipReveal";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { MagnifyImage } from "@/components/common/MagnifyImage";
 
