@@ -164,7 +164,6 @@ function SamplesPage() {
         emphasis="Then specify it."
         subcopy="Physical samples of our flexible clay-stone tiles and related finishing products, cut from production sheets and issued on request with a specification card."
         image={hero}
-        primary={{ label: "Request a sample", href: "#request" }}
         secondary={{ label: "See the products", to: "/products" }}
       />
 
