@@ -6,7 +6,6 @@ const COLS = [
     h: "Products",
     items: [
       { l: "All Products", to: "/products" as const },
-      { l: "Applications", to: "/projects" as const },
       { l: "Samples", to: "/samples" as const },
       { l: "Visualizer (soon)", to: "/visualizer" as const },
     ],
@@ -14,8 +13,7 @@ const COLS = [
   {
     h: "Support",
     items: [
-      { l: "Technical Resources", to: "/resources" as const },
-      { l: "Project Support", to: "/design-services" as const },
+      { l: "Certificates", to: "/resources" as const },
       { l: "Contact", to: "/contact" as const },
       { l: "About", to: "/about" as const },
     ],
@@ -30,6 +28,7 @@ const COLS = [
     ],
   },
 ];
+
 
 export function SiteFooter() {
   return (
