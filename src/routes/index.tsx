@@ -11,7 +11,6 @@ import { IntroOverlay } from "@/components/intro/IntroOverlay";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { PartnerSection } from "@/components/sections/PartnerSection";
 import { SectionTransition } from "@/components/nav/SectionTransition";
-import { SaudiMcmStrip } from "@/components/sections/SaudiMcmStrip";
 
 import imgVisualizer from "@/assets/gallery/exterior-villa-dusk.jpg";
 import imgSamples from "@/assets/gallery/material-clay-macro.jpg";
@@ -118,8 +117,6 @@ function Index() {
         <section id="section-0" className="w-full">
           <HeroSection active onPickItem={scrollToSection} />
         </section>
-
-        <SaudiMcmStrip />
 
         {[1, 2, 3].map((i) => (
           <section key={i} id={`section-${i}`} className="min-h-[100svh] w-full">

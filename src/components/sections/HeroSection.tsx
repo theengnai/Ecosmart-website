@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { HeroStage } from "@/components/hero/HeroStage";
 import { useEffect, useRef } from "react";
+import { SaudiMcmStrip } from "@/components/sections/SaudiMcmStrip";
 
 export function HeroSection({ active }: { active: boolean; onPickItem?: (i: number) => void }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -71,6 +72,9 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
             Ask about our construction systems and finishing products — delivered by EcoSmart, Saudi Arabia.
           </motion.p>
         </div>
+
+        {/* Saudi MCM finishes — directly below the chat widget (mobile) */}
+        <SaudiMcmStrip className="relative z-10 lg:hidden" />
       </motion.div>
     </HeroStage>
   );
