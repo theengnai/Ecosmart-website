@@ -100,7 +100,7 @@ export function HeroStage({ children }: { children: ReactNode }) {
             "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 35%, black 90%)",
           maskImage:
             "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 35%, black 90%)",
-          opacity: 0.45,
+          opacity: "var(--hero-grid-opacity, 0.45)",
         }}
       />
 
