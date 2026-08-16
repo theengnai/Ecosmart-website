@@ -115,16 +115,9 @@ export function TopBar() {
               </Link>
             ))}
             <Link
-              to="/samples"
-              onClick={() => setOpen(false)}
-              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-copper px-6 py-4 text-sm font-medium text-canvas hover:bg-copper-deep"
-            >
-              Order Sample Kit
-            </Link>
-            <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-ink/25 px-6 py-4 text-sm font-medium text-ink hover:bg-ink hover:text-canvas"
+              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-ink/25 px-6 py-4 text-sm font-medium text-ink hover:bg-ink hover:text-canvas"
             >
               Contact Ecosmart
             </Link>
