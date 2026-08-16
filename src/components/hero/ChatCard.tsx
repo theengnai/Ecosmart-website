@@ -70,7 +70,7 @@ const ACTIONS: { label: string; Icon: typeof Mountain; to: string }[] = [
   { label: "Contact us", Icon: Mail, to: "/contact" },
   { label: "Request samples", Icon: Package, to: "/samples" },
   { label: "Get a quote", Icon: FileText, to: "/contact" },
-  { label: "Design support", Icon: Compass, to: "/design-services" },
+  { label: "Design support", Icon: Compass, to: "/contact" },
 ];
 
 export function ChatCard({ onSend }: { onSend?: (q?: string) => void }) {
