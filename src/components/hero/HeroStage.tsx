@@ -38,7 +38,7 @@ export function HeroStage({ children }: { children: ReactNode }) {
   if (isMobile) {
     return (
       <div
-        className="relative h-full w-full overflow-hidden"
+        className="relative min-h-[100svh] w-full overflow-hidden"
         style={{
           background:
             "linear-gradient(180deg, var(--canvas-2) 0%, var(--canvas) 50%, var(--canvas-2) 100%)",
@@ -60,7 +60,7 @@ export function HeroStage({ children }: { children: ReactNode }) {
             background: "radial-gradient(circle, #D89060 0%, rgba(216,144,96,0.35) 42%, transparent 72%)",
           }}
         />
-        <div className="relative z-10 h-full w-full">{children}</div>
+        <div className="relative z-10 w-full">{children}</div>
       </div>
     );
   }
