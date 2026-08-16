@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { HeroStage } from "@/components/hero/HeroStage";
 import { useEffect, useRef } from "react";
+import { SaudiMcmStrip } from "@/components/sections/SaudiMcmStrip";
 
 export function HeroSection({ active }: { active: boolean; onPickItem?: (i: number) => void }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
