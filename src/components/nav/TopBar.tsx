@@ -79,6 +79,12 @@ export function TopBar() {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
+            <Link
+              to="/samples"
+              className="hidden rounded-full bg-copper px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-canvas transition-colors hover:bg-copper-deep md:inline-block"
+            >
+              Order Samples
+            </Link>
             <LangSwitcher />
             <ThemeToggle />
             <button
@@ -115,9 +121,16 @@ export function TopBar() {
               </Link>
             ))}
             <Link
+              to="/samples"
+              onClick={() => setOpen(false)}
+              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-copper px-6 py-4 text-sm font-medium text-canvas hover:bg-copper-deep"
+            >
+              Order Sample Kit
+            </Link>
+            <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-ink/25 px-6 py-4 text-sm font-medium text-ink hover:bg-ink hover:text-canvas"
+              className="mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-ink/25 px-6 py-4 text-sm font-medium text-ink hover:bg-ink hover:text-canvas"
             >
               Contact Ecosmart
             </Link>
