@@ -79,12 +79,6 @@ export function TopBar() {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
-            <Link
-              to="/samples"
-              className="hidden rounded-full bg-copper px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-canvas transition-colors hover:bg-copper-deep md:inline-block"
-            >
-              Order Samples
-            </Link>
             <LangSwitcher />
             <ThemeToggle />
             <button
