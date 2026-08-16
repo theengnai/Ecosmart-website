@@ -695,12 +695,11 @@ function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
 
               <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {visible.map((p) => (
-                  <Link
+                  <div
                     key={p.slug}
-                    to="/products/$family/$slug"
-                    params={{ family: slug, slug: p.slug }}
-                    className="group block overflow-hidden rounded-xl border border-line/60 bg-canvas transition-all hover:-translate-y-1 hover:border-copper/50 hover:shadow-[0_18px_50px_-22px_rgba(0,0,0,0.35)]"
+                    className="group block overflow-hidden rounded-xl border border-line/60 bg-canvas"
                   >
+
                     <div className="relative aspect-square overflow-hidden bg-canvas-2">
                       <img
                         src={thumb(p.cover)}
