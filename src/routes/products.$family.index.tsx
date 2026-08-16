@@ -29,9 +29,12 @@ const FAMILY_SLUGS: Record<string, Product["family"]> = {
 };
 
 export const Route = createFileRoute("/products/$family/")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { range: "imported" | "local"; series?: string } => ({
     range: search.range === "imported" ? ("imported" as const) : ("local" as const),
+    ...(typeof search.series === "string" ? { series: search.series } : {}),
   }),
+
+
   loader: ({ params }) => {
     const key = FAMILY_SLUGS[params.family.toLowerCase()];
     if (!key) throw notFound();
@@ -91,7 +94,7 @@ function FamilyError({ error, reset }: { error: Error; reset: () => void }) {
 
 function FamilyPage() {
   const { family, items: allItems, slug } = Route.useLoaderData() as { family: typeof FAMILIES[number]; items: Product[]; slug: string };
-  const { range } = Route.useSearch();
+  const { range, series: seriesParam } = Route.useSearch();
   const navigate = Route.useNavigate();
   const isMCM = family.key === "MCM";
   const items = isMCM
@@ -99,7 +102,10 @@ function FamilyPage() {
     : allItems;
   const isImported = isMCM && range === "imported";
   const isSaudiMCM = isMCM && !isImported;
-  const [series, setSeries] = useState<string>("All");
+  const series = seriesParam ?? "All";
+  const setSeries = (s: string) =>
+    navigate({ search: (prev) => ({ ...prev, series: s === "All" ? undefined : s }), replace: true });
+
   const seriesList = useMemo(() => {
     if (!isSaudiMCM) return [] as string[];
     return Array.from(new Set(items.map((p) => p.group).filter(Boolean) as string[])).sort();
@@ -217,7 +223,7 @@ function FamilyPage() {
 
 
       {/* Product grid — dense */}
-      <section className="px-5 py-16 md:px-10 md:py-24">
+      <section id="series" className="scroll-mt-24 px-5 py-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="display-serifish text-3xl leading-tight md:text-5xl">{copy.gridTitle}</h2>
           <p className="mt-3 max-w-2xl text-sm text-ink-soft md:text-base">{copy.gridBody}</p>

@@ -32,7 +32,8 @@ export function SaudiMcmStrip({ className = "" }: { className?: string }) {
               key={t.name}
               to="/products/$family"
               params={{ family: "mcm" }}
-              search={{ range: "local" as const }}
+              search={{ range: "local" as const, series: t.name }}
+              hash="series"
               className="group relative block aspect-square overflow-hidden rounded-lg border border-line/60 lg:rounded-xl"
             >
               <img
