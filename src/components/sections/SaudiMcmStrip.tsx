@@ -17,23 +17,23 @@ const TILES: { name: string; image: string }[] = [
 
 export function SaudiMcmStrip({ className = "" }: { className?: string }) {
   return (
-    <section className={`w-full px-5 py-12 ${className}`}>
+    <section className={`w-full px-4 py-8 min-[420px]:px-5 lg:py-5 ${className}`}>
       <div className="mx-auto max-w-4xl">
         <div className="font-mono text-[0.6rem] uppercase tracking-[0.28em] text-copper">
           Saudi MCM
         </div>
-        <p className="mt-2 text-sm text-ink-soft">
+        <p className="mt-1 text-xs text-ink-soft/80 lg:text-[0.7rem]">
           Flexible clay-stone surfaces, made in Saudi Arabia.
         </p>
 
-        <div className="mt-6 grid grid-cols-2 gap-3 min-[420px]:grid-cols-3">
+        <div className="mt-4 grid grid-cols-3 gap-2 lg:mt-3 lg:grid-cols-6 lg:gap-3">
           {TILES.map((t) => (
             <Link
               key={t.name}
               to="/products/$family"
               params={{ family: "mcm" }}
               search={{ range: "local" as const }}
-              className="group relative block aspect-square overflow-hidden rounded-xl border border-line/60"
+              className="group relative block aspect-square overflow-hidden rounded-lg border border-line/60 lg:rounded-xl"
             >
               <img
                 src={t.image}
@@ -42,7 +42,7 @@ export function SaudiMcmStrip({ className = "" }: { className?: string }) {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <span className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/35 to-transparent" />
-              <span className="absolute inset-x-0 bottom-0 p-2.5 text-left font-mono text-[0.58rem] uppercase leading-tight tracking-[0.18em] text-white">
+              <span className="absolute inset-x-0 bottom-0 p-1.5 text-left font-mono text-[0.5rem] uppercase leading-tight tracking-[0.16em] text-white lg:p-2 lg:text-[0.55rem]">
                 {t.name}
               </span>
             </Link>
