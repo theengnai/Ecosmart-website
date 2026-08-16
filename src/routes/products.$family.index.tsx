@@ -94,7 +94,7 @@ function FamilyError({ error, reset }: { error: Error; reset: () => void }) {
 
 function FamilyPage() {
   const { family, items: allItems, slug } = Route.useLoaderData() as { family: typeof FAMILIES[number]; items: Product[]; slug: string };
-  const { range } = Route.useSearch();
+  const { range, series: seriesParam } = Route.useSearch();
   const navigate = Route.useNavigate();
   const isMCM = family.key === "MCM";
   const items = isMCM
@@ -102,7 +102,10 @@ function FamilyPage() {
     : allItems;
   const isImported = isMCM && range === "imported";
   const isSaudiMCM = isMCM && !isImported;
-  const [series, setSeries] = useState<string>("All");
+  const series = seriesParam ?? "All";
+  const setSeries = (s: string) =>
+    navigate({ search: (prev) => ({ ...prev, series: s === "All" ? undefined : s }), replace: true });
+
   const seriesList = useMemo(() => {
     if (!isSaudiMCM) return [] as string[];
     return Array.from(new Set(items.map((p) => p.group).filter(Boolean) as string[])).sort();
