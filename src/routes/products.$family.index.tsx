@@ -726,10 +726,11 @@ function ImportedCatalog({ items, slug }: { items: Product[]; slug: string }) {
                             />
                           ))}
                         </div>
-                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-copper transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="h-3.5 w-3.5 shrink-0 text-copper/40" />
                       </div>
                     </div>
-                  </Link>
+                  </div>
+
                 ))}
               </div>
 
