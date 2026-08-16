@@ -11,12 +11,11 @@ import { IntroOverlay } from "@/components/intro/IntroOverlay";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { PartnerSection } from "@/components/sections/PartnerSection";
 import { SectionTransition } from "@/components/nav/SectionTransition";
+import { SaudiMcmStrip } from "@/components/sections/SaudiMcmStrip";
 
 import imgDesign from "@/assets/gallery/interior-lounge.jpg";
-import imgMaterials from "@/assets/gallery/material-flex-sheet.jpg";
 import imgVisualizer from "@/assets/gallery/exterior-villa-dusk.jpg";
 import imgSamples from "@/assets/gallery/material-clay-macro.jpg";
-import imgGallery from "@/assets/gallery/interior-majlis.jpg";
 import imgTechnical from "@/assets/gallery/facade-detail.jpg";
 
 export const Route = createFileRoute("/")({
@@ -71,7 +70,7 @@ const SECTIONS: Record<number, SectionMeta> = {
     body:
       "A living library of architectural surfaces — sourced, vetted, and ready to specify. Filter by finish, format, performance, or feeling.",
     bullets: ["Sourced & vetted", "Ready to specify", "Filter by finish or format"],
-    image: imgGallery,
+    image: imgTechnical,
     primaryCta: { label: "Explore the library", href: "/products" },
     secondaryCta: { label: "Talk to a specialist", href: "/contact" },
   },
@@ -130,17 +129,19 @@ function Index() {
         <IntroOverlay />
         <TopBar />
 
-        <section id="section-0" className="min-h-[100svh] w-full">
+        <section id="section-0" className="w-full">
           <HeroSection active onPickItem={scrollToSection} />
         </section>
 
-        {[1, 2, 3, 4, 5, 6].map((i) => (
+        <SaudiMcmStrip />
+
+        {[1, 2, 3, 4].map((i) => (
           <section key={i} id={`section-${i}`} className="min-h-[100svh] w-full">
             <SectionShell active meta={SECTIONS[i]} />
           </section>
         ))}
 
-        <section id="section-7" className="min-h-[100svh] w-full">
+        <section id="section-5" className="min-h-[100svh] w-full">
           <PartnerSection active />
         </section>
 
@@ -164,10 +165,10 @@ function Index() {
         className="relative z-10 h-full w-full"
       >
         {displayed === 0 && <HeroSection active onPickItem={go} />}
-        {displayed >= 1 && displayed <= 6 && (
+        {displayed >= 1 && displayed <= 4 && (
           <SectionShell active meta={SECTIONS[displayed]} />
         )}
-        {displayed === 7 && <PartnerSection active />}
+        {displayed === 5 && <PartnerSection active />}
       </motion.div>
 
       <SectionTransition activeKey={active} />
