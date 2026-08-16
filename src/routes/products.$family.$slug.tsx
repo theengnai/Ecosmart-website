@@ -392,7 +392,7 @@ function ProductPage() {
                   Where it fits
                 </div>
                 <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-                  Designed for use, not just for spec.
+                  Where this material works.
                 </h2>
               </div>
               <ul className="space-y-4">
@@ -406,7 +406,7 @@ function ProductPage() {
             </div>
           </section>
 
-          {/* Gallery */}
+          {/* Gallery — project applications */}
           <section className="px-5 py-20 md:px-10 md:py-24">
             <div className="mx-auto max-w-7xl">
               <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
@@ -416,10 +416,10 @@ function ProductPage() {
                 How it looks, once installed.
               </h2>
               <div className="mt-12 grid gap-4 sm:grid-cols-3">
-                {product.details.gallery.map((src, i) => (
-                  <ScaleIn key={i} delay={i * 0.05}>
+                {APPLICATION_SHOTS.map((g, i) => (
+                  <ScaleIn key={g.src} delay={i * 0.05}>
                     <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-line/60">
-                      <img src={src} alt="" className="h-full w-full object-cover" />
+                      <MagnifyImage src={g.src} alt={g.alt} className="h-full w-full cursor-zoom-in" />
                     </div>
                   </ScaleIn>
                 ))}
@@ -428,6 +428,7 @@ function ProductPage() {
           </section>
         </>
       ) : null}
+
 
       {/* Related projects */}
       {projects.length > 0 ? (
