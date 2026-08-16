@@ -223,7 +223,7 @@ function FamilyPage() {
 
 
       {/* Product grid — dense */}
-      <section className="px-5 py-16 md:px-10 md:py-24">
+      <section id="series" className="scroll-mt-24 px-5 py-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-7xl">
           <h2 className="display-serifish text-3xl leading-tight md:text-5xl">{copy.gridTitle}</h2>
           <p className="mt-3 max-w-2xl text-sm text-ink-soft md:text-base">{copy.gridBody}</p>
