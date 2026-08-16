@@ -13,7 +13,6 @@ import { PartnerSection } from "@/components/sections/PartnerSection";
 import { SectionTransition } from "@/components/nav/SectionTransition";
 import { SaudiMcmStrip } from "@/components/sections/SaudiMcmStrip";
 
-import imgDesign from "@/assets/gallery/interior-lounge.jpg";
 import imgVisualizer from "@/assets/gallery/exterior-villa-dusk.jpg";
 import imgSamples from "@/assets/gallery/material-clay-macro.jpg";
 import imgTechnical from "@/assets/gallery/facade-detail.jpg";
@@ -38,14 +37,13 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TOTAL = 6;
+const TOTAL = 5;
 
 const RAIL = [
   "Ecosmart AI",
   "Visualizer",
   "Products",
   "Samples",
-  "Design Support",
   "Partner",
 ];
 
@@ -85,18 +83,6 @@ const SECTIONS: Record<number, SectionMeta> = {
     image: imgSamples,
     primaryCta: { label: "Request samples", href: "/samples" },
   },
-  4: {
-    index: 5, total: TOTAL,
-    eyebrow: "Design Support",
-    title: "SRMD — Specification, Research & Material Design.",
-    subtitle: "From sketch to specification.",
-    body:
-      "Our team pairs your concept with the right material palette, climate response, and detailing — so every line you draw is already buildable.",
-    bullets: ["Material palette", "Climate response", "Buildable detailing"],
-    image: imgDesign,
-    primaryCta: { label: "Start a design brief", href: "/design-services" },
-    secondaryCta: { label: "See design services", href: "/design-services" },
-  },
 };
 
 
@@ -135,13 +121,13 @@ function Index() {
 
         <SaudiMcmStrip />
 
-        {[1, 2, 3, 4].map((i) => (
+        {[1, 2, 3].map((i) => (
           <section key={i} id={`section-${i}`} className="min-h-[100svh] w-full">
             <SectionShell active meta={SECTIONS[i]} />
           </section>
         ))}
 
-        <section id="section-5" className="min-h-[100svh] w-full">
+        <section id="section-4" className="min-h-[100svh] w-full">
           <PartnerSection active />
         </section>
 
@@ -165,10 +151,10 @@ function Index() {
         className="relative z-10 h-full w-full"
       >
         {displayed === 0 && <HeroSection active onPickItem={go} />}
-        {displayed >= 1 && displayed <= 4 && (
+        {displayed >= 1 && displayed <= 3 && (
           <SectionShell active meta={SECTIONS[displayed]} />
         )}
-        {displayed === 5 && <PartnerSection active />}
+        {displayed === 4 && <PartnerSection active />}
       </motion.div>
 
       <SectionTransition activeKey={active} />
