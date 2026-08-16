@@ -4,7 +4,6 @@ import { z } from "zod";
 import { TopBar } from "@/components/nav/TopBar";
 import { SiteFooter } from "@/components/common/SiteFooter";
 import { StoryHero } from "@/components/common/StoryHero";
-import { Reveal } from "@/components/motion/Reveal";
 import { AlternatingSlide } from "@/components/motion/AlternatingSlide";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { FullBleedBand } from "@/components/media/FullBleedBand";
@@ -111,7 +110,7 @@ export function CertificatesPage() {
       {/* Certificate list — locked */}
       <section className="border-t border-line/60 px-5 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <Reveal>
+          <div>
             <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
               What we hold
             </div>
@@ -122,7 +121,7 @@ export function CertificatesPage() {
               These documents are not published for download. Tell us the project and which
               certificates you need — we will send them to you directly.
             </p>
-          </Reveal>
+          </div>
 
           <div className="mt-14 grid gap-4 md:grid-cols-2">
             {CERTIFICATES.map((c, i) => (
