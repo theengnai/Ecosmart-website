@@ -17,9 +17,16 @@ import projectImg3 from "@/assets/about/sol-interior.jpg";
 import projectImg4 from "@/assets/pages/projects-featured-new.jpg";
 import projectImg5 from "@/assets/pages/projects-band-2.jpg";
 import projectImg6 from "@/assets/about/sol-building.jpg";
-import { GalleryGrid } from "@/components/media/GalleryGrid";
 import { ImageMarquee } from "@/components/media/ImageMarquee";
-import { GALLERY, MATERIALS } from "@/lib/gallery";
+import { GALLERY, MATERIALS, type GalleryImage } from "@/lib/gallery";
+
+/** Project application photography shown in the "once installed" gallery. */
+const APPLICATION_SHOTS: GalleryImage[] = [
+  GALLERY.interiorLounge,
+  GALLERY.exteriorVilla,
+  GALLERY.archHall,
+];
+
 
 const FAMILY_SLUGS: Record<string, Product["family"]> = {
   mcm: "MCM",
@@ -392,7 +399,7 @@ function ProductPage() {
                   Where it fits
                 </div>
                 <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-                  Designed for use, not just for spec.
+                  Where this material works.
                 </h2>
               </div>
               <ul className="space-y-4">
@@ -406,7 +413,7 @@ function ProductPage() {
             </div>
           </section>
 
-          {/* Gallery */}
+          {/* Gallery — project applications */}
           <section className="px-5 py-20 md:px-10 md:py-24">
             <div className="mx-auto max-w-7xl">
               <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
@@ -416,10 +423,10 @@ function ProductPage() {
                 How it looks, once installed.
               </h2>
               <div className="mt-12 grid gap-4 sm:grid-cols-3">
-                {product.details.gallery.map((src, i) => (
-                  <ScaleIn key={i} delay={i * 0.05}>
+                {APPLICATION_SHOTS.map((g, i) => (
+                  <ScaleIn key={g.src} delay={i * 0.05}>
                     <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-line/60">
-                      <img src={src} alt="" className="h-full w-full object-cover" />
+                      <MagnifyImage src={g.src} alt={g.alt} className="h-full w-full cursor-zoom-in" />
                     </div>
                   </ScaleIn>
                 ))}
@@ -428,6 +435,7 @@ function ProductPage() {
           </section>
         </>
       ) : null}
+
 
       {/* Related projects */}
       {projects.length > 0 ? (
@@ -480,55 +488,8 @@ function ProductPage() {
         </section>
       ) : null}
 
-      {/* Related */}
-      {related.length > 0 ? (
-        <section className="border-t border-line/60 px-5 py-24 md:px-10">
-          <div className="mx-auto max-w-7xl">
-            <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
-              More from {family.name}
-            </div>
-            <h2 className="display-serifish mt-4 text-3xl md:text-5xl">Also worth a look.</h2>
-
-            <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-              {related.map((p, i) => (
-                <ScaleIn key={p.slug} delay={i * 0.05}>
-                  <Link
-                    to="/products/$family/$slug"
-                    params={{ family: familySlug, slug: p.slug }}
-                    className="group block overflow-hidden rounded-xl border border-line/60 bg-canvas transition-all hover:-translate-y-1 hover:border-copper/50"
-                  >
-                    <div className="relative aspect-[4/5] overflow-hidden">
-                      {p.cover ? (
-                        <img src={p.cover} alt={p.name} className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
-                      ) : (
-                        <div
-                          className="flex h-full w-full flex-col justify-between p-4 transition-transform duration-[1200ms] group-hover:scale-105"
-                          style={{ backgroundColor: p.colors[0] ?? "#c9b39a" }}
-                        >
-                          <span className="font-mono text-[0.55rem] uppercase tracking-[0.22em] text-canvas/85 mix-blend-difference">{p.code}</span>
-                          <span className="display-serifish text-2xl leading-tight text-canvas mix-blend-difference">{p.name}</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-4">
-                      <div className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-copper">{p.code}</div>
-                      <h3 className="display-serifish mt-2 text-lg leading-tight">{p.name}</h3>
-                    </div>
-                  </Link>
-                </ScaleIn>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <GalleryGrid
-        images={[GALLERY.interiorLounge, GALLERY.archHall, GALLERY.facadeDetail, GALLERY.interiorBedroom, GALLERY.exteriorVilla, GALLERY.materialClay]}
-        kicker="Inspiration"
-        title="Seen in place."
-        body="Interiors and façades finished with this material family."
-      />
       <ImageMarquee images={MATERIALS} duration={65} />
+
 
       <SiteFooter />
       <WhatsAppButton />

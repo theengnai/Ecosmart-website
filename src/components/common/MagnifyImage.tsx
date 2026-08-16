@@ -8,8 +8,9 @@ export function MagnifyImage({
   src,
   alt,
   className = "",
-  zoom = 2.5,
-  lensSize = 180,
+  zoom = 1.6,
+  lensSize = 220,
+
 }: {
   src: string;
   alt: string;

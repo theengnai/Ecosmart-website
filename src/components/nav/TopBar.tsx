@@ -8,13 +8,12 @@ import { ThemeToggle } from "@/components/nav/ThemeToggle";
 
 const NAV: { label: string; href: string }[] = [
   { label: "Products", href: "/products" },
-  { label: "Projects", href: "/projects" },
-  { label: "Design Services", href: "/design-services" },
   { label: "Visualizer", href: "/visualizer" },
-  { label: "Resources", href: "/resources" },
+  { label: "Certificates", href: "/resources" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
+
 
 export function TopBar() {
   const [scrolled, setScrolled] = useState(false);

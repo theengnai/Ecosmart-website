@@ -39,16 +39,14 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TOTAL = 8;
+const TOTAL = 6;
 
 const RAIL = [
   "Ecosmart AI",
   "Visualizer",
   "Products",
-  "Projects",
   "Samples",
   "Design Support",
-  "Technical",
   "Partner",
 ];
 
@@ -68,29 +66,17 @@ const SECTIONS: Record<number, SectionMeta> = {
   2: {
     index: 3, total: TOTAL,
     eyebrow: "Products",
-    title: "Curated products and material systems.",
-    subtitle: "MCM, EPS, WPC, PVC, PU Stone & Smart Wall Panels.",
+    title: "Saudi MCM — Other Solutions Coming Soon",
+    subtitle: "Flexible clay-stone, made in Saudi Arabia.",
     body:
-      "A living library of architectural materials — sourced, vetted, and ready to specify. Filter by finish, format, performance, or feeling.",
+      "A living library of architectural surfaces — sourced, vetted, and ready to specify. Filter by finish, format, performance, or feeling.",
     bullets: ["Sourced & vetted", "Ready to specify", "Filter by finish or format"],
-    image: imgMaterials,
+    image: imgGallery,
     primaryCta: { label: "Explore the library", href: "/products" },
     secondaryCta: { label: "Talk to a specialist", href: "/contact" },
   },
   3: {
     index: 4, total: TOTAL,
-    eyebrow: "Projects",
-    title: "Discover inspiring projects and applications.",
-    subtitle: "Real surfaces. Real conditions.",
-    body:
-      "Browse built work using the same materials and systems — façades, interiors, and details documented for reference and reuse.",
-    bullets: ["Façades & interiors", "Documented details", "For reference and reuse"],
-    image: imgGallery,
-    primaryCta: { label: "Browse projects", href: "/projects" },
-    secondaryCta: { label: "Submit your project", href: "/contact" },
-  },
-  4: {
-    index: 5, total: TOTAL,
     eyebrow: "Samples",
     title: "Request physical samples with confidence.",
     subtitle: "Hold the material in your hand.",
@@ -99,10 +85,9 @@ const SECTIONS: Record<number, SectionMeta> = {
     bullets: ["Shipped across the GCC", "Specification card included", "Finish reference on every chip"],
     image: imgSamples,
     primaryCta: { label: "Request samples", href: "/samples" },
-    secondaryCta: { label: "View sample kits", href: "/samples" },
   },
-  5: {
-    index: 6, total: TOTAL,
+  4: {
+    index: 5, total: TOTAL,
     eyebrow: "Design Support",
     title: "SRMD — Specification, Research & Material Design.",
     subtitle: "From sketch to specification.",
@@ -113,19 +98,8 @@ const SECTIONS: Record<number, SectionMeta> = {
     primaryCta: { label: "Start a design brief", href: "/design-services" },
     secondaryCta: { label: "See design services", href: "/design-services" },
   },
-  6: {
-    index: 7, total: TOTAL,
-    eyebrow: "Technical",
-    title: "Access technical specifications and documentation.",
-    subtitle: "Drawings, data, declarations.",
-    body:
-      "Every product carries its full technical record — CAD blocks, BIM, test data and environmental declarations — ready to drop into your set.",
-    bullets: ["CAD & BIM", "Test data", "Environmental declarations"],
-    image: imgTechnical,
-    primaryCta: { label: "Download spec pack", href: "/resources" },
-    secondaryCta: { label: "Open BIM library", href: "/resources" },
-  },
 };
+
 
 function Index() {
   const isMobile = useIsMobile(true);
