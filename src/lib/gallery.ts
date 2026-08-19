@@ -1,4 +1,6 @@
-import interiorLounge from "@/assets/gallery/interior-lounge.jpg";
+import rammedCafeAsset from "@/assets/gallery/rammed-earth-cafe-wall.png.asset.json";
+import rammedCourtyardAsset from "@/assets/gallery/rammed-earth-courtyard.png.asset.json";
+import linearLeavesAsset from "@/assets/gallery/linear-surface-leaves.png.asset.json";
 import interiorBedroom from "@/assets/gallery/interior-bedroom.jpg";
 import interiorMajlis from "@/assets/gallery/interior-majlis.jpg";
 import interiorBoutique from "@/assets/gallery/interior-boutique.jpg";
