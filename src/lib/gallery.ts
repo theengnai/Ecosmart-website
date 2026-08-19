@@ -22,8 +22,8 @@ export const GALLERY = {
   interiorLobby: { src: interiorLobby, alt: "Double-height lobby clad in travertine" },
   archHall: { src: archHall, alt: "Arched plaster hall with carved geometric screens" },
   exteriorVilla: { src: exteriorVilla, alt: "Curved villa façade in warm clay finish at dusk" },
-  exteriorCourtyard: { src: exteriorCourtyard, alt: "Desert courtyard with textured plaster walls" },
-  facadeDetail: { src: facadeDetail, alt: "Close detail of a fluted stone-clad façade" },
+  exteriorCourtyard: { src: rammedCourtyardAsset.url, alt: "Rammed-earth courtyard walls framing the sky under a timber soffit" },
+  facadeDetail: { src: linearLeavesAsset.url, alt: "Fine linear-grooved stone surface with green foliage in the foreground" },
   materialClay: { src: materialClay, alt: "Macro texture of flexible clay-stone surface" },
   installDetail: { src: installDetail, alt: "Flexible stone tile being applied to a wall" },
 } satisfies Record<string, GalleryImage>;
