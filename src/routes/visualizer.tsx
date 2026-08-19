@@ -35,7 +35,7 @@ function VisualizerPage() {
         eyebrow="04 — Visualizer · Coming soon"
         title="See the finish, in place."
         emphasis="Before a sheet is cut."
-        subcopy="A tool in development — a way to place EcoSmart surfaces onto a plan or elevation and read texture, tone and scale together before specification. Not live yet."
+        subcopy="A visualisation tool in development — a way to place EcoSmart surfaces onto a plan or elevation and read texture, tone and scale together before specification. Not live yet."
         image={hero}
         primary={{ label: "Join the interest list", to: "/contact" }}
         secondary={{ label: "Request a sample instead", to: "/samples" }}
@@ -46,7 +46,7 @@ function VisualizerPage() {
           <div className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-copper">
             The idea
           </div>
-          <WordReveal text="A quiet tool for the moment before you specify — a way to place our finishing products and construction systems into the room, and see how they read together, before the panel is on the wall." />
+          <WordReveal text="A tool for the moment before you specify — a way to place our finishing products and construction systems into the room and see how they read together, before the panel is on the wall." />
         </div>
       </section>
 
@@ -59,7 +59,7 @@ function VisualizerPage() {
             In development.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-sm text-ink-soft md:text-base">
-            We're not ready to promise a date. When it opens up, we'll write to everyone on the interest list first. Until then, request a sample and we'll help you specify the same way we always have — with the material in your hand.
+            We are not ready to promise a date. When it opens up, we will write to everyone on the interest list first. Until then, request a sample and we will help you specify the same way we always have — with the material in your hand.
           </p>
           <a
             href="/contact"
