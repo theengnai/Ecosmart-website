@@ -27,8 +27,8 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
       {/* ---------- hero band ---------- */}
       <div className="relative w-full overflow-hidden lg:flex-1">
         <img
-          src={heroBg}
-          alt="Warm-toned Saudi villa with clay-stone façade at dusk"
+          src={heroHomepageAsset.url}
+          alt="Modern Saudi villa exterior with illuminated travertine wall panels at dusk"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
