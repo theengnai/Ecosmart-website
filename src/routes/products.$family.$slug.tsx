@@ -368,8 +368,11 @@ function ProductPage() {
                 Technical details
               </div>
               <h2 className="display-serifish mt-3 text-3xl md:text-4xl">
-                Performance, tested and documented.
+                Certified values for this product.
               </h2>
+              <p className="mt-4 max-w-md text-sm text-ink-soft">
+                Figures are issued against the relevant test certificate and confirmed for the intended application.
+              </p>
             </div>
             <div className="space-y-2">
               {techSpecs.map((row, j) => (
@@ -397,7 +400,7 @@ function ProductPage() {
                   Where it fits
                 </div>
                 <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-                  Where this material works.
+                  Typical applications.
                 </h2>
               </div>
               <ul className="space-y-4">
@@ -418,7 +421,7 @@ function ProductPage() {
                 In context
               </div>
               <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-                How it looks, once installed.
+                Installed appearance.
               </h2>
               <div className="mt-12 grid gap-4 sm:grid-cols-3">
                 {APPLICATION_SHOTS.map((g, i) => (
