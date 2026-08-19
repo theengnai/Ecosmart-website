@@ -1,11 +1,12 @@
 import { Home, ShieldCheck, Globe, Recycle, BadgeCheck } from "lucide-react";
+import vision2030 from "@/assets/vision-2030.png.asset.json";
 
 const ITEMS = [
   { Icon: Home, en: "Made in Saudi Arabia", ar: "صناعة سعودية" },
   { Icon: ShieldCheck, en: "10-Year Performance Warranty", ar: "ضمان أداء لمدة 10 سنوات" },
   { Icon: Globe, en: "Tested to International Standards", ar: "مختبرة وفق المعايير العالمية" },
   { Icon: Recycle, en: "Sustainable & Environmentally Friendly", ar: "مستدامة وصديقة للبيئة" },
-  { Icon: BadgeCheck, en: "Supporting Vision 2030", ar: "دعم رؤية 2030" },
+  { image: vision2030.url, en: "Supporting Vision 2030", ar: "دعم رؤية 2030" },
 ];
 
 export function TrustStrip({ className = "" }: { className?: string }) {
