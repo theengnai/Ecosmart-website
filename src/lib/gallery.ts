@@ -1,27 +1,27 @@
-import interiorLounge from "@/assets/gallery/interior-lounge.jpg";
+import rammedCafeAsset from "@/assets/gallery/rammed-earth-cafe-wall.png.asset.json";
+import rammedCourtyardAsset from "@/assets/gallery/rammed-earth-courtyard.png.asset.json";
+import linearLeavesAsset from "@/assets/gallery/linear-surface-leaves.png.asset.json";
 import interiorBedroom from "@/assets/gallery/interior-bedroom.jpg";
 import interiorMajlis from "@/assets/gallery/interior-majlis.jpg";
 import interiorBoutique from "@/assets/gallery/interior-boutique.jpg";
 import interiorLobby from "@/assets/gallery/interior-lobby.jpg";
 import archHall from "@/assets/gallery/arch-hall.jpg";
 import exteriorVilla from "@/assets/gallery/exterior-villa-dusk.jpg";
-import exteriorCourtyard from "@/assets/gallery/exterior-courtyard.jpg";
-import facadeDetail from "@/assets/gallery/facade-detail.jpg";
 import materialClay from "@/assets/gallery/material-clay-macro.jpg";
 import installDetail from "@/assets/gallery/install-detail.jpg";
 
 export type GalleryImage = { src: string; alt: string };
 
 export const GALLERY = {
-  interiorLounge: { src: interiorLounge, alt: "Curved plaster lounge finished in warm clay-stone tones" },
+  interiorLounge: { src: rammedCafeAsset.url, alt: "Rammed-earth textured wall lining a daylit café interior" },
   interiorBedroom: { src: interiorBedroom, alt: "Minimal bedroom with warm plaster walls and travertine floor" },
   interiorMajlis: { src: interiorMajlis, alt: "Majlis with limestone cladding and an olive tree" },
   interiorBoutique: { src: interiorBoutique, alt: "Retail boutique with clay plaster walls and backlit niches" },
   interiorLobby: { src: interiorLobby, alt: "Double-height lobby clad in travertine" },
   archHall: { src: archHall, alt: "Arched plaster hall with carved geometric screens" },
   exteriorVilla: { src: exteriorVilla, alt: "Curved villa façade in warm clay finish at dusk" },
-  exteriorCourtyard: { src: exteriorCourtyard, alt: "Desert courtyard with textured plaster walls" },
-  facadeDetail: { src: facadeDetail, alt: "Close detail of a fluted stone-clad façade" },
+  exteriorCourtyard: { src: rammedCourtyardAsset.url, alt: "Rammed-earth courtyard walls framing the sky under a timber soffit" },
+  facadeDetail: { src: linearLeavesAsset.url, alt: "Fine linear-grooved stone surface with green foliage in the foreground" },
   materialClay: { src: materialClay, alt: "Macro texture of flexible clay-stone surface" },
   installDetail: { src: installDetail, alt: "Flexible stone tile being applied to a wall" },
 } satisfies Record<string, GalleryImage>;
