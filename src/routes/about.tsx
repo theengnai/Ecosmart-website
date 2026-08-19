@@ -327,7 +327,7 @@ function AboutPage() {
           <SectionLabel n="04">Solutions</SectionLabel>
           <div className="mt-8 flex flex-wrap items-end justify-between gap-6 border-b border-line/60 pb-6">
             <h2 className="display-serifish text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
-              A portfolio of <em className="italic text-copper">proven</em> solutions.
+              Product groups.
             </h2>
             <Link
               to="/"
