@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
-import { HeroStage } from "@/components/hero/HeroStage";
 import { useEffect, useRef } from "react";
-import { SaudiMcmStrip } from "@/components/sections/SaudiMcmStrip";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { SolutionsBand } from "@/components/sections/SolutionsBand";
+import { TrustStrip } from "@/components/sections/TrustStrip";
+import heroBg from "@/assets/gallery/exterior-villa-dusk.jpg";
 
 export function HeroSection({ active }: { active: boolean; onPickItem?: (i: number) => void }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -20,62 +23,97 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
   if (!active) return null;
 
   return (
-    <HeroStage>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="relative flex min-h-[100svh] w-full flex-col lg:h-full lg:min-h-0 items-center justify-center overflow-hidden px-4 pt-[72px] pb-[72px] sm:px-6 sm:pt-20 sm:pb-12 lg:justify-center lg:pt-24 lg:pb-16 lg:[@media(max-height:700px)]:justify-start lg:[@media(max-height:700px)]:pb-4"
-      >
-        {/* headline */}
-        <motion.h1
-          className="relative z-10 mx-auto max-w-4xl text-center text-ink"
+    <div className="flex w-full flex-col overflow-y-auto lg:h-full">
+      {/* ---------- hero band ---------- */}
+      <div className="relative w-full overflow-hidden lg:flex-1">
+        <img
+          src={heroBg}
+          alt="Warm-toned Saudi villa with clay-stone façade at dusk"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
           style={{
-            fontFamily: '"Jost", system-ui, sans-serif',
-            fontWeight: 300,
-            lineHeight: 1.05,
-            letterSpacing: "-0.025em",
-            fontSize: "clamp(1.9rem, min(6vw, 6vh), 4.5rem)",
+            background:
+              "linear-gradient(90deg, rgba(20,13,8,0.86) 0%, rgba(20,13,8,0.62) 45%, rgba(20,13,8,0.35) 100%)",
           }}
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ delay: 0.6, duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Find the right <span className="text-copper">materials</span> for your projects.
-        </motion.h1>
+        />
 
-        {/* chat centerpiece — embedded EcoSmart AI Consultant */}
-        <div className="relative z-10 mt-4 flex w-full flex-col items-center sm:mt-6 lg:mt-8">
-          <iframe
-            ref={iframeRef}
-            id="ecosmart-widget"
-            src="https://demo.neuro-systems.org"
-            title="EcoSmart AI Consultant"
-            allow="microphone"
-            style={{
-              width: "100%",
-              maxWidth: "760px",
-              height: "600px",
-              border: "none",
-              display: "block",
-              margin: "0 auto",
-              background: "transparent",
-            }}
-          />
-          <motion.p
-            className="mt-6 hidden w-[calc(100%-3rem)] max-w-md px-2 text-center text-xs text-ink-soft/70 sm:block md:w-full md:px-0 md:text-sm [@media(max-height:850px)]:hidden"
-            initial={{ opacity: 0, y: 8 }}
+        <div className="relative z-10 mx-auto grid h-full max-w-7xl items-center gap-8 px-5 pb-10 pt-[104px] md:px-10 lg:grid-cols-2 lg:gap-10 lg:pb-8 lg:pt-24">
+          {/* copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Ask about our construction systems and finishing products — delivered by EcoSmart, Saudi Arabia.
-          </motion.p>
-        </div>
+            <div className="font-mono text-[0.62rem] uppercase tracking-[0.3em] text-copper-light">
+              Architectural Surfaces
+            </div>
+            <h1
+              className="mt-4 text-white"
+              style={{
+                fontFamily: '"Jost", system-ui, sans-serif',
+                fontWeight: 400,
+                lineHeight: 1.08,
+                letterSpacing: "-0.02em",
+                fontSize: "clamp(2.1rem, 4.4vw, 3.6rem)",
+              }}
+            >
+              Engineered for
+              <br />
+              <span className="text-copper-light">Saudi Arabia.</span>
+              <br />
+              Inspired by Vision.
+            </h1>
 
-        {/* Saudi MCM finishes — directly below the chat widget */}
-        <SaudiMcmStrip className="relative z-10" />
-      </motion.div>
-    </HeroStage>
+            <div className="mt-5 space-y-1 text-right md:text-left" dir="rtl">
+              <p className="text-lg text-copper-light md:text-xl">مصممة للمملكة العربية السعودية.</p>
+              <p className="text-lg text-white md:text-xl">ملهمة برؤية طموحة.</p>
+              <p className="text-lg text-white md:text-xl">صناعة محلية. إلهام عالمي.</p>
+            </div>
+
+            <Link
+              to="/products/$family"
+              params={{ family: "mcm" }}
+              search={{ range: "local" as const }}
+              className="group mt-7 inline-flex items-center gap-3 rounded-full border border-copper-light/70 px-6 py-3 font-mono text-[0.68rem] uppercase tracking-[0.26em] text-copper-light transition-colors hover:bg-copper hover:text-canvas"
+            >
+              Explore Saudi MCM
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.6} />
+            </Link>
+          </motion.div>
+
+          {/* chat widget */}
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <iframe
+              ref={iframeRef}
+              id="ecosmart-widget"
+              src="https://demo.neuro-systems.org"
+              title="EcoSmart AI Consultant"
+              allow="microphone"
+              className="h-[300px] sm:h-[380px] lg:h-[480px]"
+              style={{
+                width: "100%",
+                maxWidth: "640px",
+                border: "none",
+                display: "block",
+                margin: "0 auto",
+                background: "transparent",
+              }}
+            />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ---------- solutions + trust ---------- */}
+      <SolutionsBand />
+      <TrustStrip />
+    </div>
   );
 }
