@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "7f2f02b0-a3e7-4682-a069-680531e6c6bd",
-  "project_id": "d57ef315-9279-4524-8328-375943ca57cb",
-  "url": "/__l5e/assets-v1/7f2f02b0-a3e7-4682-a069-680531e6c6bd/tile-travertine.png",
-  "r2_key": "a/v1/d57ef315-9279-4524-8328-375943ca57cb/7f2f02b0-a3e7-4682-a069-680531e6c6bd/tile-travertine.png",
-  "original_filename": "tile-travertine.png",
-  "size": 222387,
   "content_type": "image/png",
-  "created_at": "2026-08-19T18:28:31Z"
+  "created_at": "2026-08-19T18:28:31Z",
+  "original_filename": "tile-travertine.png",
+  "project_id": "86d53451-96e4-4566-9e71-5e5a4af3713b",
+  "r2_key": "a/v1/86d53451-96e4-4566-9e71-5e5a4af3713b/7f2f02b0-a3e7-4682-a069-680531e6c6bd/tile-travertine.png",
+  "size": 222387,
+  "url": "/__l5e/assets-v1/7f2f02b0-a3e7-4682-a069-680531e6c6bd/tile-travertine.png",
+  "version": 1
 }

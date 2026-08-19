@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "768b15bc-39ed-463a-be65-3b9808b7fd54",
-  "project_id": "d57ef315-9279-4524-8328-375943ca57cb",
-  "url": "/__l5e/assets-v1/768b15bc-39ed-463a-be65-3b9808b7fd54/interior-herringbone-wall.png",
-  "r2_key": "a/v1/d57ef315-9279-4524-8328-375943ca57cb/768b15bc-39ed-463a-be65-3b9808b7fd54/interior-herringbone-wall.png",
-  "original_filename": "interior-herringbone-wall.png",
-  "size": 1927971,
   "content_type": "image/png",
-  "created_at": "2026-08-19T18:23:12Z"
+  "created_at": "2026-08-19T18:23:12Z",
+  "original_filename": "interior-herringbone-wall.png",
+  "project_id": "86d53451-96e4-4566-9e71-5e5a4af3713b",
+  "r2_key": "a/v1/86d53451-96e4-4566-9e71-5e5a4af3713b/768b15bc-39ed-463a-be65-3b9808b7fd54/interior-herringbone-wall.png",
+  "size": 1927971,
+  "url": "/__l5e/assets-v1/768b15bc-39ed-463a-be65-3b9808b7fd54/interior-herringbone-wall.png",
+  "version": 1
 }
