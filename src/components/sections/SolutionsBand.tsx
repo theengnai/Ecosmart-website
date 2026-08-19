@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import m2 from "@/assets/mcm3/mcm-2.webp.asset.json";
-import m5 from "@/assets/mcm3/mcm-5.webp.asset.json";
-import m25 from "@/assets/mcm3/mcm-25.webp.asset.json";
-import m41 from "@/assets/mcm3/mcm-41.webp.asset.json";
-import m8 from "@/assets/mcm3/mcm-8.webp.asset.json";
+import tileRammed from "@/assets/gallery/tile-rammed-earth.png.asset.json";
+import tileRough from "@/assets/gallery/tile-rough-surface.png.asset.json";
+import tileLinear from "@/assets/gallery/tile-linear-surface.png.asset.json";
+import tileTravertine from "@/assets/gallery/tile-travertine.png.asset.json";
+import tileOther from "@/assets/gallery/tile-other-solutions.png.asset.json";
 
 type Tile = {
   series: string;
@@ -14,11 +14,11 @@ type Tile = {
 };
 
 const TILES: Tile[] = [
-  { series: "Rammed Earth", en: "Rammed earth", ar: "رامد ارث", image: m25.url },
-  { series: "Rough Surface Stone", en: "Rough Surface", ar: "الأسطح الخشنة", image: m41.url },
-  { series: "Linear Stone Surface", en: "linear Surface", ar: "الأسطح المقلمة", image: m2.url },
-  { series: "Travertine", en: "Travertine", ar: "ترافرتين", image: m5.url },
-  { series: "", en: "other solutions", ar: "حلول أخرى", image: m8.url, comingSoon: true },
+  { series: "Rammed Earth", en: "Rammed earth", ar: "رامد ارث", image: tileRammed.url },
+  { series: "Rough Surface Stone", en: "Rough Surface", ar: "الأسطح الخشنة", image: tileRough.url },
+  { series: "Linear Stone Surface", en: "linear Surface", ar: "الأسطح المقلمة", image: tileLinear.url },
+  { series: "Travertine", en: "Travertine", ar: "ترافرتين", image: tileTravertine.url },
+  { series: "", en: "other solutions", ar: "حلول أخرى", image: tileOther.url, comingSoon: true },
 ];
 
 function TileInner({ t }: { t: Tile }) {
@@ -29,7 +29,7 @@ function TileInner({ t }: { t: Tile }) {
         alt={`${t.en} finish`}
         loading="lazy"
         className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
-          t.comingSoon ? "opacity-45" : ""
+          t.comingSoon ? "opacity-60" : ""
         }`}
       />
       <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
