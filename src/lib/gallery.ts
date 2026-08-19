@@ -15,7 +15,7 @@ import installDetail from "@/assets/gallery/install-detail.jpg";
 export type GalleryImage = { src: string; alt: string };
 
 export const GALLERY = {
-  interiorLounge: { src: interiorLounge, alt: "Curved plaster lounge finished in warm clay-stone tones" },
+  interiorLounge: { src: rammedCafeAsset.url, alt: "Rammed-earth textured wall lining a daylit café interior" },
   interiorBedroom: { src: interiorBedroom, alt: "Minimal bedroom with warm plaster walls and travertine floor" },
   interiorMajlis: { src: interiorMajlis, alt: "Majlis with limestone cladding and an olive tree" },
   interiorBoutique: { src: interiorBoutique, alt: "Retail boutique with clay plaster walls and backlit niches" },
