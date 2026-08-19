@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SolutionsBand } from "@/components/sections/SolutionsBand";
 import { TrustStrip } from "@/components/sections/TrustStrip";
-import heroBg from "@/assets/gallery/exterior-villa-dusk.jpg";
+import heroHomepageAsset from "@/assets/gallery/hero-homepage.png.asset.json";
 
 export function HeroSection({ active }: { active: boolean; onPickItem?: (i: number) => void }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -27,8 +27,8 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
       {/* ---------- hero band ---------- */}
       <div className="relative w-full overflow-hidden lg:flex-1">
         <img
-          src={heroBg}
-          alt="Warm-toned Saudi villa with clay-stone façade at dusk"
+          src={heroHomepageAsset.url}
+          alt="Modern Saudi villa exterior with illuminated travertine wall panels at dusk"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
