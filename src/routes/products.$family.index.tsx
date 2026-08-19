@@ -13,9 +13,8 @@ import { Feather, Wrench, Layers, Shield, Sparkles } from "lucide-react";
 import mcmSaudiHero from "@/assets/renders/mcm-saudi-hero.png.asset.json";
 import mcmGlobalHero from "@/assets/pages/mcm-global-hero.jpg";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
 import { FullBleedBand } from "@/components/media/FullBleedBand";
-import { GALLERY, SCENES } from "@/lib/gallery";
+import { GALLERY } from "@/lib/gallery";
 
 
 
@@ -323,7 +322,6 @@ function FamilyPage() {
         title="Built for Saudi sun, dust and humidity."
         height="sm"
       />
-      <ImageMarquee images={SCENES} duration={70} reverse />
 
       <CTABand
         eyebrow="Not sure which fits?"

@@ -16,8 +16,7 @@ import projectImg3 from "@/assets/about/sol-interior.jpg";
 import projectImg4 from "@/assets/pages/projects-featured-new.jpg";
 import projectImg5 from "@/assets/pages/projects-band-2.jpg";
 import projectImg6 from "@/assets/about/sol-building.jpg";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
-import { GALLERY, MATERIALS, type GalleryImage } from "@/lib/gallery";
+import { GALLERY, type GalleryImage } from "@/lib/gallery";
 
 /** Project application photography shown in the "once installed" gallery. */
 const APPLICATION_SHOTS: GalleryImage[] = [
@@ -434,9 +433,6 @@ function ProductPage() {
           </section>
         </>
       ) : null}
-
-
-      <ImageMarquee images={MATERIALS} duration={65} />
 
 
       <SiteFooter />

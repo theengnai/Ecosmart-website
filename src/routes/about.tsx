@@ -20,8 +20,7 @@ import detailFabric from "@/assets/about/detail-fabric.jpg";
 import { FullBleedBand } from "@/components/media/FullBleedBand";
 import { EditorialSplit } from "@/components/media/EditorialSplit";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
-import { GALLERY, SCENES } from "@/lib/gallery";
+import { GALLERY } from "@/lib/gallery";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -460,7 +459,7 @@ function AboutPage() {
 
       {/* FOOTER */}
       <EditorialSplit
-        image={GALLERY.materialFlex}
+        image={GALLERY.materialClay}
         kicker="Made in the Kingdom"
         title="The only Saudi maker of flexible clay-stone."
         body="Sheets thin enough to bend around a column, strong enough for a façade — produced locally and delivered nationwide."
@@ -483,7 +482,6 @@ function AboutPage() {
         kicker="Gallery"
         title="A look at our world."
       />
-      <ImageMarquee images={SCENES} duration={70} />
 
       <footer className="bg-[#1c1b18] px-5 pt-20 pb-10 text-[#d9d4cb] md:px-10 lg:px-16">
         <div className="mx-auto max-w-7xl">

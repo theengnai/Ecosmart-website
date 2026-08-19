@@ -13,8 +13,7 @@ import { RevealGroup } from "@/components/motion/RevealGroup";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import hero from "@/assets/pages/hero-samples.jpg";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
-import { GALLERY, SCENES } from "@/lib/gallery";
+import { GALLERY } from "@/lib/gallery";
 
 export const Route = createFileRoute("/samples")({
   head: () => ({
@@ -273,12 +272,11 @@ function SamplesPage() {
       </section>
 
       <GalleryGrid
-        images={[GALLERY.materialClay, GALLERY.materialFlex, GALLERY.installDetail, GALLERY.interiorBedroom, GALLERY.facadeDetail, GALLERY.archHall]}
+        images={[GALLERY.materialClay, GALLERY.materialClay, GALLERY.installDetail, GALLERY.interiorBedroom, GALLERY.facadeDetail, GALLERY.archHall]}
         kicker="Texture up close"
         title="Feel the finish before you specify it."
         body="Samples are cut from production sheets — the same grain, tone and relief you will receive on site."
       />
-      <ImageMarquee images={SCENES} duration={75} />
 
       <CTABand
         eyebrow="Ready?"

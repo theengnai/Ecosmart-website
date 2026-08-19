@@ -16,10 +16,9 @@ import clayTileAsset from "@/assets/renders/flexible-clay-tile.png.asset.json";
 import imgEps from "@/assets/pages/products-materials.jpg";
 import imgPu from "@/assets/pages/hero-visualizer.jpg";
 import imgWpc from "@/assets/pages/projects-band-3.jpg";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
 import { FullBleedBand } from "@/components/media/FullBleedBand";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { SCENES, GALLERY } from "@/lib/gallery";
+import { GALLERY } from "@/lib/gallery";
 
 const hero = heroAsset.url;
 
@@ -376,8 +375,6 @@ function ProductsPage() {
           </div>
         </div>
       </section>
-
-      <ImageMarquee images={SCENES} duration={70} />
       <FullBleedBand
         image={GALLERY.interiorLounge}
         kicker="Applied finishes"
@@ -386,7 +383,7 @@ function ProductsPage() {
         height="md"
       />
       <GalleryGrid
-        images={[GALLERY.archHall, GALLERY.exteriorVilla, GALLERY.materialFlex, GALLERY.interiorBoutique, GALLERY.exteriorCourtyard, GALLERY.installDetail]}
+        images={[GALLERY.archHall, GALLERY.exteriorVilla, GALLERY.materialClay, GALLERY.interiorBoutique, GALLERY.exteriorCourtyard, GALLERY.installDetail]}
         kicker="In place"
         title="Where our products end up."
       />
