@@ -132,13 +132,13 @@ function DesignServicesPage() {
       <EditorialSplit
         image={GALLERY.interiorLounge}
         kicker="Specification support"
-        title="From mood board to buildable detail."
+        title="From reference to specified finish."
         body="We work alongside your design team to translate a reference image into a specified finish — substrate, adhesive, jointing and edge detail included."
       />
       <FullBleedBand
         image={GALLERY.facadeDetail}
         kicker="Detailing"
-        title="Every junction resolved before site."
+        title="Junctions resolved before site."
         height="sm"
       />
       <GalleryGrid
