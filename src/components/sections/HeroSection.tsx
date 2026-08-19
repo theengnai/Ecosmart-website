@@ -97,10 +97,10 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
               src="https://demo.neuro-systems.org"
               title="EcoSmart AI Consultant"
               allow="microphone"
+              className="h-[300px] sm:h-[380px] lg:h-[480px]"
               style={{
                 width: "100%",
                 maxWidth: "640px",
-                height: "480px",
                 border: "none",
                 display: "block",
                 margin: "0 auto",
