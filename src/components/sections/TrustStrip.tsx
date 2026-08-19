@@ -1,7 +1,12 @@
-import { Home, ShieldCheck, Globe, Recycle, BadgeCheck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Home, ShieldCheck, Globe, Recycle } from "lucide-react";
 import vision2030 from "@/assets/vision-2030.png.asset.json";
 
-const ITEMS = [
+type TrustItem =
+  | { Icon: LucideIcon; image?: undefined; en: string; ar: string }
+  | { Icon?: undefined; image: string; en: string; ar: string };
+
+const ITEMS: TrustItem[] = [
   { Icon: Home, en: "Made in Saudi Arabia", ar: "صناعة سعودية" },
   { Icon: ShieldCheck, en: "10-Year Performance Warranty", ar: "ضمان أداء لمدة 10 سنوات" },
   { Icon: Globe, en: "Tested to International Standards", ar: "مختبرة وفق المعايير العالمية" },
