@@ -16,10 +16,9 @@ import clayTileAsset from "@/assets/renders/flexible-clay-tile.png.asset.json";
 import imgEps from "@/assets/pages/products-materials.jpg";
 import imgPu from "@/assets/pages/hero-visualizer.jpg";
 import imgWpc from "@/assets/pages/projects-band-3.jpg";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
 import { FullBleedBand } from "@/components/media/FullBleedBand";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { SCENES, GALLERY } from "@/lib/gallery";
+import { GALLERY } from "@/lib/gallery";
 
 const hero = heroAsset.url;
 
@@ -288,15 +287,13 @@ function ProductsPage() {
                                 <span className="font-medium tracking-wide">Saudi MCM</span>
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
                               </Link>
-                              <Link
-                                to="/products/$family"
-                                params={{ family: "mcm" }}
-                                search={{ range: "imported" as const }}
-                                className="group inline-flex items-center gap-2 rounded-full bg-copper px-6 py-3 text-sm text-canvas transition-transform hover:-translate-y-0.5"
+                              <span
+                                aria-disabled="true"
+                                className="pointer-events-none inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-copper/60 px-6 py-3 text-sm text-canvas"
                               >
                                 <span className="font-medium tracking-wide">Global MCM</span>
-                                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
-                              </Link>
+                                <ArrowRight className="h-4 w-4" strokeWidth={2} />
+                              </span>
                             </div>
                           ) : f.viewAllLink ? (
                             <Link
@@ -376,8 +373,6 @@ function ProductsPage() {
           </div>
         </div>
       </section>
-
-      <ImageMarquee images={SCENES} duration={70} />
       <FullBleedBand
         image={GALLERY.interiorLounge}
         kicker="Applied finishes"
@@ -386,7 +381,7 @@ function ProductsPage() {
         height="md"
       />
       <GalleryGrid
-        images={[GALLERY.archHall, GALLERY.exteriorVilla, GALLERY.materialFlex, GALLERY.interiorBoutique, GALLERY.exteriorCourtyard, GALLERY.installDetail]}
+        images={[GALLERY.archHall, GALLERY.exteriorVilla, GALLERY.materialClay, GALLERY.interiorBoutique, GALLERY.exteriorCourtyard, GALLERY.installDetail]}
         kicker="In place"
         title="Where our products end up."
       />

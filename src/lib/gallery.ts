@@ -8,7 +8,6 @@ import exteriorVilla from "@/assets/gallery/exterior-villa-dusk.jpg";
 import exteriorCourtyard from "@/assets/gallery/exterior-courtyard.jpg";
 import facadeDetail from "@/assets/gallery/facade-detail.jpg";
 import materialClay from "@/assets/gallery/material-clay-macro.jpg";
-import materialFlex from "@/assets/gallery/material-flex-sheet.jpg";
 import installDetail from "@/assets/gallery/install-detail.jpg";
 
 export type GalleryImage = { src: string; alt: string };
@@ -24,7 +23,6 @@ export const GALLERY = {
   exteriorCourtyard: { src: exteriorCourtyard, alt: "Desert courtyard with textured plaster walls" },
   facadeDetail: { src: facadeDetail, alt: "Close detail of a fluted stone-clad façade" },
   materialClay: { src: materialClay, alt: "Macro texture of flexible clay-stone surface" },
-  materialFlex: { src: materialFlex, alt: "Flexible clay-stone sheet bent into a curve" },
   installDetail: { src: installDetail, alt: "Flexible stone tile being applied to a wall" },
 } satisfies Record<string, GalleryImage>;
 
@@ -43,7 +41,6 @@ export const SCENES: GalleryImage[] = [
 
 export const MATERIALS: GalleryImage[] = [
   GALLERY.materialClay,
-  GALLERY.materialFlex,
   GALLERY.installDetail,
   GALLERY.facadeDetail,
   GALLERY.interiorBedroom,

@@ -8,9 +8,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { RevealGroup } from "@/components/motion/RevealGroup";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import hero from "@/assets/pages/hero-contact.jpg";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { SCENES, GALLERY } from "@/lib/gallery";
+import { GALLERY } from "@/lib/gallery";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -224,10 +223,8 @@ function ContactPage() {
           </RevealGroup>
         </div>
       </section>
-
-      <ImageMarquee images={SCENES} duration={70} />
       <GalleryGrid
-        images={[GALLERY.interiorLounge, GALLERY.exteriorVilla, GALLERY.archHall, GALLERY.materialFlex, GALLERY.interiorBoutique, GALLERY.facadeDetail]}
+        images={[GALLERY.interiorLounge, GALLERY.exteriorVilla, GALLERY.archHall, GALLERY.materialClay, GALLERY.interiorBoutique, GALLERY.facadeDetail]}
         kicker="Selected work"
         title="What our finishes look like in place."
         body="A glimpse of the surfaces, façades and interiors our systems are specified for across the Kingdom."

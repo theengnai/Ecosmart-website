@@ -16,8 +16,7 @@ import p6 from "@/assets/about/sol-building.jpg";
 import { FullBleedBand } from "@/components/media/FullBleedBand";
 import { EditorialSplit } from "@/components/media/EditorialSplit";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { ImageMarquee } from "@/components/media/ImageMarquee";
-import { GALLERY, MATERIALS } from "@/lib/gallery";
+import { GALLERY } from "@/lib/gallery";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -173,7 +172,6 @@ function ProjectsPage() {
         kicker="Gallery"
         title="A wider look."
       />
-      <ImageMarquee images={MATERIALS} duration={65} reverse />
 
       <CTABand
         eyebrow="Have a project in mind?"
