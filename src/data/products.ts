@@ -101,37 +101,37 @@ export const FAMILIES = [
   {
     key: "MCM",
     name: "MCM Flexible Cladding",
-    poem: "Stone and clay, thin as fabric.",
+    poem: "Lightweight modified clay surface for interior and exterior walls.",
     cover: m22.url,
   },
   {
     key: "PU",
     name: "PU Stone Cladding",
-    poem: "Stone-quiet weight, without the mass.",
+    poem: "Lightweight polyurethane panels with a quarried-stone appearance.",
     cover: puHero.url,
   },
   {
     key: "WPC",
     name: "WPC Decking & Cladding",
-    poem: "Warm underfoot. Weathered by design.",
+    poem: "Wood-plastic composite for outdoor decking and exterior wall cladding.",
     cover: imgA,
   },
   {
     key: "SPC",
     name: "SPC Flooring",
-    poem: "Stone-firm, silent, waterproof.",
+    poem: "Rigid stone-plastic composite click flooring for interior use.",
     cover: imgB,
   },
   {
     key: "Aluminium",
     name: "Aluminium Louvers",
-    poem: "Light, filtered. Heat, refused.",
+    poem: "Extruded aluminium screening and sun-shading, project-cut and finished.",
     cover: imgE,
   },
   {
     key: "Panels",
     name: "Wall Panels",
-    poem: "Rooms that hush and hold.",
+    poem: "Interior wall panel systems for feature surfaces and joinery.",
     cover: imgD,
   },
 ] as const;

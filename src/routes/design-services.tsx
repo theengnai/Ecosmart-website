@@ -53,7 +53,7 @@ function DesignServicesPage() {
         eyebrow="03 — Design & Technical Support"
         title="Specified with support."
         emphasis="Detailed for the site."
-        subcopy="We help select the right surface for the application, confirm the technical values your specification requires, and issue the installation method your crew will follow on site."
+        subcopy="We help select the right EcoSmart system or finish for the application, confirm the certified values your specification requires, and issue the installation method your crew will follow on site."
         image={hero}
         primary={{ label: "Talk to our team", to: "/contact" }}
         secondary={{ label: "See our products", to: "/products" }}
@@ -71,7 +71,7 @@ function DesignServicesPage() {
             emClassName="italic text-copper"
           />
           <p className="mt-8 max-w-2xl text-canvas/70">
-            Every EcoSmart Technical Data Sheet shows the reference test method for each property. Final figures are provided with the corresponding test certificate on request — so nothing on your spec is assumed.
+            Every EcoSmart Technical Data Sheet shows the reference test method for each property. Final figures are provided with the corresponding test certificate on request — so nothing on your specification is assumed.
           </p>
         </div>
       </section>
@@ -82,7 +82,7 @@ function DesignServicesPage() {
             What we do
           </div>
           <h2 className="display-serifish mt-4 max-w-3xl text-3xl md:text-5xl">
-            Four services, one team.
+            Services.
           </h2>
           <RevealGroup className="mt-14 grid gap-6 md:grid-cols-2" stagger={0.08}>
             {SERVICES.map((s, i) => {
@@ -132,13 +132,13 @@ function DesignServicesPage() {
       <EditorialSplit
         image={GALLERY.interiorLounge}
         kicker="Specification support"
-        title="From mood board to buildable detail."
+        title="From reference to specified finish."
         body="We work alongside your design team to translate a reference image into a specified finish — substrate, adhesive, jointing and edge detail included."
       />
       <FullBleedBand
         image={GALLERY.facadeDetail}
         kicker="Detailing"
-        title="Every junction resolved before site."
+        title="Junctions resolved before site."
         height="sm"
       />
       <GalleryGrid
