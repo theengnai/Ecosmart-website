@@ -60,9 +60,9 @@ const APPROACH = [
 ];
 
 const SOLUTIONS = [
-  { n: "01", cat: "Construction Systems", title: "Structural & Envelope Systems", body: "Lightweight concrete wall panels, T-floor hourdi, hybrid precast frames, curved modular units, portable cabins and EPS insulated decorative façades.", img: solArchitect },
-  { n: "02", cat: "Decoration & Finishing", title: "Finishing Products", body: "Flexible clay-stone tiles, PU stone tiles, WPC and SPC lines, PVC marble sheets, PVC laminated foam board, PVC wood panels and WPC window & door frames.", img: solFacade },
-  { n: "03", cat: "Support", title: "Technical & Project Support", body: "System selection, certificate confirmation and installation method statements — tailored to the site and delivered from a single team.", img: solInterior },
+  { n: "01", cat: "Construction Systems", title: "Structural & envelope systems", body: "Lightweight concrete wall panels, T-floor hourdi decks, hybrid precast frames, curved modular units, portable cabins and EPS insulated decorative façades.", img: solArchitect },
+  { n: "02", cat: "Decoration & Finishing", title: "Finishing products", body: "Flexible clay-stone tiles, PU stone tiles, WPC and SPC lines, PVC marble sheets, PVC laminated foam board, PVC wood panels and WPC window and door frames.", img: solFacade },
+  { n: "03", cat: "Support", title: "Technical & project support", body: "System selection, certificate confirmation and installation method statements — tailored to the site and delivered from a single team.", img: solInterior },
 ];
 
 const STRIP = [solArchitect, detailFabric, solFacade, solInterior, solArchitect, detailFabric, solFacade, solInterior];
@@ -75,7 +75,7 @@ const FOOTER_COLS = [
 ];
 
 const VISION_TEXT =
-  "To lead Saudi delivery of construction systems and finishing products — combining SBC-engineered systems with 100% Saudi-made finishing lines that support Vision 2030 and IKTVA, and build better for Saudi.";
+  "To be a Saudi leader in construction systems and finishing products — delivering SBC-aligned structural solutions and Saudi-made finishing lines that support Vision 2030, IKTVA and the local built environment.";
 
 
 function SectionLabel({ n, children, tone = "dark" }: { n: string; children: React.ReactNode; tone?: "dark" | "light" }) {
