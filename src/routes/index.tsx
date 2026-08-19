@@ -12,7 +12,8 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { PartnerSection } from "@/components/sections/PartnerSection";
 import { SectionTransition } from "@/components/nav/SectionTransition";
 
-import imgVisualizer from "@/assets/gallery/exterior-villa-dusk.jpg";
+import imgVisualizerAsset from "@/assets/gallery/facade-sandstone-panels.png.asset.json";
+const imgVisualizer = imgVisualizerAsset.url;
 import imgSamples from "@/assets/gallery/material-clay-macro.jpg";
 import imgTechnical from "@/assets/gallery/facade-detail.jpg";
 
