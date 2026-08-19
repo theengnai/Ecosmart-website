@@ -287,12 +287,13 @@ function AboutPage() {
           </div>
 
           <h1 className="display-serifish mt-8 text-5xl leading-[1.02] tracking-tight text-canvas md:text-6xl lg:text-7xl">
-            Build Better.<br />
-            Build <em className="italic text-copper">Saudi.</em>
+            A Saudi company for<br />
+            <em className="italic text-copper">construction systems</em><br />
+            and finishing products.
           </h1>
 
           <p className="mt-8 max-w-xl text-sm leading-relaxed text-canvas/80 md:text-base">
-            EcoSmart is a Saudi company supplying flexible architectural surfaces and finishing products for interior and exterior applications — locally manufactured Saudi MCM alongside selected Global MCM collections, aligned to Vision 2030, IKTVA and the Saudi Building Code.
+            EcoSmart designs, produces and delivers construction systems and finishing products in Saudi Arabia. Our range includes locally manufactured Saudi MCM, selected Global MCM collections, PU stone, WPC, SPC, aluminium louvers and interior wall panels — aligned to the Saudi Building Code and Vision 2030.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -307,7 +308,7 @@ function AboutPage() {
               href="/contact"
               className="group inline-flex items-center gap-2 rounded-full border border-canvas/40 px-6 py-3 text-sm text-canvas transition-all hover:border-canvas"
             >
-              Request a sample
+              Talk to our team
             </a>
           </div>
 
