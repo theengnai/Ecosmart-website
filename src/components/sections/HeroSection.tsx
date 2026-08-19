@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SolutionsBand } from "@/components/sections/SolutionsBand";
 import { TrustStrip } from "@/components/sections/TrustStrip";
-import heroBg from "@/assets/gallery/exterior-villa-dusk.jpg";
+import heroHomepageAsset from "@/assets/gallery/hero-homepage.png.asset.json";
 
 export function HeroSection({ active }: { active: boolean; onPickItem?: (i: number) => void }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
