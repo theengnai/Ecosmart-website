@@ -21,14 +21,14 @@ export function TrustStrip({ className = "" }: { className?: string }) {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-5 gap-y-4 md:grid-cols-5 md:gap-6">
         {ITEMS.map(({ Icon, image, en, ar }) => (
-          <div key={en} className="flex items-start gap-2.5">
+          <div key={en} className="flex items-center gap-3">
             {Icon ? (
-              <Icon className="mt-0.5 h-5 w-5 shrink-0 text-copper" strokeWidth={1.4} />
+              <Icon className="h-5 w-5 shrink-0 text-copper" strokeWidth={1.4} />
             ) : (
               <img
                 src={image}
                 alt="Vision 2030"
-                className="mt-0.5 h-5 w-auto shrink-0 object-contain"
+                className="h-8 w-auto shrink-0 object-contain md:h-10"
               />
             )}
             <div className="min-w-0">
