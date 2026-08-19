@@ -23,9 +23,9 @@ export function HeroSection({ active }: { active: boolean; onPickItem?: (i: numb
   if (!active) return null;
 
   return (
-    <div className="flex min-h-[100svh] w-full flex-col overflow-y-auto lg:h-full lg:min-h-0">
+    <div className="flex w-full flex-col overflow-y-auto lg:h-full">
       {/* ---------- hero band ---------- */}
-      <div className="relative w-full flex-1 overflow-hidden">
+      <div className="relative w-full overflow-hidden lg:flex-1">
         <img
           src={heroBg}
           alt="Warm-toned Saudi villa with clay-stone façade at dusk"

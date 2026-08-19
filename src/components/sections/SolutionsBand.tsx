@@ -34,15 +34,15 @@ function TileInner({ t }: { t: Tile }) {
       />
       <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
       {t.comingSoon ? (
-        <span className="pointer-events-none absolute inset-x-0 top-1/4 text-center text-[0.7rem] text-white/85 md:text-sm">
+        <span className="pointer-events-none absolute inset-x-0 top-3 text-center text-[0.5rem] leading-tight text-white/85 md:text-sm">
           coming soon
         </span>
       ) : null}
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 p-2 text-center md:p-3">
-        <span className="block text-[0.78rem] font-semibold leading-tight text-white md:text-base">
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 p-1.5 text-center md:p-3">
+        <span className="block text-[0.6rem] font-semibold leading-tight text-white md:text-base">
           {t.en}
         </span>
-        <span className="mt-0.5 block text-[0.68rem] leading-tight text-white/85 md:text-sm">
+        <span className="mt-0.5 block text-[0.55rem] leading-tight text-white/85 md:text-sm">
           {t.ar}
         </span>
       </span>
