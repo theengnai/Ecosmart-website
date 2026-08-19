@@ -7,8 +7,6 @@ import interiorBoutique from "@/assets/gallery/interior-boutique.jpg";
 import interiorLobby from "@/assets/gallery/interior-lobby.jpg";
 import archHall from "@/assets/gallery/arch-hall.jpg";
 import exteriorVilla from "@/assets/gallery/exterior-villa-dusk.jpg";
-import exteriorCourtyard from "@/assets/gallery/exterior-courtyard.jpg";
-import facadeDetail from "@/assets/gallery/facade-detail.jpg";
 import materialClay from "@/assets/gallery/material-clay-macro.jpg";
 import installDetail from "@/assets/gallery/install-detail.jpg";
 
