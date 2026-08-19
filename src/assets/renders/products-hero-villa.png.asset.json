@@ -1,11 +1,11 @@
 {
-  "asset_id": "594f0c82-ef4d-4eba-8fe1-907513cd565a",
-  "content_type": "image/png",
-  "created_at": "2026-08-12T15:43:19Z",
-  "original_filename": "products-hero-villa.png",
+  "version": 1,
+  "asset_id": "4f9d12c1-c826-406c-8bf2-38241fb226ac",
   "project_id": "d57ef315-9279-4524-8328-375943ca57cb",
-  "r2_key": "a/v1/d57ef315-9279-4524-8328-375943ca57cb/594f0c82-ef4d-4eba-8fe1-907513cd565a/products-hero-villa.png",
-  "size": 1599371,
-  "url": "/__l5e/assets-v1/594f0c82-ef4d-4eba-8fe1-907513cd565a/products-hero-villa.png",
-  "version": 1
+  "url": "/__l5e/assets-v1/4f9d12c1-c826-406c-8bf2-38241fb226ac/products-hero-villa.jpg",
+  "r2_key": "a/v1/d57ef315-9279-4524-8328-375943ca57cb/4f9d12c1-c826-406c-8bf2-38241fb226ac/products-hero-villa.jpg",
+  "original_filename": "products-hero-villa.jpg",
+  "size": 316510,
+  "content_type": "image/jpeg",
+  "created_at": "2026-08-19T18:01:45Z"
 }
