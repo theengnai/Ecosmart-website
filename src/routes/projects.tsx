@@ -85,7 +85,7 @@ function ProjectsPage() {
         eyebrow="02 — Projects & Applications"
         title="Surfaces, applied."
         emphasis="Detailed for real projects."
-        subcopy="Flexible clay-stone and related finishing products applied across residential, commercial, hospitality and remote-site work in Saudi Arabia — interior walls, façades and curved surfaces."
+        subcopy="Typical applications of EcoSmart finishing products and construction systems across Saudi Arabia — interior walls, façades, curved surfaces and structural envelopes."
         image={hero}
         primary={{ label: "Request project references", to: "/contact" }}
         secondary={{ label: "See the products", to: "/products" }}
@@ -115,7 +115,7 @@ function ProjectsPage() {
                 Six applications
               </div>
               <h2 className="display-serifish mt-4 text-3xl md:text-5xl">
-                What we've been building.
+                Application types.
               </h2>
             </div>
             <Link
