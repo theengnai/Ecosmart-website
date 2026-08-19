@@ -15,9 +15,17 @@ export function TrustStrip({ className = "" }: { className?: string }) {
       className={`w-full border-t border-line/60 bg-canvas-2 px-5 py-4 md:px-10 md:py-5 ${className}`}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-5 gap-y-4 md:grid-cols-5 md:gap-6">
-        {ITEMS.map(({ Icon, en, ar }) => (
+        {ITEMS.map(({ Icon, image, en, ar }) => (
           <div key={en} className="flex items-start gap-2.5">
-            <Icon className="mt-0.5 h-5 w-5 shrink-0 text-copper" strokeWidth={1.4} />
+            {image ? (
+              <img
+                src={image}
+                alt="Vision 2030"
+                className="mt-0.5 h-5 w-auto shrink-0 object-contain"
+              />
+            ) : (
+              <Icon className="mt-0.5 h-5 w-5 shrink-0 text-copper" strokeWidth={1.4} />
+            )}
             <div className="min-w-0">
               <div className="text-[0.72rem] leading-tight text-ink md:text-[0.8rem]">{en}</div>
               <div className="text-[0.68rem] leading-tight text-ink-soft" dir="rtl">
