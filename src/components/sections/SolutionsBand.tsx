@@ -3,7 +3,7 @@ import tileRammed from "@/assets/gallery/tile-rammed-earth.png.asset.json";
 import tileRough from "@/assets/gallery/tile-rough-surface.png.asset.json";
 import tileLinear from "@/assets/gallery/tile-linear-surface.png.asset.json";
 import tileTravertine from "@/assets/gallery/tile-travertine.png.asset.json";
-import tileOther from "@/assets/gallery/tile-other-solutions.png.asset.json";
+import tileOther from "@/assets/gallery/facade-sandstone-panels.png.asset.json";
 
 type Tile = {
   series: string;
