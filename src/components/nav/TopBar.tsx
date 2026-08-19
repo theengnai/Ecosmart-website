@@ -51,7 +51,7 @@ export function TopBar() {
       >
         <div className="flex items-center justify-between gap-6">
           <a href="/" className="flex items-center">
-            {scrolled || open || isHome || isLightPage ? (
+            {scrolled || open || isLightPage ? (
               <>
                 <img src={darkLogo} alt="Ecosmart" className="block h-8 w-auto min-w-[156px] dark:hidden md:h-9 md:min-w-[176px]" />
                 <img src={lightLogo} alt="Ecosmart" className="hidden h-8 w-auto dark:block md:h-9" />
@@ -67,7 +67,7 @@ export function TopBar() {
                 key={n.label}
                 to={n.href}
                 className={`eyebrow whitespace-nowrap text-[0.75rem] transition-colors hover:text-copper ${
-                  scrolled || open || isHome || isLightPage
+                  scrolled || open || isLightPage
                     ? "text-ink dark:text-white"
                     : "text-white dark:text-white"
                 }`}
@@ -93,9 +93,7 @@ export function TopBar() {
               className={`grid h-10 w-10 place-items-center rounded-full border backdrop-blur transition-colors lg:hidden ${
                 scrolled || open
                   ? "border-line bg-canvas/80 text-ink dark:text-white"
-                  : isHome
-                    ? "border-ink/20 bg-white/20 text-ink dark:border-white/20 dark:bg-black/20 dark:text-white"
-                    : "border-white/20 bg-black/20 text-white"
+                  : "border-white/20 bg-black/20 text-white"
               }`}
               aria-label={open ? "Close menu" : "Open menu"}
             >
