@@ -3,6 +3,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
   "framework": null,
+  "functions": {
+    "api/server.js": {
+      "includeFiles": "dist/server/**"
+    }
+  },
   "routes": [
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/api/server" }
