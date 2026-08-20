@@ -1,0 +1,1 @@
+var e=`/assets/projects-band-3-BSaJ51WO.jpg`;export{e as t};

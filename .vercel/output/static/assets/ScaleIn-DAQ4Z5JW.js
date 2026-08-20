@@ -1,0 +1,1 @@
+import{d as e}from"./TopBar-yVbZF-dW.js";import{x as t}from"./index-CEzT7mwV.js";var n=e();function r({children:e,className:r,delay:i=0,from:a=.9}){return(0,n.jsx)(t.div,{className:r,initial:{opacity:0,scale:a},whileInView:{opacity:1,scale:1},viewport:{once:!0,margin:`-60px`},transition:{duration:.7,ease:[.22,1,.36,1],delay:i},children:e})}export{r as t};
