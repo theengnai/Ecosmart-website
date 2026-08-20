@@ -3,7 +3,12 @@ import handler from "../dist/server/server.js";
 export default async function (req, res) {
   const protocol = req.headers["x-forwarded-proto"] || "https";
   const host = req.headers["x-forwarded-host"] || req.headers.host || "localhost";
-  const url = new URL(req.url, `${protocol}://${host}`);
+  
+  // Vercel rewrites might alter req.url to /api/server.
+  // The original path is usually in the x-invoke-path header if Vercel routed it,
+  // or we can fall back to req.url.
+  const originalPath = req.headers["x-invoke-path"] || req.url;
+  const url = new URL(originalPath, `${protocol}://${host}`);
 
   const headers = new Headers();
   for (const [key, value] of Object.entries(req.headers)) {
@@ -23,7 +28,6 @@ export default async function (req, res) {
     if (chunks.length > 0) body = Buffer.concat(chunks);
   }
 
-  // Intercept console.error to catch the swallowed SSR error
   let caughtError = null;
   const originalError = console.error;
   console.error = (...args) => {
@@ -40,7 +44,7 @@ export default async function (req, res) {
     if (response.status === 500 && caughtError) {
       res.statusCode = 500;
       res.setHeader("content-type", "text/plain");
-      res.end("RUNTIME CRASH LOG:\n\n" + caughtError);
+      res.end(`RUNTIME CRASH LOG:\n\nURL Attempted: ${url.toString()}\nreq.url: ${req.url}\n\nError: ${caughtError}`);
       return;
     }
 
