@@ -1,14 +1,15 @@
 import handler from "../dist/server/server.js";
 
+// Prevent Vinxi/Nitro from using buggy Vercel-specific runtime logic
+delete process.env.VERCEL;
+delete process.env.VERCEL_ENV;
+delete process.env.NOW_REGION;
+
 export default async function (req, res) {
-  const protocol = req.headers["x-forwarded-proto"] || "https";
-  const host = req.headers["x-forwarded-host"] || req.headers.host || "localhost";
-  
-  // Vercel rewrites might alter req.url to /api/server.
-  // The original path is usually in the x-invoke-path header if Vercel routed it,
-  // or we can fall back to req.url.
-  const originalPath = req.headers["x-invoke-path"] || req.url;
-  const url = new URL(originalPath, `${protocol}://${host}`);
+  // Use a mock localhost URL to guarantee the router matches the path,
+  // completely bypassing any host-based routing bugs in Vinxi/Vercel.
+  const path = req.headers["x-invoke-path"] || req.url;
+  const url = new URL(path, "http://localhost");
 
   const headers = new Headers();
   for (const [key, value] of Object.entries(req.headers)) {
@@ -44,7 +45,7 @@ export default async function (req, res) {
     if (response.status === 500 && caughtError) {
       res.statusCode = 500;
       res.setHeader("content-type", "text/plain");
-      res.end(`RUNTIME CRASH LOG:\n\nURL Attempted: ${url.toString()}\nreq.url: ${req.url}\n\nError: ${caughtError}`);
+      res.end(`RUNTIME CRASH LOG:\n\nURL Attempted: ${url.toString()}\nreq.url: ${req.url}\nx-invoke-path: ${req.headers["x-invoke-path"]}\n\nError: ${caughtError}`);
       return;
     }
 
@@ -52,7 +53,18 @@ export default async function (req, res) {
     response.headers.forEach((value, key) => {
       res.setHeader(key, value);
     });
-    const buffer = Buffer.from(await response.arrayBuffer());
+    
+    // Fallback if response crashes during conversion
+    let buffer;
+    try {
+      buffer = Buffer.from(await response.arrayBuffer());
+    } catch(e) {
+      res.statusCode = 500;
+      res.setHeader("content-type", "text/plain");
+      res.end("BODY READ CRASH LOG:\n\n" + e.stack);
+      return;
+    }
+    
     res.end(buffer);
   } catch (err) {
     console.error = originalError;
