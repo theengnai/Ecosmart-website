@@ -29,10 +29,10 @@ export default async function (req, res) {
     if (chunks.length > 0) body = Buffer.concat(chunks);
   }
 
-  let caughtError = null;
+  let caughtErrors = [];
   const originalError = console.error;
   console.error = (...args) => {
-    caughtError = args.map(a => (a && a.stack) ? a.stack : String(a)).join(' ');
+    caughtErrors.push(args.map(a => (a && a.stack) ? a.stack : String(a)).join(' '));
     originalError.apply(console, args);
   };
 
@@ -42,10 +42,10 @@ export default async function (req, res) {
     
     console.error = originalError; // Restore
 
-    if (response.status === 500 && caughtError) {
+    if (response.status === 500 && caughtErrors.length > 0) {
       res.statusCode = 500;
       res.setHeader("content-type", "text/plain");
-      res.end(`RUNTIME CRASH LOG:\n\nURL Attempted: ${url.toString()}\nreq.url: ${req.url}\nx-invoke-path: ${req.headers["x-invoke-path"]}\n\nError: ${caughtError}`);
+      res.end(`RUNTIME CRASH LOG:\n\nURL Attempted: ${url.toString()}\nreq.url: ${req.url}\nx-invoke-path: ${req.headers["x-invoke-path"]}\n\nError:\n${caughtErrors.join("\n\n---\n")}`);
       return;
     }
 
