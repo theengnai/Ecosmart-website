@@ -1,13 +1,12 @@
 {
-  "installCommand": "npm install",
-  "buildCommand": "npm run build:vercel",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
   "framework": null,
   "functions": {
     "api/server.js": {
       "maxDuration": 30,
       "memory": 1024,
-      "includeFiles": "{dist/server/**,dist/client/**}"
+      "includeFiles": "dist/server/**"
     }
   },
   "routes": [
