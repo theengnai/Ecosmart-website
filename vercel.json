@@ -1,6 +1,6 @@
 {
   "installCommand": "npm install",
-  "buildCommand": "npm run build",
+  "buildCommand": "NITRO_PRESET=node npm run build",
   "outputDirectory": "dist/client",
   "framework": null,
   "functions": {
